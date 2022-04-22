@@ -1,0 +1,1955 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>İşletim Sistemleri Dersi</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5cc37bce-d72a-4f11-9190-2e5a185fc9e2" class="page sans"><header><h1 class="page-title">İşletim Sistemleri Dersi</h1></header><div class="page-body"><pre id="f68bdb8e-cd81-4754-8bf0-03d4c3a0ee12" class="code"><code>Bilgisayar sistemi dört bileşene ayrılır:
+	Donanım (işlemci, hafıza, IO,...)
+	İşletim sistemi: uygulamalar ve kullanıcılar arasında donanım kullanımını kotrol eder.
+	Uygulama programları: Kullanıcının bilişim problemlerini çözen yazılımlar.
+	Kullanıcılar: insanlar, makineler</code></pre><figure id="b0c7d7a1-b37f-42dd-b209-b3a2f54f2f58" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-27_214058.png"><img style="width:753px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-27_214058.png"/></a></figure><pre id="4c50b534-ce6c-4f18-b37c-07575576de98" class="code"><code>İşletim sistemi;
+
+- Kaynak dağıtıcıdır. Kaynakları yönetir.
+- Kontrol programıdır.
+- Programların hatasız çalışması için programları denetler.
+
+Net bir tanımı yoktur</code></pre><pre id="8091a867-5b15-419b-b9d3-d2dbaa31dfd5" class="code"><code>Bir bilgisayarda sürekli çalışan tek program KERNELdir.
+Diğer her şey ya sistem programıdır ya da uygulama programıdır.</code></pre><pre id="9367bd65-107c-4516-9aa3-7cc29678d1a8" class="code"><code>Bilgisayar ilk açıldığında çalıştırılan programa Önyükleyici Program(bootstrap program)
+denir.
+	ROM(read only memory) veya EPROM&#x27;da tutulur ve genelde aygıt yazılımı (firmware) olarak
+	adlandırılır.
+	İlk olarak sistem durumunu belirlemek için tanılamayı(diagnostic) çalıştırır.
+	Eğer sistemde bir sorun yoksa önyükleme adımına devam eder.
+	Önyükleyici program kernel&#x27;i bulur, belleğe yükler ve çalıştırır.
+	Önyükleyici program sistemi bütün yönleriyle başlatır. Sistemin nasıl başlatılacağına
+	karar verir.
+	Kernel, sistem programlarını yükler ve çalıştırır.
+	GRUB, Linux için bir önyükleyici program örneğidir.
+
+Cep telefonları, tabletler ve oyun konsolları gibi bazı sistemler, tüm işletim
+sistemini ROM&#x27;da depolar</code></pre><pre id="903ec627-d975-4df2-be3c-ba13e396474b" class="code"><code>Aynı anda çalışan işlemci ve cihazlar, hafızaya erişmek için yarışırlar
+
+Bir ya da birden çok CPU ve aygıtlar aynı veri yolu üzerinden RAM&#x27;e erişir.</code></pre><pre id="906415ee-5dff-4d76-97d1-2c92c3bb81ca" class="code"><code>IO cihazları ve CPU eşzamanlı çalışabilir.</code></pre><pre id="8f0b6af0-4167-4064-9992-7dc34ad2e00c" class="code"><code>Bilgilerin yazılıp okunması, belirli bellek adreslerine bir dizi yükleme talimatı
+(load instruction) veya depolama talimatı (store instruction) yoluyla
+gerçekleştirilir.
+
+Yükleme talimatı, bir baytı veya kelimeyi ana bellekten CPU içindeki dahili bir
+kayıt defterine taşırken, mağaza talimatı bir kaydın içeriğini ana belleğe taşır.
+
+Von Neumann mimarisine sahip bir sistemde yürütülen tipik bir talimat-yürütme
+(instruction-execution) döngüsünde, önce bellekten bir talimat alınır ve registerda
+depolanır. (Fetch)
+
+Daha sonra talimat çözülür. (Decode) Talimatın çözülmesi ile birlikte
+operandlar bellekten alınıp registerlara yazılır.
+
+Operandlar üzerindeki komutlar işlendikten sonra sonuç bellekte saklanabilir.</code></pre><pre id="6aa0437a-8a16-4a75-981b-1ee1df4c4bd9" class="code"><code>Ana bellek(RAM), volatile(uçucu) ve random access&#x27;dir.</code></pre><pre id="bca89377-cdd4-4dc8-92d0-fd21ec1f1f7f" class="code"><code>Depolama sistemi hiyerarşisi:
+- Hız
+- Maliyet
+- Kalıcılık</code></pre><figure id="b9ccd8d2-aac2-4317-9a66-29f8c56daff4" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-27_223106.png"><img style="width:822px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-27_223106.png"/></a></figure><pre id="f6f79f26-4be9-472c-8413-f657e8b20ad5" class="code"><code>Caching
+
+Cache depolama alanı küçüktür.
+Cache&#x27;nin boyutu bir tasarım problemidir.</code></pre><pre id="6b7d3bba-7bc9-40e3-9f64-d9db5a10a0a5" class="code"><code>Interrupts
+
+Kesme mimarisi, kesilen komutun adresini tutmalıdır.
+
+Bir tuzak(trap) ya da istisna(exception) yazılım temelli bir kesmedir. 
+
+İşletim sistemi kesme eğilimlidir(interrupt driven)
+
+OS, registerleri ve program sayaçlarını belleğe kaydederek CPU&#x27;nu durumunu korur</code></pre><pre id="fdd311e4-c52e-469c-ae57-492949e23d54" class="code"><code>IO cihazları
+
+- Aygıt denetleyicisi bilgisayara bağlanmak için bir donanımdır.
+- Aygıt sürücüsü ise o kartı bilgisayara tanıtmak için bir yazılımdır.
+- Genelde her aygıt denetleyicisi için bir aygıt sürücüsü vardır.
+- Genelde herbir cihaz denetleyicisi bir cihazın kontrolünden sorumludur.
+- CPU, memory ve cihazın buffer&#x27;i arasında çift yönlü veri yolu vardır.
+- Aygıt denetleyicisi, local buffer ve IO cihazı arasındaki iletişimden sorumludur.
+- Aygıt denetleyicisi, bir kesme(interrupt) işlemine neden olarak işlemin
+	tamamlandığını CPU&#x27;ya söyler.
+- Aygıt denetleyicisi, IO işlemini kontrol etmek için aygıt sürücüsü kullanır.
+- Aygıt sürücüsü, çekirdek ve denetleyici arasında iletişim sağlar.
+- Aygıt denetleyicisi kendisine ait buffer ve register barındırır.
+
+İşlem süreci
+
+- IO işlemlerini başlatmak için sürücü, denetleyiciye uygun kayıtları yükler.
+- Aygıt denetleyicisi, önceliği belirlemek için kayıtları okur. Daha sonra aygıttan
+	aygtın bufferine verileri gönderir(mesela klavyeden bir harf girilmesi)
+- Veri aktarımı tamamlandıktan sonra denetleyici, sürücüye işlemin bittiğini
+	bildirmek için bir interrupt atar. Aygıt sürücüsü daha sonra kontrolü OS&#x27;e geri verir
+ </code></pre><pre id="408b1c09-63e5-4234-ab07-52ad2f63a6ee" class="code"><code>Uygulama programları işletim sistemi yardımıyla IO cihazlarına bir istekte
+bulunabilirler.
+İstek, Sistem çağrısı yardımıyla yapılır.</code></pre><pre id="25f5b2f4-3db5-412f-9605-f3a3475df4a5" class="code"><code>DMA (Direct Memory Access) - Direk Hafıza Erişimi
+
+G/Ç için sürekli interrupt yapılması çok maliyetlidir.
+Bu yüzden araya CPU girmeden; aygıt denetleyicisi, verileri local buffer&#x27;dan
+ana belleğe direkt aktarabilir.
+
+BU IO işlemleri yapılırken CPU başka işler yapabilir.
+Her bayt için bir kesme yerine, blok başına bir kesme yapılır.
+Bilgiyi hafıza hızına yakın şekilde transfer eder.</code></pre><pre id="d0d29050-acd7-41ad-8db3-0cc60b660867" class="code"><code>Multiprocessors
+
+Çoklu işlemcili sistemlerdir.
+Veri yolunu, clock&#x27;u, belleği, IO cihazlarını paylaşırlar.
+
+Artan iş hacmi: N sayıda işlemcinin hızlanma oranı N değildir. Kaynakların ve
+progamların işlemciler arasında paylaştırılması da ekstra yüktür.
+
+Ekonomi: Çoklu işlemci, aynı özelliklere sahip tek işlemcili birden çok sistemden daha 
+ucuza gelebilir.
+
+Artan Güvenlik: Sistemdeki işlemcilerden biri arızalandığında diğer işlemciler
+onun işini kendi aralarında paylaşırlar. Sistem tamamen durmaz sadece belirli bir 
+yüzdede yavaşlar.
+
+İki türü vardır: 
+	- Asimetrik: CPU&#x27;lar, bir patron CPU&#x27;ya bağlıdır. Patron CPU diğer CPU&#x27;lara görevleri
+		atar, paylaştırır. (master-slave)
+
+	- Simetrik: Tüm CPU&#x27;lar bağımsızdır. Her CPU&#x27;nun kendi önbelleği ve registerleri var.
+		Ancak hepsi aynı fiziksel belleği paylaşır.
+		Ancak verilerin doğru işlemciye ulaşıp ulaşmadından emin olmak gerekir.
+		Çünkü bir CPU boş durabilir.</code></pre><figure id="729e811f-7a1f-430e-b950-db422c7a2465" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_085236.png"><img style="width:929px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_085236.png"/></a></figure><pre id="5e8c3632-f355-4022-889a-d82c03933b8e" class="code"><code>Multi-core sistemler
+
+Tek bir çip üzerinde birden fazla core bulunmasıdır.
+Veri alışverişi daha hızlı ve daha az elektrik harcıyor.</code></pre><figure id="c6e16c06-7ead-452a-8296-9be3e981c4b3" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_085421.png"><img style="width:720px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_085421.png"/></a></figure><pre id="95b0b9de-7006-43e3-8874-1a13e22583da" class="code"><code>Clustered Systems
+
+Çok işlemcili sistemlere benzerler ancak değillerdir.
+Birden çok makineden oluştur.
+Makineler SAN(storage area network) kullanarak depolama paylaşımı yaparlar.
+	Asimetrik kümeleme: Makinelerden sadece biri çalışır. Diğeri onu dinler.
+	Bir sorun çıkarsa diğeri devreye girer.
+	Simetrik kümeleme: İki makine de çalışır ve birbirini dinler.
+Bunlar için yazılacak uygulamalar paralelliştermeyi destekleyecek şekilde yazılmalıdır.
+Çakışmayı engellemek için Distributed Lock Manager kullanılır. İkisi depolama alanında
+aynı anda işlem yapamaz.
+Switch adı verilen bir makine yardımıyla da makinelerden birinin sorun çıkarması
+anında diğerine veriler bunun üzerinden taşınır.</code></pre><figure id="e35f4d12-fd90-4592-be12-bb63219f0072" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_094134.png"><img style="width:749px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_094134.png"/></a></figure><pre id="fdc5bee9-fa52-401a-a136-c8e70d66ef8e" class="code"><code>Multiprogramming:
+Bir kullanıcı CPU&#x27;yu ve IO cihazlarını her zaman meşgul edemez.
+Çoklu programlama, işleri düzenler. Böylece CPU&#x27;nun boş kalmamasını sağlar.
+Sistemdeki toplam işlerin bir alt kümesi bellekte tutulur. (alt küme derken bence;
+belleğin, işlerle ilgili temel bilgileri tutmasıdır)
+Bir iş seçilir ve job scheduling(iş zamanlayıcısı) yardımıyla çalıştırılır.
+Programın beklemesi gerektiğinde(örneğin IO için) OS başka bir işe geçer</code></pre><pre id="95005c04-8895-47b9-80f1-22a88102ab7c" class="code"><code>Multitasking:
+CPU&#x27;nun sık sık iş değiştirdiği ve kullanıcıların her bir iş ile etkileşimde
+bulunabildiği sistemdir.
+Yanıt süresi &lt; 1sn olmalıdır.
+Aynı anda birden fazla program çalışmaya hazırsa (CPU scheduling kullanır)
+Eğer veriler hafızaya sığmazsa sığmayan kısım sabit diske taşınır.(Swapping)
+Sabit disking hafıza olarak kullanılmasına Virtual Memory denir.</code></pre><pre id="da736690-78da-48db-9b70-89cf3c6e56c1" class="code"><code>Interrupt driven:
+	IO aygıtları tarafından kesme isteği gönderilir.
+	Şu durumlarda yazılımsal kesme yapılır(exception || Trap)
+		- Yazılım hataları(i.e. Sıfıra Bölme)
+		- İşletim sistemi tarafından gelen istekler
+		- Sonsuz döngü içeren, işletim sistemini değiştirmeye çalışan programlar
+	
+	Sürekli bir kesme olduğu için muhtemelen interrupt driven deniyor.</code></pre><pre id="94910a18-12cd-45cd-8707-6e1fb4090cd8" class="code"><code>Çift Mod (Dual Mode):
+İşletim sistemini ve diğer sistem bileşenlerini korumayı amaçlar.
+Programların direkt olarak işletim sistemine ve bileşenlerine erişmesini engeller.
+Donanım tarafından sağlanan bir mod biti vardır. 
+İki modu vardır: User Mod(bit = 1) &amp; Kernel Mod(bit = 0)
+Eğer program sisteme ve donanıma ellemeden komutlarını gerçekleştiriyorsa
+mod biti User Mod&#x27;a sahip olur.
+Ancak program, sistem ve donanımla ilgili bir komut çalıştırmak istiyorsa bu komutunu
+sistem çağrıları ile yapar.
+Sistem çağrıları Mod&#x27;u User Mod&#x27;dan Kernel Mod&#x27;a çevirir ve sistemde &amp; donanımda işler
+yapar ve kullanıcıya cevap döner. Mod biti tekrardan 1&#x27;e döner.
+
+Bazı komutlar ayrıcalıklı olarak tanımlanır (privileged instructions) ve bunlar kernel
+modunda çalıştırılır.
+
+Çoklu CPU&#x27;lar çoklu modları destekler. Örneği sanal makineler için.</code></pre><figure id="53fd7432-848f-4edf-bdcb-6be38d6f847e" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_101739.png"><img style="width:858px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_101739.png"/></a></figure><pre id="c27dbe18-6657-42b9-bbb6-33634ed63c98" class="code"><code>Timer:
+
+Sonsuz döngülere ve işlemci kilitlenmelerine engel olur.
+Belirli bir zamandan sonraa bir kesme gönderilir.
+Fiziksel clock tarafından azaltılan bir sayaç tutulur.
+Sayacı işletim sistemi ayarlar (privileged instructions)
+Sayaç &#x27;0&#x27; olduğunda kesme gönderilir.
+İş zamanlayıcısı devreye girmeden önce program sonlandırılır ve kontrol ele geçirilir.</code></pre><pre id="94225444-13cc-4a70-aaff-dde274e68acb" class="code"><code>Process Management:
+
+Program, pasif halde olan(çalışmayan) bir varlıktır. (Çalıştırılabilir uygulama)
+Process, aktif halde(çalışan) olan bir programdır.
+Process sonlandırma, kullanılmakta olan kaynakların geri alınmasını gerektirir.
+Tek iş parçacıklı bir programda bir tane program counter vardır
+ve sonraki komutun adresini tutar.
+Process sonlanana kadar komutlar sıralı olark yürütülür.
+Eğer program multiThread/multiprocess olarak çalışıyorsa her iş parçacağının kendi
+program counter&#x27;i vardır.
+Tipik bir işletim sistemi birden çok process&#x27;e sahiptir. Bunların bazıları işletim
+sistemi taraflı, bazıları ise kullanıcı taraflıdır.
+
+İşetim sistemi process management ile ilgili şunları yapmakla mükelleftir:
+	- Hem sistem hem kullanıcı taraflı process&#x27;leri oluşturma ve silme
+	- Process&#x27;i askıya alma ve devam eden process&#x27;ler
+	- Process senkronizasyonu için mekanizmalar sağlamak
+	- Süreç iletişimi için mekanizamalar sağlamak
+	- Kilitlenme (deadlock) için mekanizamalar sağlamak</code></pre><pre id="c4faa5f5-eb18-4896-8189-bfb12384868e" class="code"><code>Hafıza Yönetimi
+
+Bir programı yürütmek için komutlar bellekte olmalıdır.
+Program için gereken veriler(in bazıları) bellekte olmalıdır.
+Hafızada neler olduğunu,
+hafıza yönetim aktivitelerini
+	- hangi bellek bölgelerinin kullanıldığını ve hangi bellek bölgesinin kime ayrıldığını
+	- hangi process&#x27;lerin hafızaya girip çıkacaklarını belirlemek
+	- gerektiğinde bellek alanını tahsis etme ve iade etme</code></pre><pre id="27750bec-6696-463f-8a37-d8dada3eed51" class="code"><code>Dosya Sistemi
+
+Dosya sistemi birkaç depolama türünden oluşabilir: Optik, ssd, hdd...
+Herbirinin kendine has özellikleri ve fiziksel organizasyonları vardır
+Bu özellikler; erişim hızı, kapasite, veri aktarım hızı ve erişim yöntemini(sıralı
+ve sıralı) içerir.
+Dosyalar alfanümerik ve sasyıasl ifadelerden oluşabilir.
+
+Pek çok sistemde dosya ve dizinlere erişim kısıtlanmalıdır(access control)</code></pre><pre id="4319e62c-14e9-4ca0-a81e-44d27fd265e1" class="code"><code>Çok işlemcili sistemlerde öncellik tutarlılığı(cache coherency) iyi sağlanmalıdır.
+Tüm cache&#x27;ler güncel veriye sahip olmalıdır.</code></pre><pre id="be30199d-c56b-492e-a35d-041402f68551" class="code"><code>IO Alt Sistemi
+
+Buffer
+Cache
+Spooling(Kuyruklama): Bir işin çıktısını diğer işin girdisi haline getirmek
+Genel aygıt sürücüsü arayüzü
+Belirli donanımlar için sürücüler</code></pre><pre id="1d207f4c-ef12-4caa-a4c1-7b36505a07b7" class="code"><code>Koruma ve Güvenlik
+
+Protection: Process&#x27;lerin ve kullanıcıların sisteme erişimini kotrol eden mekanizma
+Security: Sistemin iç ve dış saldırılara karşı korunması
+	- Kullanıcılar sistemde benzersiz bir ID&#x27;ye sahip olmalıdır.
+	- Her kullanıcının hangi dosyalara erişiminin olup olmadığıı belirlenmelidir.
+	- Kullanıcının yetkilerinin yükseltilmesi privilege escalation</code></pre><pre id="5c9c8240-77f8-49b3-ba61-51f3057fd935" class="code"><code>Kernel Veri Yapıları
+
+Linux veri yapıları şu kütüphanelerde bulunur:
+&lt;linux/list.h&gt;,
+&lt;linux/kfifo.h&gt;,
+&lt;linux/rbtree.h&gt;</code></pre><pre id="a33c066d-6dbe-4827-881e-c3086687ec38" class="code"><code>Hesaplama Ortamları - Dağıtık
+
+Birbirine bağlı ayrı, muhtemelen heterojen sistemlerin toplanması
+
+TCP/IP network&#x27;teki en yaygın protokoldür.
+
+Network ortak iletişim yolu, TCP/IP en yaygın protokol
+– Local Area Network (LAN)
+– Wide Area Network (WAN)
+– Metropolitan Area Network (MAN)
+– Personal Area Network (PAN)
+
+Network Operating System ağdaki sistemler arasında belli
+özellikler sağlar.
+İletişim şeması, sistemlerin mesaj alışverişi yapmasına izin
+verir</code></pre><pre id="b72b70d4-1a8a-48c4-af50-f5fce387f98b" class="code"><code>Hesaplama Ortamları - Client Server</code></pre><pre id="91c8ea7a-19ea-427d-a586-c2fadbe2b603" class="code"><code>Hesaplama Ortamları - P2P/ Uçtan Uca
+
+İstemci ve sunucu arasında ayrım yapmaz.
+
+İki tarafın karşıklı alışveriş yapmasını sağlar.
+Bir uç hem sunucu hem istemci olarak davranabilir.
+Uçlar P2P ağa bağlanmalıdır.
+	Kendilerini bu merkezdeki kayıt sistemine kayıt ettirmelidir.
+	Keşif protokolü (discovery protocol) ile istekte bulunmalı ve önceki istekleri
+	karşılamalıdır.</code></pre><figure id="ba171077-9427-416a-b2c5-157d56c0c90f" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_113452.png"><img style="width:930px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_113452.png"/></a></figure><figure id="28bcd016-c067-426c-8987-6978777f1cb4" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_113613.png"><img style="width:931px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_113613.png"/></a></figure><figure id="e0f1e9bf-83fe-4a0f-ab9a-48769829943a" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_113653.png"><img style="width:940px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_113653.png"/></a></figure><pre id="907b1b82-6b39-4d9e-96f3-566c336cc174" class="code"><code>İşetim Sistemi Şunları Sağlar:
+
+UI
+	CLI: Klavye ile belli formatta metinsel komutların girilmesini sağlar
+	GUI: Grafiksel arayüz sağlar. Kullanıcıya görsel olarak IO sağlanır.
+	Batch: Komutar dosyalara girilir ve bu dosyalar çalıştırırılabilir dosyalardır
+Program Yürütme: Sistem bir programı belleğe yükleyebilmeli, çalıştırabilmeli ve
+sonlandırabilmelidir.
+
+IO işlemleri: Kullanıcı doğrudan IO&#x27;ya erişemediği için OS bunu sağlamalıdır.
+
+Dosya sistemi değişiklikleri: Dosya oluşturma, güncelleme, silme, bilgi listelemesi,
+yetkilendirme işlemlerini yapar.
+
+İletişim: Process&#x27;ler arası ya da başka bilgisayarların process&#x27;leriyle iletişim
+sağlamalıdır.
+	İletişim, ortak hafıza(shared memory) ya da message passing ile yapılır.
+Hata Tespiti
+Kaynak paylaşımı(resource allocation): Kullanıcılar ve process&#x27;ler arasında kaynakları
+paylaştırmaktır
+Kayıt Tutma(accounting): hangi kullanıcının hangi sistem kaynağını ne kadar
+kullandığını kaydetmek. İstatistikler için toplanabilir.
+Koruma ve güvenlik</code></pre><figure id="23663294-2f13-4966-a10d-3ddb72f8fa87" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_130414.png"><img style="width:940px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_130414.png"/></a></figure><pre id="022bcd56-2270-4aad-97b6-8ff01a2dd7f2" class="code"><code>CLI(command line interpreter):
+
+Doğrudan komut girişine izin verir.
+Bazı işletim sistemlerinde komutlar çekirdekte bulunur. Bazılarında ise çekirdeğin
+şişmemesi için ayrı bir program olarak değerlendirilir.
+
+Birden çok komut yorumlayıcısı olan sistemlerde komut yorumlayıcı shell(kabuk) olarak
+bilinir.
+UNIX ve Linux&#x27;ta C shell, Bourne Shell, Korn shell bunlardan birkaçıdır.
+
+Temel olarak kullanıcıdan bir komut alır ve çalıştırır.</code></pre><pre id="a6218452-eb78-4296-8ca9-af7ffb82311f" class="code"><code>GUI(Graphical User Interface)
+
+Masaüstü ortamımız arayüzdür. 
+GUI&#x27;de genellikle fare, klavye ve moonitör kullanılır.</code></pre><pre id="de74890b-593a-400e-97e7-4f6ce9618880" class="code"><code>Sistem Çağrıları
+
+OS tarafından sağlanan hizmetlere bir arayüz(API) sağlar.
+Çağrılar genellikle C, C++ ya da assembly ile yazılmıştır.
+Ugyulamala geliştiriciler programı API&#x27;ye göre tasarlar. Gerekli parametreleri
+API&#x27;ye göndererek geriye bir değer alırlar.
+Programcıların donanıma ve IO cihazlarına direk erişmeye hakkı yoktur. Bu yüzden
+araya sistem çağrıları konmuştur. Programcı böylece donanıma ve IO cihazlarına belli
+görevleri yaptırabilir.
+
+En yaygın üç aç API:
+	- Windows için WinAPI
+	- Unix için POSIX 
+	- Java için ise JAVA API
+
+Programcı, işletim sistemi tarafından sağlanan kütphaneler aracılığıyla API&#x27;ye 
+erişir.
+C dilinde yazılmış programlar için UNIX ve Linux sistemlerinde kullanılan kütüphane
+dosyalarına libc adı verilir.
+Arkaplanda API&#x27;ler gerçek sistem çağrılarını çağırır.
+Örneğin Windows&#x27;ta createProcess() fonksiyonu NTCreateProcess() sistem çağrısını çağırır
+Sistem çağrıları yerine API&#x27;ler taşınabilirlik ve kolaylık sağladığı için kullanılır.
+Genellikle sistem çağrılarının çağırımı ve kullanımı programcı için API&#x27;den daha zordur.</code></pre><figure id="3143e8b1-635d-478b-a58d-987574359d8e" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_144847.png"><img style="width:812px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_144847.png"/></a></figure><pre id="b50a4e2d-693d-4df5-803c-e732f922838f" class="code"><code>Sistem çağrısını çağıran uygulamanın sistem çağrısının nasıl uygulandığını bilmesine
+gerek yoktur</code></pre><pre id="77fc0fdd-8d22-43ce-88d2-a23dc59e872b" class="code"><code>System Call Interface
+
+API&#x27;deki işlev çağrılarını yakalar, gerekli sistem çağrılarını çağırır.
+Sistem çağrısının durumunu, varsa geri dönüş değerini döndürür.
+Bunları indexlenmiş bir tabloda tutar.</code></pre><figure id="f947bc68-b7e8-42d3-a211-edb4ef18a765" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_150320.png"><img style="width:780px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_150320.png"/></a></figure><pre id="ddfb1a19-c92f-49a7-aff4-4bf8c4a8e70e" class="code"><code>Sistem Çağrısı Parametreleri
+
+Parametreleri işletim sistemine geçirmek için üç yöntem vardır:
+	- En basiti parametreleri register kullanarak göndermektir. Parametre sayısı register
+		sayısını geçebilir. Bu yüzden parametre sayısı sınırlıdır.
+	- Parametreler hafızada bir blokta tutulur ve blokun adresi register ile gönderilir.
+		(Linux ve solaris)
+	- Parametreler yığına(stack) atılır(push) ve işletim sistemi tarafından çekilir(pop)
+
+Block ve yığın yöntemlerinde gönderilen parametre sayısı için bir kısıt yoktur.</code></pre><pre id="0ddc3409-2d2f-444c-af4e-cef185adbd6c" class="code"><code>Sistem çağrıları altı ana kategoride gruplandırılabilir:
+	İşlem kontrolü (Proces Control)
+	Dosya Yönetimi (File Manipulation)
+	Cihaz yönetimi (Device Manipulation)
+	Durum bilgisi (Information Maintenance)
+	İletişim (Communicatios)
+	Koruma (Protection)</code></pre><pre id="135a57ad-a0b5-4a4d-af06-cd469220a92a" class="code"><code>Çalışan bir programın durdurulması normal(end()) veya anormal(abort()) yolla olabilir.</code></pre><pre id="5bcd4d70-3022-4aca-90a3-4185a0846fcc" class="code"><code>Halihazırda çalışan bir program beklenmeyen bir hata ile karşılaşırsa hataya sebep olan
+bellek dökümü alınır (dump of core/core dump), hata mesajı alınır ve diskle yazılır</code></pre><figure id="dc10fb0b-5566-4362-8b40-9e4b1de98719" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195107.png"><img style="width:791px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195107.png"/></a></figure><figure id="9bef5269-1d43-42a7-9343-bfd9899afa7e" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195136.png"><img style="width:899px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195136.png"/></a></figure><figure id="7c4083d3-c6fc-4f39-99b0-c1165feb1048" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195154.png"><img style="width:926px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195154.png"/></a></figure><figure id="3e2cc202-57ef-4f20-8475-affee6901512" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195323.png"><img style="width:929px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195323.png"/></a></figure><figure id="6016b023-28b6-4d07-b602-50585d24df33" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195428.png"><img style="width:884px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195428.png"/></a></figure><figure id="d03df707-02de-4b03-9724-c89fae8e772b" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195622.png"><img style="width:886px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195622.png"/></a></figure><figure id="8b55a8a5-b668-425e-a818-e758f1ea7eb1" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195712.png"><img style="width:828px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195712.png"/></a></figure><figure id="3db22fdc-4d89-490d-902d-8b6491857a04" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195815.png"><img style="width:825px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195815.png"/></a></figure><figure id="2c4f957d-6871-4c56-98eb-9d24794afc78" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195901.png"><img style="width:821px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195901.png"/></a></figure><figure id="8fed99be-25f6-47ef-9711-79510115af37" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195926.png"><img style="width:740px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_195926.png"/></a></figure><pre id="fe6475d8-9db3-41db-bd75-bfd6f961f427" class="code"><code>Sistem programları
+
+Program geliştirme ve yürütme için ortam sağlar. Bazı sistem çağrıları için basit
+kullanıcı arayüzleridir.
+
+	Dosya işleme (File manipulation)
+
+	Durum bilgileri (Pil, traih-saat, registry, bellek, disk alanı...)
+
+	Programlama dili desteği(dil compilerleri ya OS&#x27;le sasğlanır ya da indirilebilir)
+
+	Program yükleme ve yürütme(Derlenmiş dili ram&#x27;e load eder ve execute eder.)
+
+	İletişim(başka pc&#x27;lere veri aktarır, mail atar, webde gezinir...)
+
+	Arka plan hizmetleri(belirli sistem prog&#x27;ları çalıştırmak için başlangıçta çalışırlar
+	Yaa hemen son buılur ya da pc kapanınca sona erer. Hizmetler, daemons, subsystems...)
+
+	Uygulama programları: Kullanıcı tarafından çalıştırılan, kullanıcının kullandığı
+	uygulamalar</code></pre><pre id="42814dbc-678b-4882-ad24-2b8f6784ebc8" class="code"><code>İşetim sistemi tasarımı
+
+Sistem gereksinimleri, kullanıcı (user) ve sistem (system) hedefleri
+olmak üzere iki temel gruba ayrılır:
+
+Kullanıcı hedefleri : işletim sistemi kullanımı kolay, öğrenmesi
+kolay, güvenilir, güvenli ve hızlı olmalıdır.
+
+Sistem hedefleri : işletim sistemi, esnek, güvenilir, hatasız ve
+verimli olmasının yanı sıra tasarlanması, uygulanması ve
+bakımı kolay olmalıdır.</code></pre><pre id="f559fde2-2d5f-4056-bce2-2e15924bdccc" class="code"><code>İşletim sistemi tasarımında ilkeler (policy) ve mekanizmayı
+(mechanishm) birbirinden ayırmak önemli bir prensiptir.
+Politika: Ne yapılacak?
+Mekanizma: Nasıl yapılır?
+- Politikalar ne yapılacağına karar verirken, mekanizmalar bir
+	şeyin nasıl yapılacağını belirler.
+- Politika ve mekanizmanın ayrılması esneklik için önemlidir.
+- Politikadaki her değişiklik, temel mekanizmada bir değişiklik
+	gerektirecektir. Politikadaki değişikliklere karşı duyarsız bir
+	genel mekanizma daha arzu edilir olacaktır.</code></pre><pre id="3da88410-3cac-4ad4-a118-781fe67d12e0" class="code"><code>Bir işletim sistemi tasarlandığında, uygulanması gerekir. İşletim
+sistemleri, birçok kişi tarafından uzun bir süre boyunca yazılan birçok
+programın toplamıdır.
+
+Çok farklı varyasyonları vardır
+- Assembly dilinde erken işletim sistemleri
+- Ardından Algol, PL / 1 gibi sistem programlama dilleri
+- Şimdi C, C ++
+○ Aslında genellikle dillerin bir karışımı
+- En düşük seviyeler assembly dilinde, ana gövde C’de
+- Sistem programları C, C++, script dilleri PERL, Python, kabuk
+	scriptleri
+○ Daha yüksek bir programlama dilinde donanımı programlamak daha
+	kolay olur.
+- Ama daha yavaş çalışır.</code></pre><pre id="497e9621-398c-40a8-bbf2-f00919e5f706" class="code"><code>Modern bir işletim sistemi büyük ve karmaşık bir sistemdir,
+düzgün çalışması ve kolayca değiştirilebilmesi için dikkatli bir
+şekilde tasarlanmalıdır. Yaygın bir yaklaşım, görevi tek bir
+monolitik sistem yerine sistemi küçük bileşenlere veya
+modüllere bölmektir. Bu modüllerin her biri, dikkatlice
+tanımlanmış girdiler, çıktılar ve işlevler ile sistemin iyi
+tanımlanmış bir parçası olmalıdır. Değişik yapıda işletim
+sistemleri vardır:
+- Basit yapı – MS-DOS
+- Daha karmaşık yapı -- UNIX
+- Katmanlı yapı
+- Microkernel yapı -Mach</code></pre><figure id="85873a09-33d5-4338-b150-d4b60a613265" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_202955.png"><img style="width:968px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_202955.png"/></a></figure><figure id="6f4b5a66-2462-49c0-8319-586522858dac" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203109.png"><img style="width:967px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203109.png"/></a></figure><figure id="fb63b191-5300-498e-b352-7a63e2b4ce7e" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203343.png"><img style="width:970px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203343.png"/></a></figure><figure id="355d67c8-36f8-45dc-9765-20bfae04cbb3" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203607.png"><img style="width:964px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203607.png"/></a></figure><figure id="9750eb97-636e-4a87-909a-cf26f0a0ecf8" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203658.png"><img style="width:965px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203658.png"/></a></figure><figure id="aabb212b-2ebc-490f-bc1a-78e6ba7bde0b" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203751.png"><img style="width:966px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203751.png"/></a></figure><figure id="36354484-6f96-4747-bcd8-d1c1721c595b" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203813.png"><img style="width:958px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_203813.png"/></a></figure><pre id="6130d941-56f4-49e8-a50a-6806efdc14d1" class="code"><code>Modüller
+
+İşletim sistemindeki en güncel metodoloji, yüklenebilir çekirdek modülleri(
+loadable kernel modules)dir.
+
+Kernel&#x27;a program bağlamaktır diyebiliriz. Bu sayede ek hizmetlere sahip olur.
+Nesne yönelimli yaklaşımı kullanılır
+Her temel bileşen(modül) ayrıdır.
+Herbir modül diğerleriyle, bilinen arayüzler üzerinden konuşur.</code></pre><figure id="868d1195-8775-4a9a-97fb-7bbf7ac09caf" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_204338.png"><img style="width:963px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_204338.png"/></a></figure><pre id="2f80788d-9db3-4f6b-beab-3911342d912c" class="code"><code>Hibrit sistemler
+
+Çok az işletim sistemi direk bir sistem kullanır.
+Bunun yerine OS&#x27;in belli bölümleri belli sistemlerini kullanır.
+Örneğin Linux ve Solaris monolitiktir. Ancak aynı zamanda modül yapısını da kullanır.
+Böylece çekirdeğe dinamik olarak yeni özellikler eklenebilir.
+
+Windows da büyük ölçüde monolitiktir.</code></pre><pre id="cb949d6a-b4ad-42d2-9644-108e1d38c5cd" class="code"><code>MacOS Yapısı
+
+MacOS hibrit bir yapı kullanır.
+Aqua, arayüz sağlar.
+Cococa, Obj-C için bir API&#x27;dir.
+Mach; hafıza yönetimi, RPC ve process&#x27;ler arası iletişim
+BSD ise komut satırı arabirimi, Pthreads, ağ ve dosya sistemleri</code></pre><figure id="3eae41e8-38a3-4106-a263-efb1f370caeb" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_204844.png"><img style="width:720px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_204844.png"/></a></figure><figure id="e1ee5a6d-4708-421f-bdd6-d0185a726b7a" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_212752.png"><img style="width:911px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_212752.png"/></a></figure><figure id="9cdca1c4-d9b1-483c-a973-8736fd5a06bf" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_212826.png"><img style="width:911px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_212826.png"/></a></figure><figure id="9ef585b1-7408-4c30-9090-28f751c9d79b" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_213357.png"><img style="width:909px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_213357.png"/></a></figure><figure id="5ced98a2-cca9-4d92-8244-39981c5e1167" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_213407.png"><img style="width:910px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-28_213407.png"/></a></figure><pre id="c82e44e8-cdbb-4e3e-ad11-c5b641f37464" class="code"><code>&quot;top&quot; komutu ya da Windows Görev yöneticisi sistem kaynaklarını izler.</code></pre><pre id="6f5ac9e4-8e0e-415e-b5be-29131a2921bb" class="code"><code>DTrace: Solaris, FreeBSD, MacOs OS&#x27;larda programları izlemek ve (varsa) hataların
+sebeplerini anlamak için bir framework. Uygulamanın ne kadar çalıştığını da gösterir.</code></pre><h2 id="f80e34bc-40fc-46cf-b854-ab41d11f5c1d" class="">Processes (İşlemler)</h2><pre id="4484bb4c-6aa0-4b86-8c05-3a478f22148b" class="code"><code>Bir işlem, yürütülmekte olan bir programdır</code></pre><pre id="0542d7ca-4535-4bb5-991d-cf9ae5a9d63d" class="code"><code>İşletim sistemi, işlemlerin ve iş parçacıklarının yönetiminden sorumludur:
+Oluşturulması, silinmesi, kilitlenme, işlem senkronizasyonu, iletişim</code></pre><pre id="b8c10bb7-2c04-4f59-bb4a-353c4a5b8269" class="code"><code>İşlemlerin birçok parçası vardır:
+		Program kodu (text section)
+		Program sayacı (program counter): registerler&#x27;de tutulur
+		Yığın(stack) : geçici veriler, fonksiyon adresleri, geri gönüş değerleri, local vars
+		Veri bölümü (data section) : global vars.
+		Heap çalışma süresi boyunca tahsis edilen dinamik belleği içerir.</code></pre><pre id="997a48fd-a6af-4517-8b71-657f20d822d0" class="code"><code>Bir programın birden fazla işlemi olabilir. Bunların her biri ayrı bir işlemdir;
+metin bölümleri eşdeğer olmasına rağmen, veri, yığın ve heap bölümleri
+farklılık gösterir.
+Aynı programı çalıştıran birden fazla kullanıcıyı düşünün.
+Ya da bir programa sinirden milyon kez tıklayıp onlarca kez çalıştırmışsındır :DD</code></pre><pre id="45cbf5c1-012a-4ecd-a22f-0122b647dfca" class="code"><code>Bir işlemin kendisi diğer kodlar için bir yürütme ortamı olabilir. Java
+programlama ortamı bu konuda iyi bir örnektir. Çoğu durumda, Java sanal
+makinesi (JVM) içinde yürütülebilir bir Java programı yürütülür</code></pre><figure id="97c031ed-0a51-46fe-b850-dd92a651a07b" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-29_002033.png"><img style="width:781px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-29_002033.png"/></a></figure><pre id="c3a27715-4572-4b70-9850-d8a5db75e70e" class="code"><code>Program çalıştırıldığında işlem oluşturulur(new)
+İşlem(ready -Yer varsa. Yoksa kuyruğa alınır.) işlemciye atanmayı bekler çalışmak için
+İşlem çalışmaktadır(running)
+işlem çalışırken IO için bekler (waiting) ya da sleep komutu çalışıyordur.
+İşlem sonlandırılır (terminated)</code></pre><figure id="c3032cb4-e03b-4a94-8b02-c4be6e579b1c" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-29_002356.png"><img style="width:849px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-29_002356.png"/></a></figure><pre id="c41c0a47-aa1d-46bd-a66a-489f544e1585" class="code"><code>Process Control Block (PCB)
+
+Her bir process bir blok halinde tutulur ve bloklarda process ile ilgili
+bilgiler bulunur:
+	Process state: running, waiting, ready
+	Process id
+	content of registers
+	next instruction number
+	currently used files
+	IO devices which the used by the process
+	process&#x27;in başından beri geçen süre
+
+Her bir process ready durumundan runing durumuna geçtiği zaman bu bilgiler taşınır.
+Ve her güncellemede bu bilgiler de güncellenir
+
+Thread&#x27;ler de PCB kullanır.</code></pre><pre id="fd8e05e9-8792-4f79-ae18-4d9e40a85cda" class="code"><code>Process Scheduler;
+
+ready&#x27;de bekelyen process&#x27;ler arasından uygun olanı seçen elemandır.
+
+Job queue(iş kuyruğu): sistemdeki tüm işlemler
+
+ready queue(hazır kuyruğu): ready durumunda, çalışmak için bekleyen process&#x27;ler.
+						Genelde bağlı listede tutulur ve PCB&#x27;yi içerir.
+IO queue: Bir IO aygıtını kullanmayı bekleyen işlemlerin kuyruğudur.</code></pre><figure id="a107b28e-44f9-4fc2-8cf1-adbf2de269b8" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_091853.png"><img style="width:929px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_091853.png"/></a></figure><figure id="21e206e3-70bc-4344-8ec3-9687aac2a6f7" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_092328.png"><img style="width:905px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_092328.png"/></a></figure><pre id="1bd20cef-1e82-4768-9fa1-e139e84526ca" class="code"><code>Bir process, yaşam döngüsü boyunca farklı kuyruklar arasında geçiş yapar.
+Zamamnlayıcılar, bekleyen process&#x27;ler arasından uygun olanı seçmelidir.
+Seçim süreci uygun zamanlayıcılar tarafından gerçekleştirilir.
+
+Long term scheduler
+Medium term scheduler
+Short term scheduler</code></pre><pre id="2e0ccc48-aa06-42ab-a003-4ed243c505c5" class="code"><code>Long term scheduler:
+
+Bazen job queue&#x27;deki process sayısı ready queue&#x27;nin kapasitenden fazla olabilir.
+Ready queue&#x27;ye alınmayan işlemler bir havuzda bekletilir.
+Belli işlemler belleğe yüklenir.
+Long term&#x27;in amacı hangi işlerin ready queue&#x27;ye alınmasının belirlemektir.
+Eğer (degree of multiprogramming) bir anda çalıştırılabilecek uygulama sayısı
+sabit ise process create hızı process kill hızına eşit olmalıdır.
+Long term, çok az sıklıkla çalışır, o yüzden yavaştır.
+
+Bazı process&#x27;ler çok sık CPU kullanıp IO çok fazla IO kullanmazken bazı process&#x27;ler
+için tam tersi de mümkündür.
+Long-term&#x27;in bunu iyi seçmesi gerekir.
+Tüm işlemler IO&#x27;ya bağlıysa CPU&#x27;nun çok az iş yapacağı anlamına gelir.
+Tam tersinde de sistem dengesiz olacaktır</code></pre><pre id="c570dd0d-4cbd-4a5c-8e60-60f442c8053a" class="code"><code>Medium-term Scheduler
+
+Hafızadaki işlem sayısını düşürmek için işlemleri bellekten alıp diske kaydeder.
+Yürütüleceği zaman diskten belleğe geri getirir.(swapping)
+
+Örneğin bir IO işlemi süresince bir process askıya alınabilir, bir işlem yapmayacaktır.
+İşte bu süreçte process diske atılabilir.</code></pre><pre id="43d9c616-1999-439d-8018-90b0a909a1e5" class="code"><code>Short-term
+
+Bir process running aşamasına geçeceği zaman gidip hazır kuyruğundan process&#x27;i
+getirip CPU&#x27;ya tahsis eder.
+Bu, çok çok sık yapılır. Çünkü multitasking&#x27;de process&#x27;ler aynı anda çalışıyor
+gibi gözükmek için sürekli olarak sırayla çalışırlar.</code></pre><pre id="5a643cf7-bdf1-413f-9c45-9db66ca79dfe" class="code"><code>Context Switching
+
+Çalışan bir process&#x27;in interrupt edilip anlık durumunun PCB&#x27;ye yazılması.
+Ready kuyruğunda bekleyen ve sırası gelmiş process&#x27;in PCB&#x27;de tutulan bilgilerle CPU&#x27;da
+çalışmaya başlaması.
+Ancak bu geçiş süresinde CPU kısa bir süreliğine boş kalır. Bu da context switching&#x27;in
+zararıdır.
+
+Context switching&#x27;in hızı;
+Bellek hızına
+Kopyalanacak verinin boyutuna
+Özel talimatların varlığına bağlı olarak makineden makineye değişir.
+
+Bazı donanımlar ekstra register sağlarlar. Böylece birden fazla PCB yüklenebilir.</code></pre><pre id="12f2f61b-6415-454f-ab70-0b8b57ed9fc3" class="code"><code>Her zaman pid değeri 1 olan bir init(ata) process vardır. Bütün process&#x27;ler bunun
+child&#x27;idir.</code></pre><pre id="3631ee96-b094-42a5-b6af-c6c38d059027" class="code"><code>Bir alt process, kaynaklarını ebeveyninin kaynağından alabilir ya da os, ekstra
+olarak sağlar.
+Ancak child&#x27;in ebeveyn&#x27;inden kaynaklarını alması sistemde aşırı yüklenmeyi önler.</code></pre><pre id="699c4dd5-bae1-4ca9-9486-3cee2fa00cbf" class="code"><code>UNIX&#x27;te process&#x27;ler fork() komutu ile oluşturulur ve her yeni process bir ebeveyn 
+process&#x27;inin kopyasıdır. Daha sonra exec() komutu ile process&#x27;in içi silinir.</code></pre><pre id="aa2a145c-9944-4f54-a6a5-24568f8e024b" class="code"><code>Bir program son kodunu işlemeyi bitirdiğinde exit() sistem çağrısı
+kullanılarak process sonlanır.
+Bu noktada process bir wait() sistem çağrısı ile parent&#x27;ine bir durum geri döndürebilir.
+
+Uygun sistem çağrısı ile bir başka process sonlandırılabilir.
+Mesela Görev Yöneticisi
+Mesela TerminateProcess()
+
+Ancak bunu sadece parent yapabilir.</code></pre><pre id="b1fac0ed-356a-43b7-8098-d730c58e6bf3" class="code"><code>Ebeveyn işlem, abort() sistem çğarısı kullanarak alt süreçlerin yürütmesini
+sonlandırabilir. Bunu bazı nedenleri olabilir:
+- Çocuklar kendisine verilen kaynakları aşmıştır.
+- Çocuğa artık ihtiyaç yoktur
+
+Eğer parent sonlanırsa bazı os&#x27;ler çocuk ve torunların da çalışmasına izin vermez</code></pre><pre id="7bf7ee20-1069-4c37-8579-3c892f17ac7d" class="code"><code>pid = wait(&amp;status)
+Böylece sonlanan işlemin pid&#x27;ine sahip olduk.
+
+İşlemini bitirmiş bir process wait() sistem çağrısı gelene kadar zombi process&#x27;tir.
+Genelde bütün process&#x27;ler zombi process&#x27;e kısa süreliğine dönüşür.</code></pre><pre id="879fbbe0-4b41-45fa-aeb0-272b2dc3a79e" class="code"><code>pid = fork() -&gt; process oluşturur. // POSIX
+pid = CrateProcess(NULL,...) // Windows</code></pre><pre id="38ed31db-08aa-480d-96e8-7fafa1b6ee0a" class="code"><code>Birçok web browser tek bir process olarak çalışır.
+
+Renderer(sitelerdeki CSS, HTML, JS.. dosyaları
+render eder. Her web sitesi için yeni bir renderer oluşturulur)
+Tarayıcı(her türlü sistemsel işlemler. GUI, IO, disk...)
+Plug-in(her türlü plug-in)&#x27;ler multi-process&#x27;tir.</code></pre><pre id="6bc19e08-b212-4829-b01c-e21bda3d1647" class="code"><code>Interprocess Communication 
+
+İşbirliği yapan process&#x27;ler arasında iletişim olması gereklidir.
+Bunun iki çeşidi vardır:
+
+	- Shared memory: İletişim yapan process&#x27;ler arasında ortak bir bellek bölgesi oluşturulur.
+		Diğer process&#x27;ler bu alana okuma/yazma yapabilir.
+	- Message Passing: İletişim kuran process&#x27;ler arasında karşılıklı mesaj gönderilip
+		alınmasıdır.</code></pre><pre id="2f94512e-3276-492d-aa03-2d2f0b1a416a" class="code"><code>Shared memeory bölgesi bir kez oluşturulduktan sonra message passing&#x27;den daha hızlıdır.
+
+Message passing daha az miktarda veri geçişi için kullanılır
+
+Message passing, uygulanmak için sistem çağrısı gerektirir ve yapılacak çok işlem vardır
+bu yüzden shared memory daha hızlıdır.</code></pre><pre id="9ab1ebc4-bff5-459d-a242-310693fc9ec7" class="code"><code>Paylaşılan bellek bölgesi, paylaşılan bellek segmentinin altında bulunur.
+Paylaşım yapan process&#x27;ler paylaşılan belleğin adresini kendi adres alanlarına eklemeli</code></pre><pre id="f744c9c7-cbb6-40ff-bb35-dfba4d340922" class="code"><code>Üretici Tüketici Problemi
+
+Üretici ve tüketici için bir buffer kullanılmalıdır.
+Üretici bir şey üretmeden tüketici bir şey alamaz
+Tüketici bir şey tüketmeden de üretici bir şey üretemez.
+
+	- Sınırsız arabellek (unbounded-buffer), arabelleğin boyutunda bir sınır
+yoktur.
+	- Sınırlı arabellek (bounded-buffer), sabit bir arabellek boyutu olduğu
+varsayılır.</code></pre><pre id="e4037961-a1c8-475d-87d0-657f1f11e062" class="code"><code>Mesaj gönderimi (Message passing)
+
+Ağa bağlı diğer cihazlara mesaj gönderimi sağlar.
+
+Mesaj gönderimi iki şekilde gerçekleşir:
+
+receive(message)
+send(message)
+
+P ve Q, aralarında iletişim kurmak istiyorsa bir link yoluyla bağlantı kurmalılar
+ve gönderme/alma yoluyla mesaj iletişimi yapmalılar</code></pre><pre id="994f1554-feca-4cf1-a0a7-d29049ff31d1" class="code"><code>Doğrudan İletişim
+
+Socket.io&#x27;da birbirine direk (socket id ile) mesaj emit&#x27;lemek gibi düşünülebilir
+// Kendim anlamam için bunu ben ekledim.
+
+send(P, message)
+receive(Q, message)
+
+Süreçler arasında otomatik bağlantı kurulur. Birbirlerinin kimliklerini bilmeleri
+yetelidir.</code></pre><pre id="861a33a3-ae12-48fd-a650-dfbc0ff4cef2" class="code"><code>Posta kutusu (Dolaylı iletişim)
+
+Örnek olarak Posta kutusu ise socket.io&#x27;daki gruplardır.
+// // Kendim anlamam için bunu ben ekledim.
+
+send(A, message), posta kutusuna mesaj koyar.
+receiver(A, message) ise alır.
+
+Her posta kutusunun benzersiz bir kimliği vardır. Socket.io&#x27;da her connection&#x27;un
+benzersiz kimliği olduğu gibi</code></pre><pre id="c2ad8e52-92e8-4c00-ac72-39299fd87e8a" class="code"><code>Message Passing senkronizasyon
+
+Senkron message passing:
+	Send blocking: Mesaj gönderdikten sonra, alıcı alana kadar gönderen taraf bloklanır.
+	Receive blocking: Gönderici mesaj göndermeden alıcı alamaz.
+
+Asenkron message passing:
+	nonblocking send: Mesaj gönderdikten sonra mesajın alınmasını beklemeden işlemine
+	devam eder.
+	nonblocking receive: Gönderici mesajı göndermeden alıcı, işlemine NULL olarak devam
+	edebilir.</code></pre><pre id="7c7acc2b-3750-47ea-90c7-bb507544cb72" class="code"><code>Buffer Kullanımı
+
+Sıfır Kapasite: Sırada bekleyen herhangi bir mesaj yoktur. Gönderici, mesaj alınana
+kadar bloklanmalıdır
+
+Sınırlı kapasite: Sırada bekleyen n sayıda mesaj olabilir. Gönderici, bu sınıra
+ulaştıktan sonra bloklanmalıdır.
+
+Sınırsız kapasite: Sırada bekleyen sınırsız mesaj olabilir. Gönderici asla bloklanmaz</code></pre><pre id="abe6a8f7-f43d-4d00-b3fa-bc7370c1edb7" class="code"><code>Mach sistemler mesaj geçişi tabanlıdır. Sistem çağrıları bile mesajdır.</code></pre><pre id="8aa6c0a6-0180-4936-ad97-3630491ba90f" class="code"><code>Client Server Tipleri
+
+	Soketler (Sockets)
+	Uzaktan Prosedür Çağrıları (Remote Procedure Calls)
+	Borular (Pipes)
+	Uzaktan Yöntem Çağrısı (Java)</code></pre><pre id="5a18c103-507c-4bd5-9339-9a7a08b2fcf8" class="code"><code>Üç tip socket vardır:
+
+Bağlantı odaklı(connection-oriented)(TCP)
+Bağlantısız(connectionless)(UDP)
+Multicast sınıfı</code></pre><pre id="d75e1022-e4bb-4ace-a54d-4e21d32e6032" class="code"><code>RPC(Uzak prosedür çağrıları)
+
+Ağa bağlı bilgisayarlar arasında &quot;message passing&quot; temelli iletişim sağlar
+Bir makinenin, ağdaki diğer makinedeki (parametreleri de göndererek)fonksiyonu uzaktan
+çağırıp çalıştırması ve çalışan karşıdaki makinede çalışan fonksiyonun sonucunun
+ayrı bir mesajla kendisine dönmesidir.</code></pre><figure id="855ec66d-04e7-4209-85be-79db7f7a871a" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_181435.png"><img style="width:861px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_181435.png"/></a></figure><pre id="7ff6721b-4e66-4f5b-9805-be9aab2c10c5" class="code"><code>Pipeline (Borular)
+
+İki process&#x27;in iletişim kurmasına izin veren bir kanal görevi görür.
+
+Sıradan borular, onu oluşturan process&#x27;in dışından erişilemez. Parent, bir pipeline
+oluşturur ve bunu, child&#x27;ıyla iletişim kurmak için kullanır.
+
+Ancak isimli borularda herhangi bir process,
+başka bir process&#x27;in pipeline&#x27;ına erişebilir</code></pre><figure id="86513e7f-bc20-4f0d-ab27-38c61550f5d9" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_182334.png"><img style="width:976px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_182334.png"/></a></figure><figure id="c4e83f65-7f8c-4627-b7a6-9d04ca397a19" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_182344.png"><img style="width:967px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_182344.png"/></a></figure><h1 id="941154da-1bbc-4114-b38d-46a388ec2f13" class="">Threads</h1><hr id="cab94d4e-df6f-4b68-80a4-7818554d0a4d"/><pre id="939351c8-4099-4990-9db2-cfce4da6d572" class="code"><code>Thread(iplik) bir iş parçacığıdır. CPU&#x27;nun temel birimidir.</code></pre><pre id="91cc481f-acdc-46eb-b05d-314afad34be8" class="code"><code>Kod bölümünü, veri bölümünü
+ve açık dosyaları aynı process atındaki diğer thread&#x27;ler ile paylaşabilirler.
+Global değişkenleri de paylaşırlar.
+Bir process birden fazla thread&#x27;e sahipse aynı anda birden fazla iş gerçekleştirebilir.
+Birden fazla thread&#x27;le programlamaya multithreading denir.</code></pre><figure id="360e28df-8aa4-4514-bc18-91f1cb07401e" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_201014.png"><img style="width:864px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_201014.png"/></a></figure><pre id="a6490a0a-d1c5-441e-a9d1-28cb163e8afa" class="code"><code>Client server&#x27;a bir istek atar. Server, yeni gelen client için bir thread tahsis eder.
+Client işini bitirince thread&#x27;i serbest bırakır.
+Server da, yeni client var mı diye (portu) sürekli dinlemeye devam eder.
+Web siteleri bunun çok bariz örnekleridir.</code></pre><pre id="91e929c7-cfdf-455f-9bbd-84a9578170c4" class="code"><code>Multi-threading Faydaları
+
+Cevap verilebilirlik: Çok thread&#x27;li bir sistemde uygulamanın bir kısmı donsa dahi
+diğer kısımları cevap vermeye devam edecektir. Ya da kullanıcı butona bastığında
+uygulama kullanıcıya, butonun işi bitene kadar cevap vermeyecektir.
+
+Kaynak paylaşımı(Resource sharing): Process&#x27;lerde veri paylaşımı sorunları vardır yani
+daha doğrusu maliyetlidir. Ancak thread&#x27;ler, altında bulundukları process&#x27;in
+kaynaklarını kullanabilirler.
+
+maliyet: Bir thread oluşturmak, silmek, thread&#x27;ler arası veri paylaşımı yapmak,
+thread&#x27;leri için context-switching yapmak process&#x27;lere göre çok daha az maliyetlidir.
+
+Ölçeklenebilirlik</code></pre><figure id="9d2e2265-eb85-4146-a610-96251fa9c964" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_201953.png"><img style="width:871px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_201953.png"/></a></figure><pre id="33f7a75b-45f9-4869-888e-1bbdd68c36a4" class="code"><code>Her thread&#x27;in kendi register, code ve stack bölümü vardır</code></pre><pre id="d220fade-444b-4d33-b1d7-8e6285e779e4" class="code"><code>Multicore programming
+
+İşlemci ünitesi içindeki her core&#x27;un kendi cache&#x27;i vardır.
+Çok çekirdeğe sahip işlemcilerde daha verimli eşzamanlılık ve multithreading sağlar.
+Tek çekirdeğe sahip bir sistemde aynı anda yalnız bir thread çalıştırılabilir,
+diğerleri kuyruğa alınır.
+Birden çok çekirdeğe sahip bir bilgisayarda thread&#x27;ların eşzamanlı çalışacağı
+anlamına gelir.</code></pre><figure id="c1f5b90f-1207-4b96-a5f9-8991342f38fd" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_202806.png"><img style="width:826px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_202806.png"/></a></figure><pre id="11415bd4-c29a-4298-ae6e-8814613169fb" class="code"><code>Mutlti-core, programcıları mutli-thread yazmaya zorlar:
+
+Identify tasks: Farklı thread&#x27;lere bölünebilecek parçaları tespit etme.
+
+Balance: Programcı, thread&#x27;lere paylaştırılacak olan görevleri belirlerken dengeyi
+iyi kurmalıdır. Ekstra bir core işgal etmeye değmeyecek kodları ekstra bir thread
+yapmaya gerek yoktur.
+
+Verileri Bölmek(data splitting): Uygulamanın ayrı görevlere bölündüğü gibi
+veriler de bölünmelidir.
+Farklı görevler tarafından farklı verilere erişilecek.
+
+Veri bağımlılığı(data dependency): Bir thread&#x27;in ihtiyacının olduğu veriler başka
+bir thread&#x27;den geliyorsa bunun senkronizayonu iyi yapılmalıdır.
+
+Test ve hata ayıklama(test and debugging): Birden çok thread&#x27;e sahip bir programı
+test ve debug etmek daha zordur. Bunun handle edilmesi gerekir.</code></pre><pre id="d0a35c3e-cf44-4f53-9367-59c4743b4e2b" class="code"><code>İki türlü paralellik vardır:
+Data parallelism: Bir veri kümesinin verilerini birden çok thread&#x27;de dağıtmaya denir.
+Örneğin bir matris çarpma işlemi yapılacak. Daha hızlı yapılması için mevcut matrisleri
+farklı thread&#x27;ler arasında dağıtırız, hesaplatırız.
+
+Task parallelism: Farklı görevlerin farklı thread&#x27;lerde yapılması</code></pre><pre id="faaf889b-51ca-4456-93a8-7e034591af29" class="code"><code>Amdahl Yasası
+
+Hem seri hem paralel olan bir uygulamaya ek çekirdekler eklemenin ne kadar hız
+artışına sebep olacağını hesaplayan yasadır.
+
+N sonsuza yaklaştıkça hızlanma yaklaşık 1/S olur.</code></pre><figure id="046e0e67-9db3-4500-83bb-bfca57a8137b" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_220951.png"><img style="width:756px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_220951.png"/></a></figure><figure id="0475ed7c-b85b-495b-a418-2da70569c77e" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_221138.png"><img style="width:867px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_221138.png"/></a></figure><pre id="43819058-f45f-4cff-8914-0863a5886418" class="code"><code>İki çeşit thread vardır:
+User threads: Bu thread&#x27;leri kullanıcı yönetir. İşletim sistemi bunları tanımaz yani
+kernelin, bu thread&#x27;larin varlığından haberi yoktur.
+Daha hızlıdır.
+
+User threads 3 temel kütüphane tarafından yönetilir:
+
+	- POSIX Pthreads
+	- Windows threads
+	- Java threads
+
+Kernel Threads: Direkt olarak işletim sistemi yani kernel tarafından tanınan ve yönetilen
+thread&#x27;lerdir. User thread&#x27;e göre daha yavaştır. Örnek olarak tüm işletim sistemleri
+verilebilir.</code></pre><pre id="de7be1aa-72a9-4af3-b251-ccc905fd787a" class="code"><code>Multithread modeller:
+Many to One
+One to One
+Many to Many</code></pre><div id="eaadc19e-2d7f-4d1e-a0a7-8ef3e7fcf5ee" class="column-list"><div id="e090c61d-9cf5-4d91-95fc-e3e3fee1cef6" style="width:37.5%" class="column"><figure id="3a8a22c4-5838-4b51-95b1-f755b7ec55ee" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_222807.png"><img style="width:432px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_222807.png"/></a></figure></div><div id="52539ee3-3884-488b-83e1-f9dafb585792" style="width:62.5%" class="column"><pre id="377c88e6-f326-418d-88d6-1902d22fc214" class="code"><code>Many-to-one: Birden fazla user thread, bir tane 
+kernel thread ile eşleştirilir.
+Kernel thread&#x27;e bağlanan user thread&#x27;lerden biri
+iptal edilirse o kernel thread&#x27;e bağlı
+bütün thread&#x27;lerin process&#x27;leri iptal edilir.
+Aynı anda yalnızca bir thread çekirdeğe
+erişebildiğinden multi-core sistemlerde
+çalışamaz
+
+Şuanda çok az sistem bunu kullanmaktadır:
+		- Solaris Green Threads
+		- GNU Portable Threads</code></pre></div></div><pre id="0cb8e409-ae7a-4889-8e86-54b07658287f" class="code"><code>One to One: Bir user thread&#x27;inin bir kernel modeli ile eşleşmesidir.
+Bir user thread iptal edildiğinde diğer thread&#x27;ler bundan engellenmez.
+Thread&#x27;ler paralele olarak çalışabilir.
+Many to One modelden daha fazla paralellik sağlar.
+
+Bu modelin dezavantajı, bir user thread oluşturulduğunda bunun için bir de kernel
+thread oluşturulmasıdır. Ancak kernel thread oluştrumak maliyetlidir ve işletim
+sistemi bu yüzden sınırlı sayıda kernel thread oluşturmaya izin verir.</code></pre><figure id="e4d0602c-ca8e-4e67-b5db-542740b08832" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_223418.png"><img style="width:776px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_223418.png"/></a></figure><pre id="5dd07069-3f5b-4514-acdf-045a1dda663b" class="code"><code>Many to Many Model: Birden çok user thread birden çok kernel thread ile eşleşir.
+Bir user thread engellediğinde diğer user thread&#x27;ler diğer kernel thread&#x27;ler ile eşlenir</code></pre><figure id="10a1dbed-9e8b-4236-9fe1-dfe4112e89cc" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_224112.png"><img style="width:288px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_224112.png"/></a></figure><pre id="c5228ff1-9d01-40cf-a0ef-606c6edf68d7" class="code"><code>İki Seviyeli Model:
+
+Bunun, many to many&#x27;den farkı ekstra olarak bir user thread&#x27;in bir kernel thread&#x27;e
+bağlanmasına izin vermesidir.</code></pre><figure id="bbd6b22e-3021-43b0-8211-7309e1006ba5" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_224123.png"><img style="width:288px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-11-30_224123.png"/></a></figure><pre id="5d08afc4-6631-4beb-8544-314f119ffed7" class="code"><code>Thread kütüphaneleri, programcıya thread&#x27;leri oluşturmak ve yönetmek için API sağlar.
+Genel olarak 3 thread kütüphanesi vardır: POSIX, Windows ve Java</code></pre><pre id="48453ffc-baab-4671-b3f5-55aa9474567b" class="code"><code>JVM&#x27;in kendisi de bir thread kütühanesi uygulamaktadır. Örneğin JVM Windows&#x27;ta 
+çalışıyorsa Windows thread kütüphanesini kullanmaktadır.</code></pre><pre id="01badd69-2ec7-4342-ae8f-2082a309c4f2" class="code"><code>Thread&#x27;ler için iki strateji vardır:
+	Asenkron: Parent thread alt thread&#x27;lerin bitmesini beklemez. Paralelel olarak
+	işlemlerini gerçekleştirirler. Bu yüzden az veri paylaşımı yaparlar.
+
+	Senkron: Parent; child thread&#x27;lerin, işlerini bitirmesini bekler.
+	Burada parent ve child&#x27;lar eşzamanlı olarak çalışır ancak child&#x27;lar işlerini
+	bitirmeden parent devam edemez.</code></pre><pre id="f47ffa15-1027-4a0f-ab11-9d28c0b75f83" class="code"><code>Pthreads
+
+User ya da kernel thread şeklinde sağlanabilir.
+Thread oluşturmak için POSIX(IEEE 1003.1c) standardını kullanır.
+Uygulama değil şartnamedir.
+API, thread kütüphanesinin davranışını belirtir.
+UNIX, Linux, Solaris, MacOSX OS&#x27;larda yaygın </code></pre><pre id="1406966f-5393-48d2-83fa-3f8162162ba3" class="code"><code>// Pthread, thread create etme
+
+pthread_t tid; // pthread_t tipinde, thread&#x27;in id&#x27;sini tutacak değişken
+pthread_attr_init(&amp;attr)
+pthread_create(&amp;tid, &amp;attr, runner, argv[1])
+pthread_join(tid, null)
+// runner, thred&#x27;in çalıştıracağı fonksiyon
+// argv[1] ise sum fonksiyonuna geçirilecek parametreler</code></pre><pre id="31a262e8-17a4-4e8d-9f58-ba58a7388cea" class="code"><code>Thread join: Join fonksiyonu kullanılan thread işini bitiirene kadar parent&#x27;ı bekletir.
+Child, işini bitirdikten sonra altta kalan kod bloğu devam eder.</code></pre><pre id="92b758e9-0b6d-491a-9f74-e97185d76252" class="code"><code>Java Thread
+
+Java programları en az bir thread&#x27;den oluşur. main() de bir thread&#x27;dir.
+Thread&#x27;ler JVM tarafndan yönetilir.
+Kernel thread uygulanır.
+
+Thread oluşturmak için iki yaklaşımdan biri olan: Thread sınıfı extend edilir ki bu pek
+mantıklı değildir.
+Çünkü Java&#x27;da çoklu kalıtım olmadığı için extend&#x27;i Thread için harcarsak başka bir
+sınıftan miras alamayız.
+Bu yüzden diğer bir seçenek ise Runnable interface&#x27;sinin implemente edilmesidir.
+Bunu yaptıktan sonra artık run metodunu çağırmak zorunlu olur ve bu metod paralel
+olarak çalışır.</code></pre><pre id="77107eb0-f0f4-443a-a8d5-911def43c512" class="code"><code>Implicit threading (örtülü threading)
+
+Thread&#x27;leri oluşturmayı, yönetmeyi kolaylaştırır. Thread yönetimini kullanıcıdan
+kitaplıklara aktarır.
+Artık bu işleri kütüphaneler yapar.
+
+Örtülü iş parçacığı oluşturmak için üç metot vardır:
+- Thread Pools
+- OpenMP
+- Grand Central Dispatch</code></pre><pre id="2cda7c5a-ef6c-4ae6-9226-1bf5a44cb0fc" class="code"><code>Thread Pools
+
+Multithreading bir sunucuda her gelen client için bir thread oluşturmak bir maliyettir.
+İkinci olarak gelen client kadar thread oluşturulursa yani bunun bir sınırı olmazsa
+sistem çok yorulacak belki dayanamayacaktır.
+
+Thread pools ise önceden belirlenmiş bir sayıda thread oluşturur. Ve bunları havuz
+adı verilen bir sistemde bekletir. Server&#x27;e bağlanan her bir client, havuzdaki
+thread&#x27;lerden birini kullanır. İşi bittikten sonra thread&#x27;i havuza geri bırakıp çıkar.
+
+Yeni bir thread oluşturup daha sonra silmekten daha hızlı ve az maliyetlidir.
+Bağlanabilecek client sayısı sınırlandırılmıştır.
+Thread sayısını aşan client&#x27;ların istekleri sırada bekletilir.</code></pre><pre id="5e92a18b-b695-4a50-b607-0018675867f0" class="code"><code>OPENMP
+
+C, C++, Fortran ile yazılmış programlar için bir API sağlar.
+Klasik metottaki thread oluşturma yöntemi yerine, bir blok oluşturur. Bu bloğun başına
+kütüphanenin kendi keyword&#x27;ünü yazar(#pragma omp parallel). Böylece bloğun içinde
+kalan alan bir thread olarak davranır ve paralel çalışır.</code></pre><pre id="dcff1eea-a550-4427-a253-055df26a6194" class="code"><code>Grand Central Dispatch(GCD)
+
+C/C++ dilinde blok(süslü parantez arası)na yazılan kodun başına &#x27;^&#x27; simgesi koyulunca
+bloğu bir thread&#x27;e dönüştürür
+
+Bu kütüphane kendi havuzunda(kuyruk) bloklar bulundurur. İki tip kuyruğu vardır:
+Seri: Programcı her bir thread eklemek istediğinde havuzundan bir blok eksiltir ve onu
+thread&#x27;e tahsis eder. Bloklar, havuzdan FIFO mantığında kaldırılır. Ancak programda
+sadece bir tane thread eşzamanlı olarak çalışabilir
+
+Eşzamanlı: Kuyruktan bir anda birden fazla blok kaldırılabilir. Böylece birden çok
+thread paralel olarak çalışabilir.</code></pre><pre id="80b98dc6-b04e-48ab-bdf0-827313e38923" class="code"><code>Eğer bir thread, kendi içinde process oluşturmak için fork() çağırırsa, process
+oluşturulduğunda, yalnızca process&#x27;i çağıran thread çoğaltılır.</code></pre><pre id="3d9cc52f-f0e1-40fd-85d7-4f8d62e786b0" class="code"><code>Sinyal İşleme
+
+Sinyaller, UNIX sistemlerde belli bir olayın gerçekleştiğine dair process&#x27;i
+bilgilendirmek için kullanılır. Sinyal, kaynağa göre senkron ya da asenkron olabilir.
+Mesela; geçersiz bellek erişimi, 0&#x27;a bölme
+Bu durumda bir sinyal üretilir. Sinyaller, sinyale neden olan process&#x27;e iletilir.
+Bu yüzden senkron&#x27;dur.
+Bir process&#x27;e harici bir process tarafından sinyal gönderilirse bu, asenkrondur.
+Mesela zorla sonlandırma: Control + C</code></pre><pre id="a692eec0-54b9-4f1c-8235-ea05f5d8a30a" class="code"><code>Bir sinyal, iki olası işleyiciden biri tarafından işlenebilir:
+	- Varsayılan bir sinyal işleyici
+	- Kullanıcı tanımlı bir sinyal işleyici
+
+Her sinyal için çekirdeğin çalıştırdığı varsayılan bir sinyal işleyicisi vardır.
+Bu varsayılan sinyal işleyici, sinyali işlemek için çağrılan kullanıcı tanımlı
+bir sinyal işleyici tarafından geçersiz kılınabilir. Sinyaller farklı şekillerde
+işlenir. Bazı sinyaller (bir pencerenin boyutunu değiştirmek gibi) basitçe
+yok sayılır; diğerleri (geçersiz bellek erişimi gibi) program sonlandırılarak
+işlenir.</code></pre><pre id="1043df0a-9e1e-44db-99fe-861657cff401" class="code"><code>Tek thread&#x27;li programlarda siyal işleme basittir. Ancak çoklu thread&#x27;lerde gönderilen
+sinyaller, programdaki tüm thread&#x27;lere iletilir.</code></pre><pre id="a33e7165-6781-45a7-838e-8a7e6677b5ac" class="code"><code>Thread iptali:
+Çalışmakta olan thread&#x27;i durdurur, yapmakta olan işleri durur.
+
+Örneğin tarayıcıda arama search barın solundaki X işaretine bastığımızda thread
+durur. Sayfa yüklenmeyi bırakır.
+
+İptal edilecek thread&#x27;e genelde &#x27;target thread&#x27; denir. İki çeşit target thread durumu 
+iki farklı senaryoda gerçekleşebilir:
+
+- Asenkron iptal: İptal işlemi, target thread&#x27;i hemen sonlandırır.
+
+- Deferred(ertelenmiş) Cancel: İptal işlemi ileriki bir tarihte yapılabilir. Kendisini
+	sürekli kontrol ederek, olması gereken vakitte kendisini sonlandırır
+
+Thread iptalindeki zorluk; target thread&#x27;e tahsis edilen bellek alanı ya da paylaşılan
+veri olduğu zamanlarda meydana gelir.Bu, asenkron iptal ile meydana gelir.
+İşetim sistemi, iptal edilen bir thread&#x27;den kaynaklarını geri alsa da bu her zaman
+tam olarak mümkün olamayabilir.
+
+Ancak ertelenmiş iptalde böyle bir sıkıntı olmaz. Çünkü bu durumda, iptal edileceği 
+zaman geldiğinde flag işaretlenir. Eğer flag işaretlenirse kaynaklar geri alınır.
+Thread güvenli bir şekilde sonlandırılır.
+
+Pthreads&#x27;te, cancel() fonksiyonu ile iptal gerçekleşir.
+
+pthread_cancel(tid)</code></pre><pre id="424e81f8-30e8-413d-8b37-7da540c9188c" class="code"><code>İşletim sistemleri Thread&#x27;leri (Kernel threads)
+
+Windows Threads
+Linux Thresd</code></pre><pre id="8c2a192b-e8a5-495d-82fe-e35e56384fc8" class="code"><code>Windows Threads
+
+One to One thread birleşmesini uygular.
+Benzersiz bir thread id içerir.
+Thread; user mod&#x27;da çalışırken bir user stack, kernel mod&#x27;da çalışırken ise bir kernel
+stack içerir.
+Run time libs ve DLL&#x27;ler tarafından kullanılan bir depolama alanı içerir.
+
+Kayıt seti, yığınlar ve özel depolama alanı, iş parçacığının bağlamı (context)
+olarak bilinir.</code></pre><pre id="5bb508c5-0da3-445a-be64-2fb5b66ab1f8" class="code"><code>Bir thread&#x27;in birincil veri yapıları:
+
+ETHREAD (executive thread block): Thread&#x27;in ait olduğu process&#x27;in adresini ve 
+thread&#x27;in çağırdığı fonksiyonun adresini içerir. Ayrıca KTHREAD için bir pointer
+içerir.
+
+KTHREAD (kernel thread block): Thread için zamanlama ve senkronizasyon bilgilerini
+içerir. Ve ayrıca TEB için bir pointer içerir.
+
+TEB(thread environment block): ETHREAD ve KTHREAD tamamen çekirdek uzayında bulunur;
+bu, yalnızca çekirdeğin bunlara erişebileceği anlamına gelir. Ancak TEB&#x27;e kullanıcı
+erişebilir. Bu bölgede thread ile ilgili bilgiler tutulur </code></pre><figure id="75db5bdd-865d-4f26-97d0-eaeef55b3adb" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-01_110319.png"><img style="width:973px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-01_110319.png"/></a></figure><figure id="5cec533d-87f8-4662-98b1-a133e82f66ad" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-01_110506.png"><img style="width:971px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-01_110506.png"/></a></figure><pre id="68134370-21a1-4822-8c7e-20d001f4a16d" class="code"><code>Cooperation(işbirliği)
+
+Bir process/thread&#x27;in çalışması başka bir process/thread&#x27;i etkiliyorsa bu işbirliğidir</code></pre><pre id="ee015f05-3022-4e3e-bdab-d4b8716ac2a9" class="code"><code>Ortak bir kod ve veri alanını paylaşıyorlarsa bunlar thread, eğer dosyalar ve mesajlar
+aracılığıyla veri paylaşabiliyorsa bu thread&#x27;dir.</code></pre><pre id="05089e7a-f2da-4f59-b744-29894e3c8fd8" class="code"><code>Process&#x27;ler arası veri paylaşımı, üretici-tüketici problemi ile yapılabiliyordu.
+
+Ancak problemi hatırlarsak koddaki counter değişkeni ortaktı. Hem üretici hem tüketici
+aynı anda çalışıp counter&#x27;ı değiştirmek isterse ne olacak?</code></pre><figure id="e47cda99-f26f-43bc-ab33-71fc7d304345" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-03_163219.png"><img style="width:913px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-03_163219.png"/></a></figure><pre id="90676880-3002-44e2-8055-81fb47e98998" class="code"><code>Her iki kod parçacığı da counter&#x27;i değiştirmek istiyor. Bu da veri tutarsızlıklarına
+neden olur. Bu yüzden paylaşımlı bir veriyi aynı anda sadece bir process manipüle
+edebilir.</code></pre><pre id="77202ec5-588f-4787-bd55-abcc8ea44ace" class="code"><code>Critical Section
+
+Birden fazla process/thread tarafından paylaşılan, paylaşılırsa
+problem çıkarabilecek(çünkü kodda, aynı değişkene, cihaza, değişkene erişim olabilir)
+kod bölümüdür.
+Mesela değişken, dosya...
+
+Kritik bölümlerde birden fazla işlem yürütülmemelidir.
+Başka bir işlem buraya girmek için izin istemelidir.</code></pre><pre id="d68437bc-5f22-4e4e-a7d3-200fa3ed4673" class="code"><code>Kritik Bölüm Problemi çözümü üç aşamadan oluşmalıdır:
+
+Karşılıklı dışlama(mutual exclusion): Kritik bölüme erişen bir işlemin, başka işlemlerin
+girmemesi için kilitlemesi
+
+İlerleme(progress): Eğer kritik bölümde kimse yoksa oraya erişmek isteyenlerden biri
+seçilmeli ve diğerleri kuyruğa alınmalı.
+
+Sınırlı bekleme(bounded waiting): Bölüme girmek için bekleyenler sonsuza kadar
+beklememeli. </code></pre><pre id="63b5f422-29fb-46d0-bf53-6ae120c72af8" class="code"><code>Kernel&#x27;de işlemlerin çalışması için iki senaryo vardır:
+
+Preemptive: Bir process çalışır ve durur, sonra başkası çalışmaya devam eder.
+Bildiğimiz multitasking
+
+non-Preemptive: Bir process bitene kadar çalışır. Bu durumda race condition yoktur.
+Birim zamanda bir işlem yapılabilir.</code></pre><pre id="7eff740e-64e2-43e9-a70b-fc3c577f5397" class="code"><code>Peterson çözümü</code></pre><pre id="40eebc2c-51a4-4801-996a-ada7646a62bc" class="code"><code>Atomik: Interrupt edilmeyen(kesilmeyen) kod parçacığı. Mesela sistemin saati
+
+NTP: Zamanı çok dakik olarak tutan bir protokoldür. Daha server&#x27;lerda kullanılır.
+NTP ayarı server&#x27;larda önemlidr.</code></pre><pre id="52908dd2-034e-49dd-bdb6-a49cb6600b6c" class="code"><code>test_and_set fonksiyonu: Paylaşılan kod kısmını kilitler/açar. Atomik olarak çalışır.
+İki test_and-set komut aynı anda yürütülürse bunlar farklı CPU&#x27;da rastgele çalıştırılır
+Girilen parametrenin orjinal değerini döndürür.
+
+boolean test_and_set(boolean *target) {
+	boolean rv = *target;
+	*target = false;
+	return rv;
+	
+}</code></pre><figure id="cca020b9-fc33-4d14-bf5f-ba24a9f0b104" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-03_192513.png"><img style="width:720px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-03_192513.png"/></a></figure><pre id="63c81d7b-85fb-44ce-b237-7accb3f90684" class="code"><code>compare_and_swap(int *value, int expected, int new_value){
+	int temp = *value;
+	if(*value == expected) {
+		*value = new_value;
+	}
+return temp;
+}
+Atomik olarak yürütülür. Value değerinin orjinal parametresini döndürür.</code></pre><figure id="82f72574-627e-4622-bf08-9a2a529a5b83" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-03_200212.png"><img style="width:918px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2021-12-03_200212.png"/></a></figure><pre id="c867473b-a30c-49cc-a22b-9ee131787a23" class="code"><code>Mutex Kilitler
+
+İşletim sistemi tasarımcıları kritik bölge sorununu çözmek için mutex kilidini
+çıkarmışlardır. Basit bir çözümdür. Atomik olarak çalışır
+
+Koda girerken kilitler ve çıkarken kilidi açar. acquire() ve release() fonksiyonları var
+
+Eğer bölgede başkası varsa acquire() false döner ve girmez.
+Birisi girmek için istek atarsa acquire() tarafından kilit açılana kadar engellenir.
+Release() ile kilit kaldırılır.
+Bu iki fonksiyon ile kilit başarılı olur ancak burada da BUSY WAITING çözülemiyor.
+Gereksiz bir bekleme oluşturduğu için buna spinlock denir. Sürekli while döngüsünde
+takılı kaldığı için.
+Mutex&#x27;in dezavantajı busy waiting durumudur. Boş yere while için kaynak harcar.</code></pre><pre id="3ad0e211-8a27-4406-a43a-f138027744fe" class="code"><code>Semaphore
+
+İki fonskiyonu vardır: Wait() ve signal()
+
+İki çeşit semaphore vardır: İkili ve sayma semaforları.
+
+İkili semaforlar mutexlere benzer.
+
+Sayma semaforlarında birden fazla process bölge için istekte bulunabilir.
+
+Semaforlar mevcut kaynakların sayısına göre başlatılır. Bir process bir bölge için
+istek attığında wait() fonksiyonu çalıştırılır ve semafori le ilgili bir kuyruğa
+yerleştirilir ve kaynak sayısı bir azaltılır. Signal() ise kuyruktan alıp bölgeyi
+o process&#x27;e açtığında ateşlenir ve sayı bir artırılır.
+Bölgenin kilidi açıldığında kuyrukta bekleyen diğer bir process wakeup() fonksiyonu
+ile uyandırılır ve hazır kuyruğuna yerleştirilir.
+Böylece busy waiting durumunun önüne geçilir.
+
+Her semaforun bir tamsayı değeri ve bir kuyruğu vardır. Block() fonksiyonu ile, bölgeye
+erişmek isteyen diğer process&#x27;ler kuyruğa alınır. Wakeup() fonksiyonu ile uyandırılır
+ve hazır kuyruğuna yerleştirilir.</code></pre><pre id="77477877-6dc7-49ad-9879-7387a37212d7" class="code"><code>Deadlock
+
+İki process&#x27;in birbirini beklemesidir.
+Bir process bir bölgeyi kilitlemiş ve başka bir process de başka bir bölgeyi
+kilitlemişse ve bu iki process de kilitlenen bölgelere ihtiyaç duyuyorsa ve bölgenin
+kilidini açmak için diğer bir process&#x27;in kendi bölgesini açmasını bekliyorsa bu deadlock</code></pre><pre id="948299aa-436b-4684-9406-b30415fbc5e6" class="code"><code>Starvation(açlık)
+
+Yüksek önceliğe sahip işlemleri, OS&#x27;in daha sıklıkla yapması ve az önceliğe sahip
+process&#x27;in  hatta hiç çalışma imkanı bulamaması</code></pre><h3 id="ec3ec68e-40df-4533-b354-028d44939dde" class=""><mark class="highlight-purple">CPU Zamanlama</mark></h3><pre id="db132ed5-e8d1-401f-97fe-192187078870" class="code"><code>CPU Burst: Bir process&#x27;in CPU işlemi yapması işlemi
+
+IO Burst: Bir process&#x27;in IO cihazını kullanması işlemi
+
+CPU–I/O Burst Cycle: Process&#x27;in hayatı CPU ve IO arasında geçtiği için bir onda burst
+	yapar bir bunda burst yapar. Bu işlem process bitene kadar döngü halindedir.
+
+Process yürütme, CPU burst ile başlar ve CPU burst ile biter.
+Process&#x27;in ilk başlama esnasında CPU Burst&#x27;te bir patlama olur ve düşer.
+Yani ilk başlangıçta CPU çok yoğun kullanılır.</code></pre><pre id="ae657e59-607e-44db-8143-b8353a4af0fc" class="code"><code>CPU boşta kaldığında hazır kuyruğundaki processlerden birini seçmelidir.
+Bu seçme işlemini kısa süreli zamanlayıcı(short-term) yapar.
+
+Zamanlayıcı, bellekte yürütülmeye hazır olan işlemlerden bir işlem seçer ve
+CPU&#x27;yu bu işleme tahsis eder. Hazır kuyruğunun mutlaka bir ilk giren ilk
+çıkar (FIFO) kuyruğu olmak zorunda değildir. Kuyruk çeşitli şekillerde
+sıralanabilir.
+
+CPU zamanlama kararları aşağıdaki durumlardan biri gerçekleşince alır:
+1. Bir işlem running durumundan waiting durumuna geçerken
+2. Bir işlem running durumundan ready durumuna geçerken
+3. Bir işlem waiting durumundan ready durumuna geçerken
+4. İşlem sonlanırken
+1 ve 4 zamanlamalar non-preemptive
+Diğer zamanlamalar preemptive</code></pre><pre id="e231aaab-4ff7-43ed-8cb3-e3986230444a" class="code"><code>Dispatcher(Gönderici)
+
+Dispatcher, kısa vadeli programlayıcı tarafından seçilen process&#x27;e CPU&#x27;nun kontrolünü
+verir:
+	- Context switching yapar.
+	- User mod&#x27;a geçişi yapar.
+	- Programı yeniden başlatmak için kullanıcı programında uygun konuma
+		atlama yapar.
+
+Her işlem geçişi sırasında çağrıldığından, gönderici mümkün olduğunca
+hızlı olmalıdır. Göndericinin bir işlemi durdurup başka bir işlemi başlatması
+için geçen süre, dispatch gecikmesi (dispatch latency) olarak bilinir.</code></pre><pre id="d616fca2-dae7-4270-a4fe-1a6d1291a47a" class="code"><code>Zamanlama Kriterleri
+
+Farklı zamanlama algoritmaları vardır. Farklı durumlar için farklı algoritmalar
+kullanılmaktadır. Hesaplamalar için bazı kriterler bulunmaktadır:
+
+CPU kullanımı: CPU olabildiğince meşgul tutulmalıdır. CPU kullanımı
+yüzde 0 ile yüzde 100 arasında değişebilir. Gerçek bir sistemde, yüzde
+40 ile yüzde 90 arasında değişmelidir.
+
+Verimlilik (Throughput): CPU işlemleri yürütmekle meşgulse, iş
+yapılıyor demektir. İşin bir ölçüsü; verimlilik adı verilen, zaman birimi
+başına tamamlanan işlemlerin sayısıdır. Uzun işlemler için bu oran
+saatte bir işlem olabilir; kısa işlemler için saniyede on işlem olabilir.
+
+Geri dönüş süresi (Turnaround time): Bir işlemin başlaması ile bitmesi arasıdaki süre
+
+Bekleme zamanı(waiting time): Bekleme süresi, hazır kuyruğunda bekleme sürelerinin
+toplamıdır. CPU zamanlama algoritması, bir
+işlemin yürütüldüğü veya G/Ç yaptığı süreyi etkilemez. Yalnızca bir
+işlemin hazır kuyruğunda beklemek için harcadığı süreyi etkiler.
+
+Yanıt süresi(response time): Bir talebin sunulmasından ilk yanıtın üretilmesine
+kadar geçen süredir.</code></pre><pre id="fe4496b8-d0e4-4fc5-9eba-b0e2743c5025" class="code"><code>CPU kullanımını ve verimini en üst düzeye çıkartırken geri dönüş süresini,
+bekleme süresini ve yanıt süresini en aza indirmek arzu edilir.
+
+Çoğu durumda optimum ölçü tercih edilir.</code></pre><figure id="0cfcf812-8dd5-4751-ae9d-3e8047db4e65" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/fcfs.png"><img style="width:932px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/fcfs.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4e55da9d-523d-42e9-b70c-bc09bbf0f565"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">77Convoy effect: Diğer process’lerin, kuyruktaki büyük bir process’in çıkmasını beklemesi</div></figure><figure id="b3ab13e6-91c4-4ce3-b01d-e70671a235b9" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/sjf.png"><img style="width:910px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/sjf.png"/></a></figure><figure id="f5775098-f401-443f-b61b-a593f925b141" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/sjf_rnek.png"><img style="width:906px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/sjf_rnek.png"/></a></figure><pre id="6ee5fa2d-471c-4c0d-93de-529838008829" class="code"><code>Uzun vadeli zamanalayıcıda sıklıkla kullanılır.
+
+Kısa vadeli zamanlayıcıda bir sonraki işlemin CPU burst&#x27;ün süresini bilme şansı yoktur.
+Bu yüzden gerçek hayatta kullanılmaz. Teorik bir algoritmadır.
+
+Bir sonraki CPU patlamasının uzunluğunu bilemeyebiliriz, ancak değerini
+tahmin edebiliriz.</code></pre><figure id="8211ae0f-16aa-4224-9acb-0974696a39c9" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_092056.png"><img style="width:933px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_092056.png"/></a></figure><pre id="20736b47-a753-4434-95eb-8664c494c0f1" class="code"><code>Eşit öncelikli işlemler FCFS&#x27;ye göre sıralanır.</code></pre><pre id="d47e0fe3-1650-4ceb-9d1e-1197c83ee2ba" class="code"><code>Zamanlama algoritmalarının önceliklerindeki iki büyük sorun:
+	- Starvation (process&#x27;e hiç bir zaman çalışma sırası gelmemesi)
+	- Infinite blocking</code></pre><pre id="45fee557-2568-455a-a77f-4ae9b6c87f73" class="code"><code>	Düşük öncelikli süreçlerin süresiz olarak bloke edilmesi sorununa bir çözüm
+	yaşlanmadır (aging).
+- Yaşlanma, sistemde uzun süre bekleyen süreçlerin önceliğinin kademeli
+	olarak artırılmasını içerir.
+- Örneğin, öncelikler 127 (düşük) ile 0 (yüksek) arasında değişiyorsa,
+	bekleme sürecinin önceliğini her 15 dakikada bir 1 artırabiliriz. Sonunda, ilk
+	önceliği 127 olan bir işlem bile sistemde en yüksek önceliğe sahip olur ve
+	yürütülür</code></pre><figure id="170dd3ad-6cf7-4c8a-badd-0aa09fa10845" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_092830.png"><img style="width:932px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_092830.png"/></a></figure><pre id="d495d26e-fa7e-402b-8ef8-d004de59b788" class="code"><code>Round Robin (RR)
+
+-	İşlem, 1 kuantumdan daha az bir CPU patlamasına sahip olabilir. Bu
+	durumda, işlemin kendisi CPU&#x27;yu gönüllü olarak serbest bırakacaktır.
+- Planlayıcı daha sonra hazır kuyruğundaki bir sonraki işleme geçecektir.
+- Halihazırda çalışan işlemin CPU patlaması 1 kuantum zamanından daha
+	uzunsa, zamanlayıcı kapanacak ve işletim sisteminde bir kesintiye neden
+	olacaktır.
+- Bir bağlam değiştirici (context switch) yürütülecek ve süreç, hazır kuyruğun
+	sonuna yerleştirilecektir.
+- CPU zamanlayıcı daha sonra hazır kuyruğundaki bir sonraki işlemi
+	seçecektir.
+- Round-robin (RR) zamanlama algoritması, özellikle zaman paylaşımlı
+	sistemler için tasarlanmıştır.
+- FCFS zamanlamasına benzer, ancak sistemin süreçler arasında geçiş
+	yapmasını sağlamak için preemption eklenir.
+- Zaman kuantumu veya zaman dilimi olarak adlandırılan küçük bir zaman
+	birimi tanımlanır.
+- Bir zaman kuantumu genellikle 10 ila 100 milisaniye uzunluğundadır.
+- Hazır kuyruk, dairesel bir kuyruk olarak kabul edilir.
+- RR zamanlamasını uygulamak için, hazır kuyruğunu yine bir FIFO işlem
+	sırası olarak ele alınır.
+- CPU zamanlayıcı hazır kuyruğundan ilk işlemi seçer, 1 kuantum
+	süresinden sonra kesintiye uğramak için bir zamanlayıcı ayarlar ve işlemi
+	CPU’ya gönderir.
+- RR politikası kapsamında ortalama bekleme süresi genellikle uzundur.
+
+Özetle; bir kuantum zaman belirlenir. Çalışması bu zamandan uzun olan process&#x27;ler
+bu süreye ulaştığında kesilir ve sıradaki process çalışır. Herbiri aynı şekilde
+uzunsa kesintiye uğrar. Eğer kuantum süresindeen kısaysa çalışır ve biter.</code></pre><figure id="0b72d859-9593-4bd5-af7b-72d3603cccec" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_093749.png"><img style="width:931px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_093749.png"/></a></figure><figure id="cdd3dc80-6646-4172-8bbb-e20969f79001" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_094018.png"><img style="width:926px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_094018.png"/></a></figure><pre id="0b1ffa32-2aee-4bd6-be07-baab28167c4b" class="code"><code>Bir process&#x27;in kuantum zamanı ne kadar küçük olursa o kadar kesinti olup sıradaki
+process çalışacak demektir. Herbir kesinti de context switching demektir.
+Context switcing de bir maliyettir. Bu yüzden kuantum süresinin çok kısa olması iyi değil</code></pre><pre id="ead27d15-58ea-4b3e-93c8-d0487abc5e11" class="code"><code>Çok seviyeli Kuyruk
+
+Bütün process&#x27;lerin tek bir kuyrukta durması yerine process&#x27;lerin farklı kuyyruklarda
+durmasıdır. Process&#x27;lerin farklı yanıt süreleri gereksinimleri vardır.
+
+Her kuyruğun kendi zamanlama algoritması vardır.
+
+Öncelik sıralamalarına göre kuyruk sıralanır. Öncelikli kuyruktaki process&#x27;ler bitmeden
+daha az yetkiye sahip process&#x27;lere sıra gelmez.</code></pre><pre id="4394713e-955f-49a7-8903-505e72bc5309" class="code"><code>Çok Seviyeli Geri Besleme Kuyruğu
+
+İşlemler kuyruklar arasında yer değiştirebilir; yaşlanma (aging) bu şekilde
+gerçekleştirilebilir
+
+Çok-seviye geri besleme kuyruğu zamanlayıcısı aşağıdaki parametrelerle
+tanımlanır:
+- Kuyrukların sayısı
+- Her bir kuyruk için zamanlama algoritması
+- Bir işlemin üst kuyruğa ne zaman alınacağını belirleme yöntemi
+- Bir işlemin alt kuyruğa ne zaman alınacağını belirleme yöntemi
+- Bir işlem çalıştırılmak için seçildiğinde hangi kuyruğa alınacağını
+	belirleyen yöntem
+	
+- Normal olarak, çok seviyeli kuyruk çizelgeleme algoritması kullanıldığında,
+	süreçler sisteme girdiklerinde kalıcı olarak bir kuyruğa atanır.
+- Örneğin ön plan ve arka plan işlemleri için ayrı kuyruklar varsa, süreçler bir
+	kuyruktan diğerine geçmez çünkü süreçler ön plan veya arka plan doğasını
+	değiştirmez.
+- Çok düzeyli geri bildirim kuyruğu zamanlama algoritması, aksine, bir işlemin
+	kuyruklar arasında hareket etmesine izin verir.
+- Buradaki amaç, işlemleri CPU burst özelliklerine göre ayırmaktır. Bir işlem
+	çok fazla CPU zamanı kullanırsa, daha düşük öncelikli bir kuyruğa taşınır.
+- Ayrıca, daha düşük öncelikli bir sırada çok uzun süre bekleyen bir işlem,
+	daha yüksek öncelikli bir kuyruğa taşınabilir. Bu yaşlanma şekli açlığı önler</code></pre><figure id="6d869278-46cf-4e77-921e-69f0ea953ecf" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_095306.png"><img style="width:938px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_095306.png"/></a></figure><figure id="889f37f6-58a1-480e-923f-819a46b12c2e" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_095343.png"><img style="width:928px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_095343.png"/></a></figure><pre id="44551e71-3d03-4620-8250-7a0713f2522d" class="code"><code>Priority Inversion:
+
+L&lt;M&lt;H önceliğe sahip ve L ve H aynı kaynağı kullanıyor olsun.
+L şuanda bölgeyi kilitlediyse(mutex) H bunun bitmesini bekler. Ready kuyruğunda
+M&#x27;nin sırası geldiyse H hala L&#x27;nin alanı bırakmasını beklerken M, H&#x27;den önce çalışır.
+Yani öncelik tersine dönmüş olur.
+
+Priority inheritance: Priority inversion&#x27;u engellemek için; L, bir kaynağı kullanırken
+H, o kaynağı kullanmak için gelirse; L, kaynağı salar ve H çalışır.</code></pre><h2 id="e73bbedd-d509-49d1-98bd-7f73ad1eddd3" class="">Hafıza</h2><pre id="600a729e-a1c5-4c22-b215-5ef99d56c2bb" class="code"><code>Programlar, eriştikleri verilerle birlikte yürütme sırasında en azından
+kısmen ana bellekte olmalıdırlar.</code></pre><pre id="a41f9fb5-adbb-4c6d-a8c9-0acc0deaf0df" class="code"><code>Bir işlemin erişebileceği kendi yasal bellek alanı olmalıdır. Bu korumayı bir taban
+ve bir sınır olmak üzere iki adet kayıt (register) kullanarak sağlayabiliriz:
+
+Taban registerı en küçük yasal fiziksel bellek adresini tutar; limit kaydı, aralığın
+boyutunu belirtir.
+
+Örneğin, taban registerı 300040&#x27;a sahipse ve limit registerı 120900 ise, program yasal
+olarak 300040 ila 420939 (dahil) arasındaki tüm adreslere erişebilir.
+Bellek alanının korunması, CPU donanımının kullanıcı modunda oluşturulan her adresi
+kayıtlarla karşılaştırmasını sağlayarak gerçekleştirilir</code></pre><figure id="05889e9e-3fef-46f9-9daa-6837ce1577e0" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_104400.png"><img style="width:891px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_104400.png"/></a></figure><pre id="ac27b707-05e3-4349-bdb1-620ab5905218" class="code"><code>Taban ve limit kayıtları, yalnızca ayrıcalıklı bir talimat kullanan işletim sistemi
+tarafından yüklenebilir</code></pre><figure id="7cef404d-f888-4a06-a838-dae702e286d6" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_104605.png"><img style="width:947px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_104605.png"/></a></figure><pre id="8d776cff-e10e-43b1-97a3-192b343bdb38" class="code"><code>Adres bağlama
+
+Adreslerin ve verilerin/komutların bağlandığı üç yer vardır:
+Loading time
+compile time
+runtime</code></pre><pre id="3b0a2dba-6968-40f1-9a07-de189e460bd1" class="code"><code>Çoğu sistem, bir kullanıcı işleminin fiziksel belleğin herhangi bir bölümüne
+yerleşmesine izin verir. Bu nedenle, bilgisayarın adres alanı 00000&#x27;den başlasa da, ilk
+işlem adresinin 00000 olması gerekmez.
+
+Kaynak programdaki adresler genellikle semboliktir.
+
+Bir derleyici tipik olarak bu sembolik adresleri yeniden yerleştirilebilir adreslere
+bağlar.
+
+Bağlantı düzenleyicisi (linkage editor) veya yükleyici (loader) sırayla yeniden
+yerleştirilebilir adresleri mutlak adreslere bağlar.</code></pre><pre id="50a0cf03-4b88-46ce-9601-47bfd054b53e" class="code"><code>Kütüphaneler, programla beraber hafızaya yerleşir ve çalışır.
+Ancak DLL(dynamic linkaging library)&#x27;ler kütüphane kodu gereken yerde hafızaya dahil
+olurlar yabni dimaik olarak.
+sistem kütüphaneler load-time&#x27;da yüklenirken DLL&#x27;ler run-time&#x27;da yüklenir.</code></pre><figure id="ed0dface-07e4-47e2-818f-7a6234c4ec50" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_105244.png"><img style="width:399px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_105244.png"/></a></figure><pre id="7b261c52-da47-4f84-b6c4-a6dd3405e687" class="code"><code>CPU tarafından üretilen bir adrese genellikle mantıksal adres denir, oysa
+bellek birimi tarafından görülen bir adrese - yani belleğin bellek adres
+yazmacına yüklenen adrese - genellikle fiziksel bir adres denir.
+
+Mantıksal adreslerden fiziksel adreslere çalışma zamanı eşlemesi, bellek
+yönetim birimi (Memory Management Unit) adı verilen bir donanım aygıtı
+tarafından yapılır</code></pre><figure id="d25bab61-94c6-45c4-a6bf-84dfbc773014" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_110251.png"><img style="width:955px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_110251.png"/></a></figure><figure id="7907bc91-d64b-4d4c-9091-16807fb54674" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_111005.png"><img style="width:975px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_111005.png"/></a></figure><pre id="8d5ad4c0-3c08-4098-a1db-76f1607a0133" class="code"><code>Stub: Dinamik kütüphanenin adresini gösteren bir işaretçidir</code></pre><pre id="f150310e-eb14-4307-bd43-205185293a31" class="code"><code>Swapping
+
+Standart swap, hafıza ile sabit disk arasında yapılan process değişimidir. Yer kalmazsa
+process disk&#x27;e taşınır. Sırası geldiğinde memory&#x27;e geri getilir.
+
+- Sistem, bellek görüntüleri yedek depoda veya bellekte olan ve çalışmaya
+	hazır olan tüm işlemlerden oluşan bir hazır kuyruğu tutar.
+- CPU zamanlayıcısı bir işlemi yürütmeye karar verdiğinde, dağıtıcıyı
+	(dispatcher) çağırır.
+- Dağıtıcı, sıradaki bir sonraki işlemin bellekte olup olmadığını kontrol eder.
+	Değilse ve boş bellek bölgesi yoksa, dağıtıcı o anda bellekte bulunan bir
+	işlemi istenen işlem ile takas eder.
+- Ardından kayıtları yeniden CPU’ya yükler ve kontrolü seçilen işleme aktarır.
+- Böyle bir takas sisteminde bağlam değiştirme süresi oldukça yüksektir.
+- Ayrıca bir işlemi takas etmek istiyorsak, tamamen boşta olduğundan emin
+	olmalıyız</code></pre><pre id="34beb9f6-d1ad-4f55-a760-a6779bd467fb" class="code"><code>Bitişik Swap (contiguous swap)
+
+Bellek genelde iki bölüme ayrılır: İşletim sistemi ve kullanıcı işlemleri:
+Low memory -&gt; işletim sisteminin oturduğu hafıza
+high memeory -&gt; kullanıcıya tahsis edilen hafıza
+
+İşletim sistemini düşük belleğe (low memory) veya yüksek belleğe (high
+memory) yerleştirebiliriz. Bu kararı etkileyen en önemli faktör, kesme
+vektörünün konumudur. Kesinti vektörü genellikle düşük bellekte
+olduğundan, programcılar genellikle işletim sistemini de düşük belleğe
+yerleştirir.</code></pre><pre id="7cca1cf9-91a1-4208-92c6-5b8497524e49" class="code"><code>• Kullanıcı işlemlerini birbirinden ve değişen işletim sistemi kodu ve
+	verilerinden korumak için yer değiştirme yazmaçları kullanılır
+- Taban yazmaç, en küçük fiziksel adresin değerini içerir.
+- Limit yazmaç, bir dizi mantıksal adres içerir - her bir mantıksal adres,
+	limit kaydından daha az olmalıdır.
+- MMU, mantıksal adresi dinamik olarak eşler.
+- Daha sonra çekirdek kodunun geçici olması ve çekirdeğin boyutunun
+	değişmesi gibi eylemlere izin verebilir.</code></pre><figure id="ce045d91-7685-4296-8aab-20834080dcf0" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_113352.png"><img style="width:892px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_113352.png"/></a></figure><pre id="040852b3-7541-4004-9590-c75b27310af4" class="code"><code>Çoklu Bölüm Yerleştirme
+
+- Bellek ayırmanın en basit yöntemlerinden biri, belleği birkaç sabit boyutlu
+	bölüme bölmektir.
+- Her bölüm tam olarak bir işlem içerebilir.
+- Bu nedenle, çoklu programlamanın derecesi bölüm sayısına bağlıdır.
+- Bu çoklu bölüm yönteminde, bir bölüm boş olduğunda, giriş kuyruğundan
+	bir işlem seçilir ve boş bölüme yüklenir. İşlem sona erdiğinde, bölüm başka
+	bir işlem için kullanılabilir hale gelir.
+- Bu yöntem ilk olarak IBM OS / 360 işletim sistemi tarafından kullanılmıştır,
+	ancak artık kullanılmamaktadır.
+- Sabit bölümlü şemanın genelleştirilmiş halidir; öncelikle toplu iş
+	ortamlarında kullanılır.
+- Verimlilik için değişken bölüm boyutları vardır.
+- Delik (Hole):Kullanılabilir bellek bloğu; çeşitli büyüklükteki delikler bellek
+	boyunca dağılmıştır.
+- İşlemler sisteme girerken, bir girdi kuyruğuna konurlar. İşletim sistemi,
+	hangi işlemlere bellek ayrılacağını belirlerken her işlemin bellek
+	gereksinimlerini ve kullanılabilir bellek alanı miktarını dikkate alır.</code></pre><pre id="968ff498-611f-43a8-9b5b-598c69725d46" class="code"><code>Bir işleme alan tahsis edildiğinde, belleğe yüklenir ve daha sonra CPU zamanı
+için rekabet edebilir. Bir işlem sona erdiğinde, işletim sisteminin giriş
+kuyruğundan başka bir işlemle doldurabileceği belleğini serbest bırakır.
+
+İşletim sistemi belleğin hangi bölümlerinin kullanılabilir olduğunu (free
+partitions, hole)ve hangilerinin işgal edildiğini (allocated partitions) gösteren bir
+tablo tutar.
+
+Başlangıçta, tüm bellek kullanıcı işlemleri için kullanılabilir ve bir büyük
+kullanılabilir bellek bloğu, bir boşluk olarak kabul edilir.
+
+Herhangi bir zamanda, mevcut blok boyutlarının bir listesi ve bir girdi kuyruğu
+bulunur. İşletim sistemi, girdi kuyruğunu bir zamanlama algoritmasına göre
+sıralayabilir.
+
+Son olarak, bir sonraki işlemin bellek gereksinimleri karşılanamayana kadar
+işlemlere bellek tahsis edilir; yani, bu işlemi tutacak kadar büyük kullanılabilir
+bellek bloğu (veya delik) yoktur.
+
+İşletim sistemi daha sonra yeterince büyük bir blok bulunana kadar bekleyebilir
+veya başka bir işlemin daha küçük bellek gereksinimlerinin karşılanıp
+karşılanamayacağını görmek için giriş kuyruğunu atlayabilir.</code></pre><figure id="66a00087-835f-4bae-8ca0-c751dbafcec8" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_115548.png"><img style="width:950px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_115548.png"/></a></figure><pre id="2fd6ac61-4e7b-4e86-a4cc-b2958e7d9d78" class="code"><code>Dinamik Depolamada Yerleştirme Problemi
+
+İlk uyan: Yeterince büyük ilk delik tahsis edilir.
+Best fit(en iyi uyan): Tüm hafıza aranıp en uygun boyutlu alan tahsis edilir.
+worst fit: en büyük dedlik tahsis edilir.</code></pre><pre id="a4b25eee-450e-4d1c-93d3-f83ab25c23c0" class="code"><code>Fragmentation(Parçalanma)
+
+Process yerleştirildiğinde arta kalan, bir process&#x27;in sığamayacağı kadar küçük alanlar
+Bu yüzden israftır.
+
+İkiye ayrılır:
+Dış parçalanma: Arta kalan bütün parçaları birleştirip büyük bir alan oluşturur
+Bütün process&#x27;leri bir yana yığar(taşıma işlemi) ve kalan alana tamamen boştur.
+
+İç parçalanma (internal fragmentation): programın boyutuna bakılmaksızın eşit 
+büyüklükteki hafıza alanlarına oturular. Kendisine ayrılan bölümde açıkta kalan
+alana iç parçalanma denir.</code></pre><figure id="c3d348c7-1fc0-4d79-a776-f69c2ebd64ce" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_120644.png"><img style="width:800px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_120644.png"/></a></figure><pre id="8367dd26-1048-4674-9263-c4d298fa8820" class="code"><code>Her bölüm hafızada farklı yerlerde oalbilir. Ardarda sıralı olmak zorunda değillerdir.
+
+Her segmentin bir adı ve uzunluğu vardır. Adresler, hem segment adını hem
+de segment içindeki ofseti belirtir. Uygulama kolaylığı için, segmentler
+numaralandırılmıştır ve segment adı yerine segment numarası ile anılırlar.</code></pre><figure id="b25832fd-34da-4ffd-a0e5-634496626d9a" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_120900.png"><img style="width:799px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_120900.png"/></a></figure><figure id="a21df9b4-a11b-4c7b-83d5-8d47677f05c4" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_121000.png"><img style="width:787px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_121000.png"/></a></figure><pre id="7dfdc8ba-efbd-4700-aa97-b460c7a42cba" class="code"><code>Paging
+
+Segmentasyon, bir işlemin fiziksel adres alanının bitişik olmamasına izin
+verir. Sayfalama, bu avantajı sunan başka bir bellek yönetimi tekniğidir.
+
+Sayfalama farklı boyutlardaki bellek parçalarının oluşmasını da önler.
+
+Sayfalama uygulamak için temel yöntem, fiziksel belleği çerçeve (frame) adı
+verilen sabit boyutlu bloklara ve mantıksal belleği sayfa (page) adı verilen
+aynı boyuttaki bloklara bölmeyi içerir</code></pre><figure id="6aaa2f54-506b-45c9-b232-65e8ac689cbe" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_133537.png"><img style="width:761px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_133537.png"/></a></figure><figure id="41787de6-272f-4527-90dc-99ae643a36bd" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_133514.png"><img style="width:1023px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_133514.png"/></a></figure><figure id="9ad17d40-9bcd-454f-b7d3-0f95ec256fed" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_133659.png"><img style="width:918px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_133659.png"/></a></figure><figure id="d033b2cb-8cb2-4479-8814-27a70142a2dc" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_134200.png"><img style="width:972px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_134200.png"/></a></figure><figure id="7abaea62-bc94-488b-8e51-7e77e96ef3a0" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_134715.png"><img style="width:1106px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_134715.png"/></a></figure><h2 id="ad3da53c-d4c6-494d-90b4-9717ecde6e41" class="">Hafıza Koruma</h2><pre id="c3c8f7dd-6330-416a-8b41-6a5fce743bdc" class="code"><code>Disk belleği ortamındaki bellek koruması, her bir çerçeveyle ilişkili koruma
+bitleri tarafından gerçekleştirilir.
+
+Bir bit, bir sayfayı okuma-yazma veya salt okunur olarak tanımlayabilir.
+Belleğe yapılan her başvuru, doğru çerçeve numarasını bulmak için sayfa
+tablosundan geçer.
+
+Fiziksel adres hesaplanırken aynı zamanda, salt okunur bir sayfaya yazma
+yapılmadığını doğrulamak için koruma bitleri kontrol edilebilir.
+
+Salt okunur bir sayfaya yazma girişimi, işletim sisteminde bir donanım
+tuzağına (veya bellek koruması ihlaline) neden olur.
+
+Sayfa tablosundaki her girişe eklenen geçerli-geçersiz (valid-invalid) bit:
+	- &quot;geçerli&quot;, ilişkili sayfanın işlemin mantıksal adres alanında olduğunu ve
+dolayısıyla yasal bir sayfa olduğunu belirtir.
+	- &quot;geçersiz&quot;, sayfanın işlemin mantıksal adres alanında olmadığını belirtir
+	-Herhangi bir ihlal, kernelda bir tuzakla sonuçlanır.</code></pre><figure id="0f3c1204-e3b7-4cf6-8625-b3fe26b55f90" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_135411.png"><img style="width:735px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_135411.png"/></a></figure><pre id="7486e4f0-8f3a-4563-a00d-f691153266f4" class="code"><code>Kod boyutu 150KB olan bir program farz edelim. Bu programdan 10 tane birden açtığımızı
+düşünürsek hafızada 150*10 = 1500KB yer kaplaycak ve hepsi aynı kod(eğer runtime
+de değişmiyorsa) ise hafızada boiuna aynı kod duracak. Bunun yerine kodun tek bir 
+kopyasını bir page&#x27;de tutup diğer programarın o sayfayı paylaşmasını sağlamaya
+paylaşımlı sayaflar denir. Her process&#x27;in sadece kendi veri deposu olur. Kodları ortak</code></pre><figure id="ceeca19c-b7f0-47c9-bed7-62dfb48fb294" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_141603.png"><img style="width:906px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-05_141603.png"/></a></figure><h3 id="06a5bf2c-2ca2-431d-8c60-77a5a84804e0" class="">Yığın Depolama Sistemleri</h3><pre id="f6652bd4-f126-469a-b972-2d9aad1bb8d6" class="code"><code>Disk; tabak adı verilen dairesel CD gibi iki cisimden oluşur. Herbir tabağın iki
+yüzeyi de manyetik bir malzeme ile kaplıdır. Her bir tabağın üstünde ise okuma-yazma
+kafası vardır. Bu kafalar, beraber hareket etmelerini sağlayan bir parçaya bağlanmıştır.
+Bu ana parça ise bir motordan oluşmaktadır. Motorun dönme hızına göre disk çeşitleri
+bulunmaktadır. 7200 RPM(revolution per minute), 10000 RPM, 15000 RPM... adı verilir.
+
+Her tabak, merkezleri aynı olan çok sayıda silindirden oluşur. Her silindir de
+SEKTÖR adı verilen parçalara bölünmüştür.
+
+Bir tabağın yüzeyi mantıksal olarak sektör adı verilen dairesel parçalara
+bölünmüştür. </code></pre><pre id="caf1bc4c-9cfd-48ce-ad67-63364eb6a504" class="code"><code>Klasik diskler saniyede birkaç MB veri aktarabilir.
+
+Okuma-yazma kafasının, gerekli sektöre gelmesi için geçen süreye, arama süresi denir.</code></pre><pre id="be61815a-1b34-4bbd-8363-0c73d00329f1" class="code"><code>Bir disk sürücüsü, G/Ç veri yolu adı verilen bir dizi kabloyla bilgisayara
+bağlanır.
+ATA, SATA, eSATA, F(fiber)C
+
+Bir veri yolu üzerindeki veri aktarımları, kontrolör adı verilen özel elektronik
+işlemciler tarafından gerçekleştirilir.</code></pre><pre id="296e4f0c-47a1-44c3-b2fb-32b49372c2eb" class="code"><code>SSD VS HDD
+
+- SSD, sabit sürücü gibi kullanılan kalıcı bellektir.
+- SSD&#x27;ler, geleneksel sabit disklerle aynı özelliklere sahiptir, ancak hareketli
+	parçaları olmadığı için daha güvenilir ve arama süreleri veya gecikmeleri
+	olmadığı için daha hızlı olabilirler.
+- Ayrıca daha az güç tüketirler.
+- MB başına maliyeti daha pahalıdırlar.
+- Daha kısa ömre sahiptirler.
+- Daha az kapasitedirler.
+- Ama çok daha hızlıdırlar.</code></pre><pre id="2a8882a2-ddfa-4acd-a1df-634285c7de86" class="code"><code>Bilgisayarlar disk depolama alanına iki şekilde erişir:
+
+Host-attached: Bilgisayara G/Ç portları ile bağlanır.
+
+Network-attached: Ağa bağlı depolama (NAS) cihazı, bir veri ağı üzerinden uzaktan
+erişilen özel amaçlı bir depolama sistemidir
+İstemciler, uzaktan prosedür çağrıları ile, depolama ile iletişim kurar.
+Uzaktan yordam çağrıları (RPC&#x27;ler) ile veriler bir IP ağı üzerinden TCP veya
+UDP aracılığıyla taşınır</code></pre><figure id="b942deb5-f194-4709-a4b2-ffaf89673290" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_213120.png"><img style="width:894px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_213120.png"/></a></figure><pre id="b820117f-d8b3-4550-91ad-7bd58fb97caa" class="code"><code>- Ağa bağlı depolama sistemlerinin bir dezavantajı, depolama G/Ç işlemlerinin
+	veri ağındaki bant genişliğini tüketmesi ve böylece ağ iletişiminin gecikmesini
+	artırmasıdır.
+- Böylece sunucular ve istemciler arasındaki iletişim, bant genişliği için sunucular
+	ve depolama cihazları arasındaki iletişimle rekabet eder duruma gelir.
+- SAN, sunucuları ve depolama birimlerini birbirine bağlayan (ağ protokolleri
+	yerine depolama protokollerini kullanan) özel bir ağdır.</code></pre><figure id="173ace7b-0a5c-4a62-b169-c02687c2901d" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_213442.png"><img style="width:890px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_213442.png"/></a></figure><pre id="d59ef7a7-5873-4e98-9e73-e9ca5ac976af" class="code"><code>Yukarıdaki gibi, SAN tekrar dizayn edildiğinde bağlantı genişliği için sunucular ve
+depolama cihazları rekabet etmez.</code></pre><h3 id="9e52bd6a-962c-4b77-a267-eb54633cafad" class="">Disk Zamanlama</h3><pre id="0cba6ff1-7748-42db-ac56-4230fec7f7aa" class="code"><code>Disk bant genişliği, aktarılan toplam bayt sayısının, ilk hizmet talebi ile son
+aktarımın tamamlanması arasındaki toplam süreye bölümüdür
+
+Disk&#x27;e veri okumak-yazmak için de kuyruktan başka işlemler bekliyor olabilir.
+Bunun da zamanlaması olmalı bu yüzden.</code></pre><pre id="47462f43-6147-4551-a275-db82f084ce7a" class="code"><code>FCFS
+
+Disk zamanlamanın en basit biçimi, elbette, ilk gelen ilk hizmet alır (FCFS
+algoritmasıdır.
+Kuyruğa ilk hangi istek geldiyse ilk olarak o adrese gidilir. Daha sonra kuyruktaki
+sırayla hizmet verilir.</code></pre><figure id="074edade-81b8-4e25-ba67-950075e3f0cb" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_215100.png"><img style="width:712px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_215100.png"/></a></figure><figure id="f083b3a9-3f7a-4916-aa06-181ea501c458" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_215251.png"><img style="width:958px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_215251.png"/></a></figure><pre id="7cc25aa4-e6b7-4be8-aa22-21663d57151f" class="code"><code>SCAN(Asansör) Algoritması
+
+Başlık, bulunduğy noktadan bir uca kadar kuyruktaki yolunun üzerindeki adreslerde 
+işlemler yaparak giderek. Uca vardıktan sonra diğer uca kadar işlemler yaparak gider.
+Yani diskin bir başında diğer başına okumaya devam ederek gider.</code></pre><figure id="da04b851-4409-4148-ba8b-84f969a888e7" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_220053.png"><img style="width:720px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_220053.png"/></a></figure><pre id="e35a6db8-519a-4ecd-b87c-fb82bc215866" class="code"><code>C-SCAN Algoritması
+
+Başlık, diskin başından diğer başına okumadan gider. 
+
+Hem SCAN hem de CSCAN, disk kolunu diskin tüm genişliği boyunca hareket ettirir.</code></pre><figure id="412330e8-2182-4383-9dea-540c6a45c90b" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_221037.png"><img style="width:697px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_221037.png"/></a></figure><figure id="cd42afdb-cb64-47ba-8292-92cbe7d3e58f" class="image"><a href="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_221443.png"><img style="width:954px" src="I%CC%87s%CC%A7letim%20Sistemleri%20Dersi%20b0c7d7a1b37f42ddb209b3a2f54f2f58/Ekran_grnts_2022-01-20_221443.png"/></a></figure><pre id="427bc581-3839-4376-aee3-77fbabaa91a7" class="code"><code>C- Look Algoritması
+
+Başlık, bulunduğu noktadan diskin başına gider ancak tam olarak sonuna varmaz.
+Diskin en somuna en yakın adrese varır. Eğer başka adres yoksa diskin diğer başına
+gider ve orası için de aynı şey geçerlidir.</code></pre></div></article></body></html>

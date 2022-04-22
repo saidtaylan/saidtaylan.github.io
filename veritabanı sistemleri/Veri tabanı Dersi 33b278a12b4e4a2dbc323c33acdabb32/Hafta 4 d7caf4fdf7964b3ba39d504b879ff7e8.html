@@ -1,0 +1,926 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hafta 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d7caf4fd-f796-4b3b-a39d-504b879ff7e8" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🗒️</span></div><h1 class="page-title">Hafta 4</h1></header><div class="page-body"><h3 id="7dacc54c-6912-46cd-bb39-45bf242386af" class=""><mark class="highlight-pink">KÜMELEME FONKSİYONLARI</mark></h3><pre id="41f875d8-2cb3-40ec-a2f1-729ffdab3449" class="code"><code>// Veritabanında yapılabilen işlemler veritabanında yapılmalıdır.
+// Örneğin 100.000 tane kullanıcının maaş bilgilerinin ortalamasını almak gerekiyorsa
+// bunu veriitabanında yapmak mantıklıdır. Bu, elbette programlama dili ile verileri
+// çektikten sonra yapılabilir. Ancak SQL&#x27;de daha hızlı olacaktır</code></pre><pre id="d49a3b32-4bd4-4c35-8caf-a1d9105e1be3" class="code"><code>// AVG: İçine yazılan sütunun ortalamasını alır.
+// count: içine yazılan sütundaki null olmayan verilerin sayısını döner.
+
+select avg(maas) ortalama_maas from personel
+// personel tablosundaki kişilerin maaşlarının ortalamasını alıp, ortalama_maas takma adı
+// ile getirir. Tablodaki tüm satırların ortalmasını alacaktır
+
+select avg(maas) ortalama_maas from personel where isim like &#x27;A%&#x27;
+// ismi A ile başlayan personellerin maaşlarının ortalamasını alıp, ortalama_maas
+// takma adı ile getirir.
+
+select round(5.576, 2) as round_,
+ceiling(5.579) as ceiling_,
+floor(5.576) as floor_
+// round fonksiyonu; içerisine girilen sayının virgülden sonraki parametre kadar
+// basamak sayısı bırakır Yani sayımız 5.57 olacaktır
+// ceiling fonksiyonu, içine girilen sayıyı bir üst tam sayıya yuvarlar.
+// floor fonksiyonu; içine girilen sayıyı, bir alt tam sayıya yuvarlar.
+
+select count(maas) as sayi from personel
+// kaç tane maaş sütununa sahip satır olduğunu, &#x27;sayi&#x27; takma adıyla getirir.
+// eğer veriler arasında, değeri &#x27;null&#x27; olan bir satır olsaydı null olan satır
+// toplam sayıya dahil olmaz.
+// select count(maas), isim from personel -&gt; böyle bir sorgu hata verir. Çünkü
+// count fonksiyonu döndürülmek istendiğinde count, maas verisine sahip bütün
+// satırların toplam sayısını döndürmek isterken, isim ise isme sahip olan satırları
+// döndürmek ister. Bu yüzden hata verir. 
+// NOT: Getirilmek istenen verilerin her birinin getireceği satır sayısı aynı olmalıdır.
+
+select count(*) as sayi from personel
+// Her zaman maas sütunlarının hepsinin &#x27;null&#x27; olmadığını bilemeyiz.
+// Eğer maas verisine göre bir satır sayma işlemi yaparsak ve maas değeri null olan
+// bir satır varsa bize yanlış satır sayısı dönecektir.
+// Ancak &#x27;*&#x27; ifadesini koyarsak, sütunlar arasında
+// illaki &#x27;null&#x27; olmayan bir veri olacağı ve null olmayan verileri getireceği için
+// bütün satırların sayısını dönecektir.
+
+select count(maas) from personel where ulke=&#x27;Turkiye&#x27;
+// Ülkesi Türkiye olan personellerden maaş verisi &#x27;null&#x27; olmayanları getirir.
+
+select count(distinct ulke) as ulkeSayısı from personel
+// disctinct; yanına yazılan sütunun içindeki verinin aynısından, tabloda
+// birden çok sütunda varsa sadece bir tanesini döndürür. Bunu count fonksiyonu
+// içine verdiğimizde toplam kaç ülke olduğunu döndürür.
+
+select isim from personel where yas=(select max(yas) from personel)
+// personel tablosundan yaşı en büyük olan personelin ismini getir.
+// max() ve min() fonksiyonları, içine girilen sütundaki maximum/ minimum veriyi
+// getirir.
+// Where ifadesinden sonra bir alt sorgu daha yazılabilir. Çünkü zaten sorgular
+// geriye bir değer döndürürler. Bu alt sorgudan dönen değeri alıp where şartımız
+// için kullanabiliriz.
+// Personellerin isimlerini çek. Nereden çek? Yaşı, personel tablosundaki yaşı en büyük
+// olan personelin yaş bilgisine eşit olan kullanıcıyı çek.
+
+select sum(maas) from personel
+// personellerin maaş bilgislerini toplar ve getirir.
+// Sum fonksiyonu, içine yazılan sütundaki verileri toplar.</code></pre><pre id="14357866-fb98-4801-80bc-3e1f6121cc02" class="code"><code>                              -- GROUP BY --
+
+// Tanım: Sütunu belirtilen aynı verileri gruplayarak getirir.
+
+select ulke from personel group by ulke
+// ulkeleri aynı olan personelleri ülkelerine göre gruplayıp toplam kaç tane farklı ülke 
+// çıktıysa o ülkeleri getirir.
+// Örneğin 150 kişinin ülkesi Türkiye, 500 kişinin ülkesi ABD, 120 kişinin ülkesi Almanya,
+// 120 kişinin ülkesi İngiltere ise sadece 4 ülkenin ismini getirir. Çünkü 4 ülke altında
+// gruplandı.
+// Veriler gruplanırken hem en üstte hem en altta Trükiye varsa veriler
+// getirilirken Turkiye grubu en altta olacaktır. Çünkü tablodaki son veri son grup olur
+
+select ulke, avg(maas) from personel
+// Bu sorgu hata verecektir. Getirilen verilerin satır sayıları aynı olmalıdır.
+// Personel sayısı kadar ulke olmasına rağmen bir tane ortalama verisi olacaktır.
+
+select ulke, avg(maas) from personel group by ulke
+// Bu sorgu hata vermez. Çünkü gruplama yaptık. Cinsiyete göre verileri grupladık.
+// Gruplanan veriler arasında ortalama alır. 4 tane grup varsa her grubun kendi içinde
+// ortalamasını alır. Ve ulkelerini de getirir.
+
+select ulke, kent from personel group by ulke, kent
+// personelleri önce ülkelerine, sonra kentlerine göre gruplayıp ülke ve kent bilgilerini
+// döndürür
+
+select ulke, cinsiyet, avg(yas), count(*) from personel group by ulke, cinsiyet
+// personelleri önce ülkeye sonra cinsiyete göre gruplayıp ülke, cinsiyet, yas
+// ortalamalarını, ve her grupta kaç personel olduğunu döndürür. Eğer gruplama işlemi
+// varsa, count grupların kendi içinde sayma yapar
+
+select ulke, cinsiyet avg(yas), count(*) from personel where maas&gt;2000
+group by ulke, cinsiyet
+// Maaşı 2000&#x27;den büyük olan personelleri ülke ve cinsiyetlerine göre sıralayıp ülke,
+// cinsiyet, yas ortalamalarını,
+// ve her grupta kaç personel olduğunu döndürür.
+// Where ifadesi, group by&#x27;den önce gelmelidir.</code></pre><pre id="e528b316-977d-417c-a7aa-ef75cac3a288" class="code"><code>                              -- HAVING --
+
+// Tanım: Where ifadesine oldukça benzemektedir. Ancak where ifadesi sütunlar için
+// çalışır Yani &#x27;bana şu şartı sağlayan sütunları getir&#x27; diyebiliriz &#x27;where&#x27; ile. 
+// Ancak having&#x27;de birden fazla sütun birbiriyle ilişkiye giriyorsa, ortalamaları
+// alınıyorsa, aralarında işlemler yapılıyorsa yani sadece bir sütun değil de
+// birden fazla sütun arasındaki ilişkilerde şart arıyorsak o zaman having kullanılır.
+// &#x27;Group by&#x27; gibi ifadelerde kullanılabilir.
+// Her sütunda tekrar eden bilgiler için having kullanılır.
+// Mesela personellerin maaşları olsun. Biz ise ülkesi Türkiye olan personellerin
+// maaş ortalamalarını almak istiyoruz. Her satırda &#x27;ortalama&#x27; diye bir veri olmadığı
+// için ortalama bilgisi, birden çok satırı ilgilendirdiği için where yerine
+// having kullanılır burada.
+
+select kent, ulke from personel group by kent having count(*) &gt; 1
+// personelleri kentlerine göre gruplayıp her kentin kendi içinde toplam sayısını
+// alıp(yani o kente sahip kaç kişi olduğu)
+// bu sayı 1&#x27;den fazla olan personellerin kent ve ulke bilgisini getirir.
+// Burada where yerine having kullanıldı çünkü her kentten kaç kişi olduğu bilgisi
+// her satırın sahip olduğu salt bir bilgi değil. Gruplandıktan sonra birden çok satırın
+// sayılıp bulunduğu bir veri.
+
+select avg(maas) from personel where cinsiyet=&#x27;E&#x27; group by ulke having avg(maas)&gt;3000
+// personelleri ülkelerine göre gruplayıp cinsiyeti Erkek olan; her bir gruptaki, maaşı
+// 3000&#x27;den büyük olan personellerin maaş ortalamalarını getirir.
+// Burada cinsiyet için &#x27;where&#x27; kullanıldı çünkü cinsiyet bilgisi her satırın sahip
+// olduğu cinsiyet sütunundaki bir bilgidir. Her satır bu bilgiye sahiptir.
+// Maaş ortalaması için ise &#x27;having&#x27; kullanıldı çünkü maaş ortalama bilgisi satırların
+// sahip olduğu bir bilgi değil. Gerekli satırlar arasında bir işlem yapılıp
+// bulunan bir veridir.
+
+
+select ulke, avg(yas) as yas_ort, avg(maas) as maas_ort, count(*) as kisi_sayisi
+from personel where maas&gt;=2000 group by ulke
+having avg(yas)&gt;=25 
+// Maaşı 2000&#x27;e eşit veya daha fazla olan personelleri ülkelerine göre gruplayıp
+// grubun yaş ortlaması 25&#x27;e eşit veya daha büyük olan grupların ülke, yaş ortalaması,
+// maaş ortalaması ve kişi sayısı bilgilerini, gerekli olanlara &#x27;as&#x27; ifadesi ile
+// takma isim vererek getirir
+
+select top(1) ulke, avg(maas) from personel group by ulke order by avg(maas) desc
+// personelleri ulkelerine göre gruplayıp, grupları kendi içlerindeki maaş
+// bilgilerine göre  her grubun ortalamasını alıp bunları ters sıralayıp gelen
+// tablodaki en üst satırdaki verinin ulke ve maaş bilgisinin ortalamasını getirir.
+
+select max(ort_maas) as max_ort_maas from (select ulke, avg(maas) as ort_maas
+from personel group by ulke)
+// personelleri ulkelerine göre gruplayıp, grupları kendi içlerindeki maaş bilgilerine
+// göre sıralayıp grupların ülkelerini ve grupların ortalama maaşlarını, &#x27;ort_maas&#x27;
+// takma adıyla getirip gelen ortalama maaşların maximum&#x27;unu seçer ve getirir.
+// Aslında bu, bir üstteki sorgu ile aynı sonucu döndürecektir. Ancak bu sorguda,
+// ara sorgu(sorgu içinde sorgu) kullanılmıştır.
+// Sırasıyla şöyle bir sıralama vardır:
+// Ortalama maaşların(ort_maas) maximumunu , &#x27;max_ort_maas&#x27; takma adıyla getir.
+// Nereden getir?
+// Personel tablosundaki personelleri ulkelerine göre sırala ve her grubun kendi
+// içinde maaşlarını ortalamasını al. Grupların ülkelerinden ve &#x27;ort_maas&#x27; takma adıyla
+// isimlendirilmiş olan  maaş ortalamaları sonucu oluşan ara sorgudan dönen
+// tablodan getir.
+// (Son üç satırdaki cümle, ara sorgunun yaptığı işi ifade etmektedir.
+// Ara sorgu bize aslında görünmeyen bir tablo döner. Biz normalde işlem yapmak
+// istediğimiz tabloyu &#x27;from&#x27; ifadesinden sonra yazarız. Burada ise ara sorgunun
+// bize sağlamış olduğu görünmez tabloyu seçmiş oluyoruz. Bu örnekte bize,
+// ulke ve ortalama maaş bilgilerinden oluşan bir tablo sağlanmış oldu ve bunun
+// içinden seçim yapacağız. Zaten biz, normalde de yaptığımız sorgularda bize bir
+// tablo döndüğünü biliyoruz. Örneğin SQL management Studio&#x27;da yaptığımız sorgular
+// sonucunda ekranın altında bir tablo elde ediyoruz.)
+// Ara sorguyu ileriki süreçte daha ayrıntılı göreceğiz.
+</code></pre><p id="740d30ed-9ed4-498f-9cb2-7b47d6e80f73" class="">
+</p><h3 id="74a9a256-4150-4e01-bfae-835ce8ad324e" class="">Laboratuvar Dersi</h3><hr id="a961e395-59a9-4af0-adb4-697d9b15ab15"/><pre id="e6c4ed98-03ff-4ded-ab22-66ff1392fcbf" class="code"><code>select avg(maas) ortalama_maas from personel
+// personellerin ortalama maaşlarını, ortalama_maas takma adıyla getirir
+
+select sum(yas) yas_toplam from personel
+// personellerin yas ortalamalarını, yas_toplam takma adıyla getirir
+
+select max(yas) en_yasli from personel
+// en yaşlı personeli, en_yasli takma adıyla getirir.
+
+select min(maas) min_maas from personel
+// en düşük maaşlı personeli getirir
+
+select avg(maas) ortalama_maas, 
+min(maas) min_maas,
+sum(yas) yas_toplam,
+max(yas) en_yasli
+from personel
+// yukarıdaki bilgileri bir tabloda tek sorguyla çeker.
+
+select count(cinsiyet) from personel
+// cinsiyet sütunu null(boş/verisi olmayan) olmayan satırların sayısını getirir
+
+select count(distinct ulke) from personel
+// Ulkesi aynı olmayan, ve ulke sütunu boş olmayan personel sayısını getirir
+// Distinct, aynı olan verilerden sadece bir tanesini getirir. Yani ülkesi aynı
+// olanların sadece bir tanesini döndürür. Kaç tane satır dönerse count da, bu
+// dönen satırların kaç tane olduğunu söyler.
+
+select ulke, kent from personel group by ulke, kent
+// Önce ülkeye sonra kente göre gruplar. Gruplanan verileri getirir
+
+select ulke, count(personel_no) personel_sayi from personel 
+where ulke is not null group by ulke order by ulke, kent desc
+// ülkesi null olmayan personelleri ulkelerine göre gruplayıp ulkeye göre sıralı,
+// kente göre ters sıralı bir şekilde personel_no&#x27;su boş olmayan satırları
+// personel_sayi takma adıyla ve ayrıca ulkelerini getirir.
+
+update personel set cinsiyet=&#x27;K&#x27; where personel_no=116
+// personel_no&#x27;su 116 olan kullanıcının cinsiyetini Kadın olarak ayarla
+
+select ulke, cinsiyet, count(*) from personel group by ulke, cinsiyet order by ulke, cinsiyet
+// personelleri ulke ve cinsiyetlerine göre gruplayıp(ülkesi ve cinsiyeti aynı
+// olanları gruplar) ardından ulke ve cinsiyete göre sıralayıp ulke, cinsiyet
+// bilgilerini ve bunlardan kaç kayıt döndüğünü(count(*)) getirir.
+// Eğer ulkeye göre gruplayıp cinsiyete göre gruplamazsa getirilecek satırlar
+// arasında uyumsuzluk olacağından dolayı hata verecektir.</code></pre><pre id="a15f9858-f5c1-408b-9a52-f3a323745e81" class="code"><code>                               -- HAVING -- 
+
+select ulke, cinsiyet, count(*) from personel
+group by ulke, cinsiyet having count(*)&gt;2
+order by ulke, cinsiyet
+// personelleri ulke ve cinsiyetlerine göre gruplar, ve her grubun içinde satır sayısı
+// 2&#x27;den fazla olanları ülke ve cinsiyetlerine göre sıralayıp bunlardan ülke, cinsiyet
+// ve her gruptaki satır sayısını getirir.
+
+select ulke, avg(maas) from personel group by ulke
+having min(maas)&gt;=3000
+// personelleri ülkelerine göre gruplayıp minimum maaşı 3000&#x27;den yüksek olan grupların
+// ulke ve maaş ortalamalarını getirir.</code></pre><pre id="0dc4f7a1-332c-444b-8c32-93d71707c047" class="code"><code>                       --  ARA SORGU -- (nested query)
+
+select ad, soyad, min(maas) from personel
+// maaşı minimum olan kullanıcının ad ve soyadını getir.   X
+// Yukarıdaki gibi bir sorgu olamaz. Hata verecektir
+// Aslında biz burada demiş oluyoruz ki personellerin ad, soyadını ve maaşı minimum olan
+// personeli getir.
+// Ama maaşı minimum olan kullanıcı bir tane(ya da belki birden fazla) iken ad ve soyad
+// ise bütün satırları dönecektir. Satır sayıları birbirinden farklı. Mantıksal
+// olarak bir hata var
+
+select ad, soyad from personel where maas&lt;(select * min(maas) from personel)
+// Maaşı, ortalama maaştan yüksek olan kullanıcıların ad ve soyadlarını getirir
+// Ad ve soyadı getir. Nereden getir. Personel tablosundan getir. Peki kimi getireyim?
+// Personel tablosundaki kullanıcılardan minimum maaş alan kullanıcıyı ara sorgu ile
+// çek. Maaşı bu değerden küçük olan personelleri getir.</code></pre><pre id="b4846d9e-45ef-492f-aa70-aa3ef9ca8367" class="code"><code>select upper(ad), soyad, maas*1.1 zamli_maas from personel
+// ad bilgisini büyük harflerle, soyadı ve maaşın 1.1 katını zamli_maas ismiyle getirir
+// Upper fonksiyonu, içine girilen değeri/ sütunu büyük harflerle yazar
+
+select sum(maas) - (avg(maas)*count(*)) from personel
+// personellerin maas ortalamasını, personel sayısı ile çarpıp personellerin maaş
+// toplamından çıkarıp bize döndürür
+
+select ulke from ulkeler where sehir in(select distinct kent from personel)
+// ülkeler tablosundan ulkeyi getir. Nereden getir?
+// şehri; personel tablosundaki personellerin kentlerinden birisi olanlardan getir.
+// Daha ayrıntılı açıklarsak; &#x27;distinct&#x27; ifadesi aynı verilerden sadece bir tanesini
+// seçerdi. Personellerin şehri aynı olanlardan sadece bir satırı getirir.
+// Böylece parantezin(ara sorgu) içinde elemanları eşsiz bir tablo döndürmüş
+// oluyoruz aslında. &#x27;In&#x27; ifadesi ile de şehri, bu listede olan ulkeleri getir
+// demiş oluyoruz.
+
+select * from personel where cinsiyet=&#x27;E&#x27; and maas&gt;(select avg(maas) from personel)
+// cinsiyeti erkek olan; maaşı, ortalama maaştan yüksek olan personelleri getirir.
+// Ara sorgu, personellerin ortalama maaşlarını döndürmemize yarar. Ve maaşı
+// bu dönen veriden yüksek olanları getirecektir.</code></pre></div></article></body></html>

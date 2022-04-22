@@ -1,0 +1,907 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Hafta 7</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5b465935-359a-48cf-9fe3-79c3d4bf2cc3" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🗒️</span></div><h1 class="page-title">Hafta 7</h1></header><div class="page-body"><pre id="d7ef5770-da61-41eb-a7a0-2681061b9b73" class="code"><code>select from kisiler, personel
+// Kisiler ve personel tablolarını kartezyen çarpım yaparak bize sunar.
+// kisiler tablosundaki her kisiyi personel tablosundaki her kişiyle sütunlarını
+// birleştirir.
+// Kişilerde 3, personelde 9 kayıt varsa 27 sonuç dönecektir
+// Ancak bu kullanışlı bir şey değildir.
+
+select isim from uyeler, personel
+// isim sütunu, her iki tabloda da bulunduğu için hata verir. Hangi tablodaki isim
+// sütununu getireceğini bilemez
+
+select uye_adi from uyeler, personel
+// uye_adi sütunu sadece uyeler tablosunda bulunduğu için sonucu döner, hata vermez
+// Ancak önce kartezyen çarpım yapılıp daha sonra sonucu getirdiği için uye sayısı kadar
+// değil, kartezyen çarpım sonucu kadar sonuç döndürür
+
+select uyeler.isim from uyeler, personel
+// uyeler tablosundaki isim sütununu getir dediği için tablolar arasında bir
+// karışıklık olmaz.
+// Sonuçları getirir. Ancak yine de kartezyen çarpım sayısı kadar sonuç döndürür
+
+select u.isim, u.soyisim, u.eposta from uyeler u
+// uyeler tablosuna &#x27;u&#x27; takma adını koyup takma ad ile sütunları getirir.</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f8ac5711-13c0-4132-b4f8-89fb1404358b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-yellow">Bu şekilde kartezyen çarpımı zaten pek kullanmayacağız çünkü zaten burada yapmak istediğimiz işlemi biz, birazdan göreceğimiz &#x27;inner join&#x27; ile yapabiliyoruz. Ama elbette bilmek gerekli</mark></div></figure><pre id="48e2d3fb-9f53-4c0c-b070-01339e8f2558" class="code"><code>							-- FOREIGN KEY VE TABLOLAR ARASI İLİŞKİ KURMA --
+
+create database VT_ALİSVERİS
+use VT_ALİSVERİS
+
+create table TblUrunKategori(
+id int primary key identity(1,1),
+kategori varchar(50) not null
+);
+// ürun kategorisini ürün tablosundan ayırmak önemlidir. Çünkü kategori ismi değişebilir
+// ya da kategori silinebilir.
+// Kategori ismi değiştirilirse, bu kategoriye sahip tüm ürünlerin kategori sütununda
+// değişiklik yapmak zorunda kalacağız.
+// Ya da ileride kategoriler görülmek istendiğinde
+// ve kategoriler üzerinde işlemler yapılmak istenebilir.
+// Ayrıca markette, temizlik kategorisine sahip tek bir ürün varsa ürünün silinmesi durumunda
+// kategori de silinecektir.
+// Buna maruz kalmamak için ayrıca bir table oluşturduk
+
+create table TblUrunler (
+id int primary key identity(1,1),
+isim varchar(50) not null,
+barkod char(13) not null,
+fiyat int not null
+urun_kategori_id int foreign key references TblUrunKategori(id)
+);
+// urun_kategori_id bir constraint&#x27;tir. TblUrunler tablosu ile TblUrunKategori
+// tablosunu foreign key(tabancı anahtar) ile Urun kategorisinin &#x27;id&#x27; bilgisine göre
+// birleştirdik.
+// foreign key de bir sütun olacak ve bu sütunun ismi &#x27;urun_kategori_id&#x27;, tipi int olur.
+// Forign key oluşturuyoruz ama bu foreign key hangi tablonun hangi sütununu işaret edecek?
+// Nereyi refere et? TblUrunKategori tablosundaki &#x27;id&#x27; sütununu refere et.
+// O tablodaki id sütununa göre ilişki kurar. Kategori tablosunun id&#x27;si bu tabloya sütun
+// olarak eklenir ve böylece bu id yoluyla kategori tablosundaki, kategori tablosunun
+// verilen id bilgisine sahip satıra ulaşılabilir.
+
+create table TblMusteriler
+id int primary key identity(1,1),
+isim varchar(30) not null,
+soyisim varchar(30) not null,
+ceptel char(10) not null,
+mail varchar(30) not null,
+);
+
+create table TblAlisverisKayıt(
+aliveris_id int primary key identity(1,1),
+musteri_id int foreign key references Tblusteriler(id),
+urun_id int foreign key references TblUrunler(id),
+adet int not null,
+tarih datetime default current_timestamp
+);
+// yeni bir alışveris kaydı girerken tarih girmeye gerek kalmayacak.
+// Default kelimesiyle ve current_timestamp ile satırın eklendiği an milisaniye dahi
+// olarak tarih kendiliğinden eklenecek.
+// Musteri_id ve urun_id adında constraint(kısıtlar) oluşturduk.
+// Foreign key olarak kategori ve ürün tablolarını id sütunlarına göre ekledik
+// Artık üç tabloyu da birbiriyle ilişilendirdik.
+// Urun ve müşteri id bilgisini verdiğimizde ilgil müşteri ve uruüne ulaşabileceğiz.</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c27b3db8-f241-4d7c-9dc6-bb1c9c49c411"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Bir sütunun foreign key olup olmadığını ileride anlamak için foreign key olan sütunun isminin içinde &#x27;fk&#x27; eki olması iyi olacaktır. Ki kullanımı nerdeyse standarttır.</div></figure><pre id="17fe0533-4f18-4e5a-8cfa-ea32c33cf868" class="code"><code>insert into TblMusteriler values(&#x27;Ali&#x27;, &#x27;Kaya&#x27;, &#x27;05555555555&#x27;, &#x27;alikaya@gmail.com&#x27;)
+insert into TblMusteriler values(&#x27;Veli&#x27;, &#x27;Dağlı&#x27;, &#x27;05333333333&#x27;, &#x27;velidagli@gmail.com&#x27;)
+insert into TblMusteriler values(&#x27;Ayşe&#x27;, &#x27;Bilir&#x27;, &#x27;05444444444&#x27;, &#x27;aysebilir@gmail.com&#x27;)
+
+insert into TblUrunKategorileri values(&#x27;GIDA&#x27;), (&#x27;ŞARKÜTERİ&#x27;), (&#x27;ÇİKOLATA&#x27;),
+(&#x27;BİSKÜVİ&#x27;), (&#x27;UNLU MAMÜLLER&#x27;), (&#x27;TEMİZLİK ÜRÜNLERİ&#x27;)
+
+insert into TblUrunler values(&#x27;Çay&#x27;, 20.75, &#x27;113&#x27;, 1), (&#x27;Ekmek&#x27;, 1.4, &#x27;114&#x27;, 5)
+// TblUrunler tablosuna verilen değerlerle satır ekler
+// Parantez içine girilen değerlerden sonuncusu, ürünü kategorisinin id&#x27;sidir.
+// Bu iki tablo birbirine foreign key ile bağlı olduğu için id bilgisini girerek
+// kategori ile ürünü bağladık. Kategori tablosundaki id&#x27;si &#x27;1&#x27; olan ürünün satırına işaret eder.
+// Malum olduğu üzere 1 sayısı sadece bir referanstır. İlgili satırı refere eder.
+// Mevcut olmayan bir id bilgisi girilemez, hata döner. 
+// Çünkü ürün, kategori bilgisine bağımlıdır.
+
+insert into TblAlisverisKayit(musteri_id, urun_id, adet) values (1,2,5), (2,5,3)
+// TblAlisverisKayit tablosuna veri ekler
+// Value olarak musteri_id ve urun_id bilgileri giriliyor çünkü bu tablolar bu tabloya
+// foreign key ile bağlı. 
+// Artık sorgu yaparken şunu diyebileceğiz: Müşteri id&#x27;si 2, urun_id&#x27;si 5 olan alışverişi
+// yapan kullanıcının email bilgisini getir ya da alınan ürünün fiyatını getir.
+// Çünkü foreign key ile ürün satırını refere etmiş ve o tabloya gidip ü satrıdaki fiyatı
+// çekiyoruz.</code></pre><pre id="5d2faa62-48ea-4b2a-81b4-80f1aa7c9231" class="code"><code>select * from TblAlisverisKayıt
+// Bu sorguda satırdaki veriler olarak alisveris, müsteri ve ürün bilgilerinin id
+// bilgisi gelecek. Bu id bilgisi sadece bir referanstır ve bu referans diğer tabloya
+// işaret eder. Bize sadece id bilgisini getirececktir. Bu sayı ise sadece bir referanstır
+// Ancak bu sayı bizim için pek anlamlı değil.
+// Biz tabloda kullanıcının adını, mailini; ürünün adını, fiyatını vs...
+// görmek istiyor olabiliriz.
+// Ama bu sorguyla mümkün değil</code></pre><pre id="a56e4081-09f1-4afe-85fe-24daaba375cf" class="code"><code>													-- INNER JOIN --
+
+// Birden fazla tabloyu, önceden refere edilmiş değerlere göre birleştirir
+// Yani; :)
+
+select tblMusteriler.isim, tblMusteriler.soyisim, TblUrunler.ad, TblUrunler.fiyat,
+TblAlisveris.tarih from
+TblAlisverisKayit inner join TblMusteriler on TblAlisveris.musteri_id= TblMusteri.id),
+inner join TblUrunler on TblAlisverisKayit.urun_id=TblUrunler.id
+// tblMusteriler.isim, tbMusteriler.soyisim, TblUrunler.ad, TblUrunler.fiyat,
+// TblAlisveris.tarih bilgilerini getir. Nereden getir?
+// TblAlisveris tablosundaki musteri_id sütunundaki değer ile TblMusteriler tablosundaki
+// &#x27;id&#x27; değeri eşit olan müşterileri; TblAlisveris tablosundaki urun_id sütunundaki değer
+// ile TblMusteriler tablosundaki &#x27;id&#x27; değeri eşit olan ürünleri TblAlisverisKayıt
+// tablosuna ekleyip o tablodan getir?
+
+// Evet biraz karışık oldu. Şöyle sırasıyla gidelim!
+// Inner Join&#x27;in nasıl kullanıldığını söylersek daha kolay olur:
+// Hatırlayacağınız üzere bizim referans değerlerimiz vardı yani
+// foreign key&#x27;lerimiz. Biz bunlar sayesinde tabloları birbirine bağlayabiliyorduk.
+// Foreign key ile, eşleştirdiğimiz tablodaki &#x27;id&#x27; değeri eşit olan satırı bize getirecekti
+// Inner join söylediğimiz şeyi sağlıyor aslında.
+// Referans ettiğimiz tablodaki id değeri ile foreign key eklediğimiz tablodaki foreign key
+// değerini karşılaştırır. Eğer değerler eşleşiyorsa, refere ettiğimiz tablodaki
+// eşleşen satırları getirip bizim ana tablomuzdaki satıra yeni sütunlar olarak ekler.
+// Ancak bu, kalıcı bir ekleme değil. Sadece sonuçları getirdiğimiz andaki bir birleştirme
+// Gerçek tablolara sütun eklemez.
+
+// Örneğimiz üzerinden gidelim:
+// Select ile belli alanların getirilmesini istedik. Ve getirilmesini istediğimiz
+// sütunların başlarına tablo isimleri yazdık. Peki Neden? Inner join, işi gereği birden 
+// çok tabloyu birbirine bağladığı için getirilecek sütunların hangi tabloda olduğunu
+// bilemiyor(hele ki birden fazla tabloda aynı isme sahip sütunlar varsa. Mesela:
+// isim sütunumuz birden fazla tabloda var. Eğer direk &quot;&#x27;isim&#x27; sütununu getir&quot; dersek SQL
+// bize der ki? Tamam da hangi tablodaki &#x27;isim&#x27; sütunun getireyim? İşte bunun önüne
+// geçmek için tablo adı sütundan önce yazılır.)
+// Önceden yaptığımız SQL sorgularında &#x27;from&#x27; deyip ardından veri çekmek istediğimiz
+// tabloyu yazardık. Ancak şimdi sadece bir tablo değil de &#x27;inner join&#x27; sayesinde birden
+// çok tablodan veri çekeceğimiz için yazımımız da biraz farklı oluyor haklı olarak.
+// From dedikten sonra parantez içinde ana tablomuzun(TblAliverisKayit) ismini yazıyoruz.
+// Ardından &#x27;inner join&#x27; komutunu giriyoruz. Daha sonra bu tablo ile ilişkilendirmek
+// (verilerini getirmek) istediğimiz tablonun ismini yazıyoruz. Bizim ilişkilendirmek 
+// istediğimiz ilk tablomuz &#x27;TblMusteriler&#x27; mesela.
+// Bu &#x27;inner join&#x27; işlemi neye göre yapılacak? Ana tablomuzun musteri_id sütunu ile
+// TblMusteri(hedef tablo) tablosunun &#x27;id&#x27; sütunu eşleşen satırları ana tablomuza ekleyecek
+// &#x27;on&#x27; komutu da buna yarıyor. &#x27;Ben bu inner join işleimini yapıcam da neyin üzerinde yapayım?
+// hangi sütuna göre yapayım?&#x27; Biz SQL&#x27;in bu sorusuna cevap vermiş oluyoruz. Bu işlemi,
+// bu tablonun foreign key&#x27;i ile istediğim tablonun, istediğim sütunun eşleşenlere göre yap
+
+// Bu bittikten sonra ikinci &#x27;inner join&#x27;imizi yapıyoruz. Ana tablomuzu(TblAliverisKayıt)
+// TblUrunler tablosu ile ilşkilendiriyoruz. Neye göre ilişkilendir? Ana tablomdaki urun_id
+// sütunu ile TblUrunler tablosunun id sütunun eşleşenler getir.
+
+// Yazımdaki parantezler kafanızı karıştırmasın. Parantezlerim mantığı ise şu: 
+// From&#x27;dan sonra bir parantez açılır. Birinci inner join, hedef tablo ile birlikte parantez
+// içine alınır. Diğer inner join&#x27;ler paranteze alınmayıp &#x27;inner join&#x27; komutu ile başlar.
+// Şu şekilde de yazımı mümkündür(yani parantezsiz olarak). Ancak hoca,
+// Yukarıdakini gösterdiği için onu uygulamak daha doğru olur:
+// select tblMusteriler.isim, tbMusteriler.soyisim, TblUrunler.ad, TblUrunler.fiyat,
+// TblAlisveris.tarih from
+// (TblAlisverisKayit inner join TblMusteriler on TblAlisveris.musteri_id= TblMusteri.id,
+// inner join TblUrunler on TblAlisverisKayit.urun_id=TblUrunler.id)
+
+// Inner Join pek yazılarak anlat/şılacak bir şey değil.
+// İnternetten bol örneklerine bakmalısınız.</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="38840ceb-f6dd-4937-acd6-3b7857440154"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-purple"><strong>→ Şuanda bazı problemlerimiz var.</strong></mark>
+
+- Gelecekte ürünün fiyatı değişirse ne olacak, alış fiyatı da mı değişecek?
+
+- Şuanda müşteri aynı anda sadece bir ürün alabiliyor. Eğer bir müşteri için birden çok kaydı aynı anda eklersek current timestamp değişeceği için farklı alışverişler gibi gözükür. Bunu nasıl çözeriz?
+
+<strong><mark class="highlight-purple">HAFTA 8&#x27;DE bu problemler çözüldü.</mark></strong></div></figure><h2 id="e06805e6-6412-4add-b77e-c2184090cc4c" class="">Örnekler</h2><pre id="286f3693-8d82-4eb2-bfca-bd37d4f617ac" class="code"><code>create table kitap(
+kitap_id int primary key identity(100, 1),
+kitap_ad varchar(30) not null,
+yazar_id int,
+yayinevi_id int,
+sayfa_sayısı int,
+fiyat int
+)
+
+create table yazar(
+y_id int primary key identity(10, 10),
+y_ad varchar(50),
+y_yas int
+)
+
+create table yayinevi(
+yevi_id int primary key identity(1, 1),
+yevi_ad varchar(30),
+yevi_adres varchar(20)
+)
+
+// Yukarıdak malum olduğu üzere üç tblo oluşturduk. Birbiriyle ilişkilendirmek için
+// kitap tablona &#x27;yayinevi_id&#x27;, &#x27;yazar_id&#x27; ekledik ve bu değerler foreign key olacak.
+// Foregn key&#x27;leri ise birazdan constraint(kısıt) olarak ekleyeceğiz.
+
+alter table kitap add constraint fk_yazar_kitap foreign key(yazar_id)
+references yazar(y_id)
+
+alter table kitap add constraint fk_yayinevi_kitap foreign key(yayinevi_id)
+references yayinevi(yevi_id)
+
+insert into yazar values(&#x27;Tolstoy&#x27;, 60), (&#x27;Dolstoyevski&#x27;, 55),
+(&#x27;Ahmet Hamdi Tanpınar&#x27;, 40), (&#x27;Necip Fazıl&#x27;, 70)
+
+insert into yayinevi values(&#x27;İş Bankası&#x27;, &#x27;İstanbul&#x27;), (&#x27;Epsilon&#x27;, &#x27;Ankara&#x27;),
+(&#x27;Can&#x27;, &#x27;İstanbul&#x27;), (&#x27;Kültür&#x27;, &#x27;Konya&#x27;)
+
+insert into kitap values(&#x27;İnsan ne ile yaşar?&#x27;, 10, 1, 120, 45),
+(&#x27;Suç ve Ceza&#x27;, 20, 2, 1000, 120), (&#x27;Çile&#x27;, 40, 4, 300, 50),
+(&#x27;Savaş ve Barış&#x27;, 10, 1, 1200, 200), (&#x27;Ölüm manifestosu&#x27;, 10, 1 ,40, 20)
+
+select yazar_id, sum(fiyat), count(*) kitapsayisi from kitap group by yazar_id</code></pre><pre id="795b9408-0a24-4aa9-88c2-5e199b457935" class="code"><code>select kitap.kitap_ad, yazar.y_ad from kitap inner join yazar
+on kitap.yazar_id=yazar.y_id
+
+select y_ad, sum(fiyat), count(kitap_ad) from yazar left join kitap
+on kitap.yazar_id=yazar.y_id group by y_ad
+
+select yevi_ad, count(kitap_id) from kitap inner join yayinevi
+on kitap.yayinevi_id=yayinevi.yevi_id group by yevi_id
+
+select yevi_id, kitap_ad from yayinevi left join kitap
+on yayinevi.yevi_id=kitap.yayinevi_id
+
+select * from kitap inner join yazar on kitap.yazar_id=yazar.y_id
+inner join yayinevi on kitap.yayinevi_id=yayinevi.yevi_id
+
+select sum(y_yas) from kitap inner join yazar on kitap.yazar_id=yazar.y_id
+inner join yayinevi on kitap.yayinevi_id=yazar.y_idyaaz
+
+select * from kitap full join yazar on kitap.yazar_id=yazar.y_id</code></pre></div></article></body></html>

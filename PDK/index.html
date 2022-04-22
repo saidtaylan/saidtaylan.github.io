@@ -1,0 +1,1425 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Notlar</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="49825236-111b-4205-92c1-713d6b7f6b88" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🗒️</span></div><h1 class="page-title">Notlar</h1></header><div class="page-body"><h3 id="c7c96550-1d7e-4c2f-b9fb-05b1b5de1cc7" class="">Neden Programlama Dillerinin Kavramları Dersi?</h3><pre id="2e451c2a-8ef5-429f-a50f-a5435b7bc357" class="code"><code>- Fikirlerimizi uygularken daha kolay ve daha iyi
+	yapabilmek için.
+– Programalama dillerinin detaylarını bilerek yazılım
+	zenginleştirilebilir.
+- Seçeneklerimizin ne olduğunu bilirsek iyiyi seçebiliriz.
+– Bilgimizi artırarak eldeki probleme en uygun
+	programlama dilini seçebiliriz.
+- Dil öğrenmede yetkinlik. Dillerin özelliklerini bilmeyen,
+	belli bir dille çalışmaya alışmış kişi, farklı bir dili
+	öğrenmesi gerektiğinde zorlanır.
+– Örnek: Nesneye yonelik programlama kavramını bilen bir
+	kişi, Java’yı bu konsepti bilmeyen bir kişiye gore daha kolay
+	öğrenebilir.
+- Belli bir dilin önemli özelliklerini anlayarak daha iyi
+	kullanabilmek için.
+– Diller komplex yapılardan olusur. Fakat önemli özellikler etkin
+	kullanılarak yazılım gelistirilebilir.
+- Dilleri daha iyi değerlendirebilirsek, doğru seçimler yaparız,
+	doğru teknolojilerin gelişmesine destek olmuş oluruz.
+- Gerçekleştirimin anlaşılmasıyla programlama dilini daha iyi
+	anlama.
+– Örnek: Alt programlar(fonksiyonlar) sıklıkla çağrılırsa, program hızı duşer.
+	Bunu bilirsek daha iyi program tasarımı yapabiliriz.
+- Hata bulurken özelliklerini bilmemiz faydalıdır.
+- Özellikleri öğreniriz, olmayan özelliklerine öykünürüz.</code></pre><h3 id="9544de1d-00af-4be1-8ad4-778268de66a4" class="">Structured (Yapısal) &amp; Unstructured (Yapısal olmayan) Diller</h3><pre id="07ef9db3-bf09-46d7-95b9-4d0fadbbbfdd" class="code"><code>Structured languages: Alt programlar(fonksiyonlar), bloklar, koşul ifadeleri, modüller,
+döngü ifadeleri kullanılan programlama tipidir. Çoğu programlama dili buna örnektir.
+
+Unstructured languages: Tek blokta yazılan, başka blok kullanılmayan, programlama dili
+tipidir. Örneğin assembly, Basic, COBOL, Fortran
+</code></pre><figure id="4688c028-e116-4aa3-9f52-3896ed3de007" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/str.png"><img style="width:720px" src="Notlar%204688c028e1164aa39f523896ed3de007/str.png"/></a></figure><h3 id="907df0b5-8804-4a12-b84a-765f67a4b5e8" class="">Procedural Languages &amp; non-Procedural Languages</h3><pre id="f45b712a-a49a-4105-81e7-fb640092ee2c" class="code"><code>Procedural languages: Alışageldiğimiz, adım adım problem çözdüğümüz programlama
+tekniğidir. Örneğin C&#x27;deki main fonksiyonu içinde yazdığımız kodları düşünebiliriz.
+Bu kodlar satır satır, bir algoritmaya dayalı olarak yazıldı. Herhangi bir fonksiyon ya da 
+sınıf(class(zaten C&#x27;de yok :D)) kullanılmadı. Dümdüz yazıldı. Hah işte biz buna
+procedural programming diyoruz. Evet yazması zordur ama hızlı ve etkilidir.
+Örneğin; C, COBOL, Assembly
+
+Non-procedural languages: Adım adım problem çözmek yerine problemin nasıl çözüldüğüyle
+değil cevabıyla ilgilenen programlama tekniğidir. Örneğin bütün problemlerinizi
+fonksiyonlar içinde yazarsanız ve ana fonskiyonunuz içinde bu fonksiyonları çağıracak
+şekilde bir yapı kurarsanız istediğiniz yeri, ilgili fonksiyonu silmekle kaldırabilirsiniz.
+Örneğin; SQL, Visual Basic</code></pre><figure id="3891a95a-10dd-40a6-aad4-7563941a9565" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/pro.png"><img style="width:939px" src="Notlar%204688c028e1164aa39f523896ed3de007/pro.png"/></a></figure><h3 id="bab96af4-38e1-4f6d-bcfc-9510fcff6f4c" class="">Scripting Languages &amp; Programming Languages</h3><pre id="c8d1e599-bdc1-46be-8af5-84200db12b49" class="code"><code>Aslında script dilleri de programlama dilidir.
+
+Script dilleri yorumlanan dillerdir.
+
+Ancak script dillerinin farkı herhangi bir compile aşaması geçirmemeleridir.
+
+C, C++ gibi diller derlemeye ihtiyaç duyarken
+Javascript(aslında ihtiyaç duyar. Çünkü JIT kullanır), PHP dilleri derlemeye ihtiyaç
+duymaz.
+
+PHP, Javascript, Python, VBScript dilleri derlenmez ve script dillerdir
+
+C, C++ dilleri ise derlenir.</code></pre><h3 id="a605857c-e0c0-4fbf-9912-ef611cefb8d8" class="">Programlama Dillerinin Temel Değerlendirme Kriterleri</h3><pre id="8070f066-3f83-42fc-805e-a29e114e2a43" class="code"><code>Okunabilirlik
+Yazılabilirlik
+Güvenilirlik
+Maliyet</code></pre><p id="e16b0fa1-e6b7-47bb-b7d7-446dad5934c6" class=""><em><strong>Okunabilirlik</strong></em></p><pre id="eb1adfb6-b872-49bc-a060-70192da1d16f" class="code"><code>Özellik Çokluğu(feature multiplicity): Bir işin birden çok şekilde yapılabilmesi.
+Örneğin C&#x27;de bir değişkeni bir artırmak 4 şekilde yapılabilir:
+count = count + 1
+count += 1
+count++
+++count
+
+Özellik çokluğu abartılmamalıdır.
+
+Operator Overloading: Bir operatörün birden fazla iş yapması
+Örneğin; &quot;*&quot; işareti hem pointer sembolü olarak kullanırken hem de çarpma operatörüdür.
+Bu da abartılmamalıdır.
+
+Her zamanki gibi her şeyin fazlası zarar :) Bunlar okunabilirliği kötü etkiliyor.
+Kodu okuyan kişi bir süreliğine &quot;*&quot;in hangi amaçla kullanıldığını anlamakta zorlanabilir
+
+Bir programlama dilinde veri tip ve veri yapıları tanımlamadaki esneklik,
+okunabilirliğe katkı sağlamaktadır.
+Örnek: Timeout=1 vs Timeout=true
+
+Kendi kendini tanıtan yapılar olması okunabilirliği pozitif yönde etkiler.
+Örneğin; bir string&#x27;i başka bir veri tipine çevirmek için kullanılan metotların
+isimlerinin anlamlı olması. Metodu bilmesek bile isminden ne iş yaptığını anlayabiliyoruz
+Örnek: parseInt(myString)</code></pre><p id="d29e2efe-046a-4c3b-a4d4-ee21e5db430c" class=""><em><strong>Yazılabilirlik</strong></em></p><pre id="6ce671e5-3602-4df4-a9c6-274dd869e7d0" class="code"><code>Bir dilin; seçilen bir problem bazında programlar oluşturmak için
+ne kadar kolay kullanılabileceğinin bir ölçütüdür.
+
+Ortogonalite: Daha az ilkel yapı ve bunları birleştirmek için tutarlı bir kurallar
+							dizisidir.
+
+Örneğin bir dilde temel yapılar kullanmak için dizilerin yerine ilkel veri
+tiplerinden(int, float, char) dizi yapmaya çalışmak fazla ortoganallik için
+okunabilirliği(ayrıca yazılabilirliği ve maliyeti de) doğrudan etkiler.
+
+Ortogonalitenin diğer bir tanımı; kullanıcının yapabileceği kombinasyon sayısını
+optimumda tutmaktır.
+
+&quot;Fonksiyonlar dizi döndürmez&quot; durumu bir istisnadır. Bu da ortogonalliğe terstir.
+İstisna arttıkça kullanıcının bilmesi gereken durum sayısı artacağından kombinasyon
+sayısı artar ve karmaşıklık artar. Öğrenmeyi ve dile hakimiyeti zorlaştırır.
+
+Ortogonalitenin diğer bir tanımı; bağlamdan bağımsız kod yazmaktır.
+Örneğin farklı parametre olarak int ya da float alabilecek tek bir fonksiyon yazmak
+yerine int ve float parametreli iki ayrı fonksiyon yazmak ortogonaliteyi düşürür.
+-----------------------------------------------------------------------------------
+
+Yazılabilirlik; okunabilirlikten doğrudan etkilenir.
+
+Belirli bir problem ya da alanda iki dilde de uygulaması yapılmadığı sürece
+iki dilin yazılabilirliğini karşılaştırabilmek çok makul değildir.
+&quot;Bu dil bu dilden daha yazılabilirdir&quot; cümlesi pek doğru değildir yani.
+
+Ortogonalitenin düşük olması yani kullanıcının(programcının) bilmesi gereken
+ihtimallerin çokluğu yazılabilirliği kötü etkiler.
+
+Bu nedenle, daha az sayıda ilkel yapı ve bunları
+birleştirmek için tutarlı bir kurallar dizisi (yani,
+ortogonalite), çok sayıda temel maddeye sahip olmaktan
+çok daha iyidir.
+
+Soyutlama(Abstraction) desteği: Karmaşık yapıları ve işlemleri, ayrıntıları göz ardı
+ederek kullanabilme yeteneği
+Process(işlem) soyutlama: Mesela fonksiyonlar. Zaten yazılmış olan bir fonksiyonu
+kullanmak isteyen birisi fonksiyonun içinde ne döndüğünü bilmek zorunda değildir.
+(varsa) Gerekli parametreleri verir ve sonucunu alır. Böylece işlemden soyutlanmış olur.
+
+Data(veri) soyutlama: Gerçek hayattaki bir nesneyi / canlıyı gerekli özellikleriyle
+bilgisayar ortamına aktarmamızı sağlar</code></pre><h3 id="395b6a2a-d3f5-466f-984d-da3e376ce48b" class=""><em><strong>Güvenilirlik</strong></em></h3><pre id="06bbeef0-d31f-4007-9711-6287b52fd691" class="code"><code>Bir program tüm şartlar altında görevini başarıyla yerine getirebiliyorsa güvenlirdir.
+
+Bir program veri tipi kontrolünü iyi yapmalıdır. Aksi takdirde kullanıcının yanlış bir yere
+yanlış bir veri tipi girmesi uygulamada hatalara neden olabilir.
+
+Gayet normal olduğu üzere uygulamada hatalarla karşılaşırız. Ancak bu hataların kullanıcıya
+en saf haliyle yansıtılmasını istemeyiz. Hiçbir kullanıcı ekranında &quot;NullPointerException&quot;
+diye bir hata görmek istemez ve anlamaz da zaten. Bu tür olağan hatalara karşı kullanıcıya
+hata fırlatılması ve bu hataların öz ve açıklayıcı olması gerekir.
+
+Aynı bellek bölgesini gösteren birden fazla pointer olması güvenilir değildir. Tehlikeli
+bir özelliktir çünkü biri değiştiğinde diğeri de değişir. Kısıtlanmalıdır.</code></pre><p id="8c4133bc-d7db-434e-bcb8-f5f7fcc19ddf" class=""><em><strong>Maliyet</strong></em></p><pre id="8f19db2f-1319-48a8-8412-d1e5617fa989" class="code"><code>Çalışanların eğitim süreci
+
+(varsa) derleyici ücreti (paralı derleyiciler var. Uygulamayı satarken
+derleyicinin de satılması gerekir.)
+
+Uygulamayı yazma sürecindeki gelir-giderler
+
+Programların bakımı
+
+Optimizasyon ücreti
+
+Güvenilirlik (sistem güvenliği için bütçe)</code></pre><figure id="bf0d17ca-2938-40b6-abf0-38e35e2c04ad" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/as.png"><img style="width:861px" src="Notlar%204688c028e1164aa39f523896ed3de007/as.png"/></a></figure><h3 id="b4f040f9-cfc9-4693-93a7-86e3fab2d17f" class="">Taşınabilirlik Nedir? (Temel olmasa da bu da değerlendirme kriterlerindendir)</h3><p id="a697bb49-f560-4680-ad62-a00e33c917a7" class=""><strong><mark class="highlight-blue">Hedef programlama dilinde yazılan kodun herhangi bir platforma ya da ortama bağımlı kalmamasıdır. Bir yazılım oluşturulmak istendiğinde Linux için ayrı, Windows için ayrı, macOS için ayrı kod yazılması çok şey kaybettirir. İstenen şey bir tane kod ile bütün platformlara çıktı verebilmesidir. İşte taşınabilirlik de tam olarak bunu sağlar. Örneğin C dili taşınabilir bir değildir. Her platform için ayrı kodlar yazmak gerekir. Ancak örneğin Java, Python taşınabilir dillerdir. Tek kodla bütün platformlara çıktı verilebilir. Ayrıca yorumlanan diller zaten taşınabilir özelliğe sahiptir. Java hibrit bir sisteme sahip olmasına rağmen kendi Java VM(virtual machine) sayesinde taşınabilirlik özelliğine sahip olmaktadır.</mark></strong></p><h2 id="a0fbe372-a1b5-49dc-8d77-d0b616c80e7e" class="">Bilgisayar Mimarisi Etkisi</h2><pre id="63a5fd28-817d-48d5-91b4-008d8686093f" class="code"><code>Von Neumann bilgisayarları nedeniyle zorunlu diller (imperative
+languages) (C, C++, Java, COBOL) yaygındır
+
+– Veri ve programlar aynı bellekte saklanır
+– Bellek, CPU’dan ayrıdır
+– Komutlar ve veri bellekten CPU’ya iletilir(pipeline)
+– Zorunlu (imperative) dillerin temelleri
+• Değişkenler(variables) bellek hücrelerini modeller
+• Atama ifadeleri(Assignment statements) iletimi(piping) modeller
+• Tekrarlamayı gerçekleştirme için yinelemeli tekrarlama (iteration) etkili
+• Iterasyon, von Neumann bilgisayarlarında hızlı</code></pre><h3 id="5b49ca34-e6d3-4336-8f64-57a58496bba0" class="">Dil Kategorileri</h3><pre id="bc5139bc-02fd-4ae1-a6f2-e7c5d04b456b" class="code"><code>• Emirsel/Zorunlu(imperative)
+	– Merkezi özellikleri değişkenler, atama ifadeleri ve döngülerdir
+	– Örnek: C, Pascal
+• Fonksiyonal(Functional)
+	– Hesaplama yapmanın temelinde veriler ve parametreli fonksiyonları uygulamak
+	– Örnek: LISP, Scheme
+• Mantık(Logic)
+	– Kural tabanlı (kurallar belirli sıralama olmadan verilir)
+	– Örnek: Prolog
+• Nesneye yönelik (Object-oriented)
+	– Veri soyutlama, kalıtım, polymorphism
+	– Örnek: Java, C++
+• İşaretleme (Markup)
+	– Yeni; tam bir programlama dili değillerdir fakat (tek görevleri bu olmasa da)web
+		dökümanlarındaki bilginin yerleşimini belirtmede kullanılır.
+	– Örnek: XHTML, XML</code></pre><h3 id="56d673f1-7f61-4f86-b7ca-b42c8800ae20" class="">Nesne yönelimli bir programlama dilinin üç temel özelliği nelerdir?</h3><p id="1a8ed571-17d5-4910-8627-60a6a990bf05" class=""><mark class="highlight-orange"><strong>Abstraction(soyutlama): Gerçek hayattaki bir nesneyi / canlıyı gerekli özellikleriyle bilgisayar ortamına aktarmamızı sağlar. Gerçek hayatı modelleyebiliriz. Bu yüzden nesne yönelimli programlama günlük hayattaki problemlerimizi çözmede oldukça önemlidir.</strong></mark></p><p id="2c5a32c2-53a6-4c7a-b986-a11aa72722e1" class=""><mark class="highlight-orange"><strong>Poliformizm: Çok biçimlilik olarak çevrilse de bu tanım kısır kalmaktadır. Java üzerinden gidecek olursak; Java&#x27;da miras alınan sınıfın metotlarını aynı isimle tekrardan miras alan sınıf içinde yazabiliriz. Ve bir sınıfın içindeki metodu aynı isimle, farklı parametreler yazabiliriz. Yani bir tek metot varken bu metotların farklı formlarını yazmış olduk.</strong></mark></p><p id="e78c2900-29a6-4a82-8512-934ffe2c6677" class=""><mark class="highlight-orange"><strong>Polimorfizm&#x27;in farklı bir tanımı olarak; bir sınıftan miras alan birden çok sınıf, miras alınan nesnenin tipinde oluşturulabilir. Örneğin kedi, köpek ve at nesnelerimiz olsun ve bu nesneler bir &#x27;Hayvan&#x27; sınıfından miras alsın. Kedi, köpek, at hayvanlarının bir instance&#x27;ı oluşturulurken hepsini, atası olan Hayvan sınıfı tipinde oluşturabiliriz. Bu da polimofizm&#x27;e örnektir.</strong></mark></p><p id="3d612dcd-235f-4823-bfa8-45328fa7f1e5" class=""><mark class="highlight-orange"><strong>Inheritance: Bir sınıfın, başka bir sınıfın özelliklerini almasıdır. Elimizde hayvan ve at sınıflarımız olsun. At da bir hayvan olduğu için atın sahip olduğu birçok özellik hayvanda da vardır. Bu yüzden at, hayvan sınıfından miras alır. Onun sahip olduğu özelliklere sahip olur ve kendisininmiş gibi kullanır. Poliformizm&#x27;de de bahsediliği üzere at sınıfı hayvan sınıfının özelliklerini override edebilir.</strong></mark></p><figure id="a30f393d-9de0-4a49-9c6e-e74dfb174374" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/trade.png"><img style="width:909px" src="Notlar%204688c028e1164aa39f523896ed3de007/trade.png"/></a></figure><h3 id="11afe6f3-182f-4efb-b565-47149564386d" class="">Getiri - Götürü İlişkileri</h3><pre id="1d03e29c-d5d8-4e51-b4a3-23fa0c7ee831" class="code"><code>• Güvenilirliğe karşı çalıştırma maliyeti
+	– Örneğin: Java dizi içindeki elemanların tamamına
+		ulaşımda referansların ve indislerin kontrol edilmesini
+		talep eder, bu da çalıştırma maliyetini arttırır.
+
+• Okunabilirliğe karşı yazılabilirlik
+	– Örneğin: APL(bir dil) birçok güçlü operatör yardımıyla oldukça
+		karmaşık hesaplamaların yapılabilmesine imkan verir
+		fakat okunabilirlik azalır.
+• Yazılabilirliğe (esneklik)karşı güvenilirlik
+	– Örneğin: C++ işaretçileri güçlüdür ve oldukça esnektir
+		fakat kullanımı güvenilir değildir.</code></pre><h3 id="679d184b-22fa-428a-aba0-db30feffbefa" class=""><mark class="highlight-purple_background">Gerçekleştirim Metotları (ÇOK ÖNEMLİ!!!)</mark></h3><p id="79a85955-f61c-4d86-9e5c-238b0d447ca5" class="">1- <strong>Derleme</strong>: Yazılan kodları makine diline çevirir. Bu çeviri süreci tamamlandıktan sonra diğer gerçekleştirim metotlarına göre daha hızlıdır. Çünkü bu çeviri işlemi sadece bir kez yapılmaktadır. Uygulama her çalıştırıldığında bu çevrilen kod sadece çalıştırılır.</p><p id="f218d748-d01a-493b-9a81-5b2d366d1422" class="">Derleyicinin kendi içinde birkaç aşaması vardır:  </p><ol type="1" id="40aa0209-f4ff-413d-9c10-a5c3fc2f17f5" class="numbered-list" start="1"><li>İlk olarak dili ifadelere/dilin köklerine ayırır(lexical analyze)</li></ol><ol type="1" id="14e91769-3fa5-4bf3-9921-c1ebc3700fee" class="numbered-list" start="2"><li>Ayrılan ifadelerde yazım olarak bir hata olup olmadığını kontrol eder(syntax analyze)</li></ol><ol type="1" id="e40c07f9-891e-45c7-b082-b8dfa866e6fd" class="numbered-list" start="3"><li>İfadelerin mantıksal açıdan uygun olup olmadığını kontrol eder. Örneğin tiplerin uygun olup olmadığı, değişkenlerin kullanımdan önce tanımlanıp tanımlanmadığı...(semantic analyze)</li></ol><ol type="1" id="326925d3-96b9-4fbf-8288-515b22420291" class="numbered-list" start="4"><li>Ara kod üretir. Ara kod; program, makine diline çevrilmeden önce oluşturulan bir koddur. Ara kodun amacı, daha az kodla daha fazla cihazda çalışmaktır. Her compiler&#x27;in her cihazı tanıması gerekir ara kod olmazsa. Ancak çevrilen ara kod hep aynı formatta olduğu için cihazlar ara kodu tanımaktadır.</li></ol><p id="0098067e-2bf1-458f-8f9d-b08773d35fd3" class="">2- <strong>Saf yorumlama</strong>: Yazılan kodun satır satır okunması ve çalıştırılmasıdır. Derleme işlemindeki gibi ara süreçler barındırmaz. Hata ayıklama, derlemeye göre daha kolaydır. Çünkü derleyici, kodun tamamını derledikten sonra bütün hataları gösterir. Ancak yorumlayıcı, ilk hata gördüğü satırda hata verir düzeltilmesini ister. Eğer derleme süreci ve çalıştırılma süreci beraber değerlendirilirse yorumlayıcı derleyiciden hızlıdır. Ancak derleyici kodu bir kez derledikten sonra çalıştırılma hızları karşılaştırılırsa derleyici onlarca kat daha hızlıdır. </p><p id="cd88e383-186a-4cf5-898d-869ed8453202" class="">Satır satır işleme esnasında karşılaşılan her ifade ve fonksiyon yeniden yorumlanır. Ancak derleyici kodun tamamını değerlendikten sonra çalıştığı için fonksiyon artık derlenmiş ve çalışmaya hazırdır.</p><p id="acccdd31-851d-4725-af09-e86c4ec1b4d1" class="">Ama yorumlayıcı, her gördüğü fonksiyon ve ifadeye, ilk kez görmüş gibi muamele etmekte ve yeniden değerlendirmektedir. Bu da bir darboğaza(performans yetmezliği) yol açmaktadır. Bu, derleyiciye göre elbette büyük bir performans ve hız kaybıdır.</p><figure id="6cf24ff0-50cd-41ef-a537-539b7b2747de" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/interp.png"><img style="width:672px" src="Notlar%204688c028e1164aa39f523896ed3de007/interp.png"/></a></figure><p id="d6aff448-97cc-462b-8f6d-6765d3435d88" class="">3- <strong>Hibrit sistemler</strong>: Hem derleyici hem yorumlayıcıdan oluşan sistemlerdir. Her ikisinin iyi yönlerini alıp daha iyisini oluşturmaya çalışmıştır. Yorumlayıcının geliştirme kolaylığı ve hata ayıklamasını alıp, derleyicinin ise hızını almaktadır.</p><p id="4749cd02-e1d8-4ae0-b908-f5401e5ad863" class="">Derleyicide olduğu gibi kodu derleme sürecinden geçirip ara kodu oluşturur ve oluşturulan ara kodu yorumlar. </p><pre id="609ae29c-7c76-4e4d-a913-cd0261ffa62e" class="code"><code>JIT(Just in Time) Compiler: Bir hibrit sistemdir. Kodda çağrılmayan fonksiyonları dahil
+etmeden bir kez derler. Derleme bittikten sonra çalışırken yorumlama yapar.
+Bir fonksiyon çağrıldığında o fonksiyonu derler, ardından çağırır ve yoluna devam eder.
+Örneğin JAVA</code></pre><p id="c74445b4-1fd8-46d5-b6d9-4c0f64514989" class="">4- <strong>Önişlemciler: </strong>Program derlenmeden önce başka bir programı işlerler.</p><pre id="9d09f862-79f6-4dcf-a772-e0ceeaab5687" class="code"><code>Önişlemciler genellikle başka bir dosyadaki kodun belirtilmesi için
+kullanılır
+– Örneğin, &quot;myLib.h&quot; adlı C ön işlemcisi yönergesi, önişlemcinin
+myLib.h&#x27;nin içeriğini #include konumuna kopyalamasına neden olur.
+
+Program derlenmeden önce dahil edilen bu dosyaya eklenir.</code></pre><pre id="584c3a63-190e-40ac-9f33-d2be04fdf28d" class="code"><code>Mutlak Adresleme: Örneğin Assembly dilinde komutlar art arda yazılır. Ve her komut RAM&#x27;de
+oturur ve bir adres alır. Daha sonra kodda aradan silinen bir satır bütün adreslerin
+bozulmasına yol açar. Ve aynı şekilde araya eklenen bir satır yine adreslerin
+kaymasına yol açar. Bunu çözmek için silinen satırın yerini boş bırakıyoruz ki diğer
+adreslerde kayma yaşanmasın.</code></pre><pre id="9c7b5f51-1161-4004-9ed3-fe2fe0b81384" class="code"><code>Von Neumann Darboğazı
+
+• Bilgisayarın belleği ile işlemcisi arasındaki bağlantı hızı bilgisayarın hızını belirler
+
+• Program talimatları genellikle bağlantı hızından daha hızlı çalıştırılırlar; böylece
+	bağlantı hızı darboğaz oluşturur.
+
+• Bu von Neumann darboğazı olarak bilinir; bu bilgisayarların hızını sınırlandıran
+	birincil etkendir.</code></pre><h3 id="92d3a720-2851-4f7d-b15a-5f47ee3c009b" class="">Sembol tablosu derleyicide nasıl bir rol oynar?</h3><p id="147c0876-56a7-4efe-b690-32f64d955db8" class="">Sembol tablosu; derleyici için bir veritabanıdır diyebiliriz. Değişkenlerin, sabitlerin, sınıfların, fonksiyonların... isimleri ve bilgileri tutulur. Örneğin bir değişkenin değeri değiştiğinde sembol tablosunda da o değişkenin değeri ve bilgileri değişir.</p><p id="fe3bbc7f-a00c-4655-871a-772a2fa3e4da" class="">Derleyicinin aşamaları için sembol tablosu olmazsa olmazıdır. Şöyle ki:</p><p id="76d0197c-b4e2-4179-9505-39904c1f74af" class="">Lexical analyzer aşamasında sembol tablosu oluşturulur ve token girişleri yapılır.</p><p id="3dc45ed1-f62f-4bb5-9bb9-e3456666d310" class="">Eğer syntax(sözdizimi) doğru ise sembol tablosuna token ile ilgili bilgiler yazılır. Kapsamı(scope), boyutu, tipi(class, function....)...</p><p id="b9067d92-c9e1-43a2-9c6f-7b52b4b9ec1b" class="">Anlamsal olarak doğruluğunu kontrol etmek için(semantic analyzer) her işlemde sembol tablosuna gidip yapılan işlemin verilere göre tutarlı olup olmadığını kontrol eder.</p><hr id="7ca860ec-98da-4080-ad17-5f3559cd1a2f"/><p id="6593a20f-0f5a-44c2-89f3-ec38d57a5b67" class="">
+</p><pre id="5fbc2238-fd8c-4e38-bb98-f4f4a169603c" class="code"><code>Lexeme: Dildeki en küçük anlamlı ifadedir. Sözcük gibidir.
+Örneğin; sum, begin, if, var...
+
+Token ise lexeme gruplarıdır. Bir lexeme&#x27;nin birden fazla grubu olabilir.
+Örneğin; identifier, operator, keywords...
+Token türleri dilden dile değişebilir.
+Örneğin &quot;*&quot; işareti de bir lexeme&#x27;dir. Bu işaret çarpma işleminde kullanıldığı gibi
+pointer işareti olarak da kullanıldığı için bu lexeme&#x27;nin birden fazla tokeni vardır.</code></pre><pre id="a193e094-5496-449c-8bd5-35761f237307" class="code"><code>Dil tanıyıcıları(recognizers): Verilen bir ifadenin dile ait olup olmadığına karar verir.
+Sözdizimini(syntax) analiz eder.
+Finite State Automatas (FSA) and Push Down Automatas (PDAs) iyi bilinen
+tanıyıcı örnekleridir.
+
+Ancak derste bunla pek ilgilenmiyoruz.
+
+Dil üreticileri(generators): Adından da anlaşılacağı üzere dil cümleleri oluşturmak
+için kullanılan bir aygıttır.
+
+Context-free Grammars(CFG) ve Regular Expressions(Düzenli İfadeler) iyi bilinen
+generator örnekleridir.
+
+Tanıyıcılar ve üreticiler arasındaki fark:
+Cümeleler dilin kurallarına uygun mu diye kontrol etmek için tanıyıcılar,
+grammar ile cümle eşleşiyor mu diye bakarken; üreticiler mevcut grammar&#x27;dan cümleler
+üretip bu cümlelerden herhangi biriyle eşleşiyor mu diye bakar.</code></pre><pre id="ffeae4aa-e788-472d-913a-13f6405977d7" class="code"><code>Dilbilgisi (grammar), programlama dillerinin sözdizimini tanımlamak için
+yaygın olarak kullanılan resmi dil oluşturma mekanizmaları</code></pre><pre id="1daccc44-4a45-4f8f-8f0b-6b6303fbb8a3" class="code"><code>Chomsky(dil bilimci), Context-free gösterimini buluyor.</code></pre><pre id="8b2adb3d-ba5c-430c-8b8b-dc2f75f948f0" class="code"><code>Tüm programlama dilleri(küçük istisnalar hariç) Context-free&#x27;dir.</code></pre><pre id="e1e6bb25-463e-4c9b-a6c0-d95c58403752" class="code"><code>ALGOL58&#x27;in tanımlanması için Backus tarafından yeni bir gösterim tanıtıldı.
+Naur amca ise bu gösterimi geliştirerek, ALGOL 60&#x27;ın tanımlanması için bu forma yeni halini verdi.
+Bu form artık BNF(Backus Naur Form) olarak anılmaktadır.</code></pre><pre id="51cbad65-66ae-4a09-a915-b2f8a95bd736" class="code"><code>BNF neredeyse CFG ile aynıdır.</code></pre><h3 id="4a015904-59f1-4f77-b1c6-11cdf95f9fd2" class="">BNF</h3><pre id="530e9c00-06fb-4f5e-8945-865ff71d1e69" class="code"><code>BNF; programlama dilleri için metadildir.</code></pre><pre id="39d76912-e3bf-4e87-85ab-691ab66aba86" class="code"><code>BNF, syntax için soyutlama ifadeleri kullanılır. Bu soyutlama ifadeleri, küçüktür-büyüktür
+karakterleri arasında gösterilir. Soyutlama ifadelerine non-terminal sembol adı verilir.
+Dilin kuralları, anahtar kelimeleri, operatörleri, sabitleri(string, sayı...) ise
+terminal sembol olarak adlandırılır.
+
+&lt;assign&gt; -&gt; &lt;var&gt; = &lt;expression&gt;
+// Ok işaretinin sol tarafına, Left Hand Side(LHS); sağ tarafına Right Hand Side(RHS) denir</code></pre><pre id="ad3319fc-da5f-4e40-9b18-8dc7f5ebe629" class="code"><code>BNF basit olmasına rağmen oldukça güçlüdür ve çoğu(ileride eksiklerini göreceğiz) problemi çözer.</code></pre><pre id="4887349f-3780-4b42-88fa-690b3399ff61" class="code"><code>BNF ile neler gösterilebilir?
+
+- Benzer yapıların listelerini,
+– Farklı yapıların görünme sırasını,
+– Herhangi bir derinliğe yuvalanmış yapıları tanımlayabilir
+– Hatta operatörün önceliğini ve operatörün birleşimini ima edebilir</code></pre><pre id="06624ba7-a6ce-4fdf-9ffc-3e69be2e91c2" class="code"><code>BNF&#x27;te Recursion(Yineleme)
+
+Bir kural(non-terminal), LHS&#x27;nin kendi RHS&#x27;sinde göründüğü takdirde tekrarlayıcıdır.
+
+&lt;ident_list&gt; -&gt; &lt;identifier&gt; | &lt;identifier&gt;; &lt;ident_list&gt;</code></pre><pre id="c334fba9-f7a4-4991-b38a-a2c37197a3e8" class="code"><code>Tam bir programlama dili için bir dilbilgisinde, başlangıç sembolü tam bir programı
+temsil eder ve genellikle &lt;program&gt; olarak adlandırılır.</code></pre><pre id="b4e0b113-a171-4611-a206-82e4709944fa" class="code"><code>&lt;program&gt; dahil olmak üzere, türetmedeki satırların her birine
+bir cümle (sentatial) formu denir</code></pre><figure id="0af717dd-4498-4577-affe-6beb1275c7b3" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/lhs.png"><img style="width:720px" src="Notlar%204688c028e1164aa39f523896ed3de007/lhs.png"/></a></figure><pre id="98e94cb1-92dd-4ce7-827f-e4f52d0a6f3a" class="code"><code>Yukarıdaki gibi, ifade soldan açılmaya başlanmıştır. Yani non-terminal semboller soldan
+başlayarak açıla açıla gerçek ifadelere dönüştürülmüştür. Her adımda en soldaki
+non-terminal yok edilmeye çalışılır. Buna Left Hand Derivation yani soldan türetme
+adı verilir.
+Eğer non-terminaller sağdan başlayarak(her zaman en sağdaki yok edilseydi) türetilseydi
+buna Right Hand Derivation yani sağdan türetme denirdi.
+
+Türetmenin sağdan veya soldan olmasının dil üzerinde bir etkisi yoktur.
+İkisinde de aynı sonuç çıkacaktır(eğer belirsiz değilse(bu ileride görülecek))</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2be05f98-f354-4874-8946-f9f81d1e50ac"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Sınavda her adımda(satırda) sadece bir tane non-terminal değişikliği(türetmesi) yap. Yoksa GG 😉</div></figure><pre id="2868c30b-5111-4722-afa9-83fffc4b4fef" class="code"><code>Türetme, hiçbir non-terminal kalmayana kadar devam eder. Bütün non-terminaller
+terminal ifadelere çevirilir.</code></pre><h3 id="9e381210-6434-477b-ad21-7a926f8da719" class="">Parse Trees (Ayrıştırma Ağaçları)</h3><pre id="dc99c31e-23db-4c79-99d8-524cc7da7b19" class="code"><code>BNF gösterimindeki ifadelerin(dilin cümlelerinin) bir ağaç yardımıyla gösterilmesidir.</code></pre><h3 id="114c8c0d-973e-4178-ac68-01935108c2e5" class="">Belirsizlik</h3><pre id="f1996b2c-6977-4940-890a-fd0cbb08cfb7" class="code"><code>Bir cümle formu için iki veya daha fazla ayrı ayrıştırma ağacının bulunduğu
+dilbilgisi belirsizdir.
+
+Eğer sağdan türetme ve soldan türetmede farklı sonuçlar çıkıyorsa bu cümle formu
+belirsizdir.
+
+Eğer soldan türetmede birden fazla; sağdan türetmede birden fazla ağaç bulunuyorsa
+bu cümle belirsizdir.
+
+Bir gramerin belirsiz olup olmadığını anlamak matematiksel olarak imkansızdır
+
+Bazı ayrıştırma algoritmaları belirsiz gramerlere dayanabilir.
+Böyle bir gramerle karşılaşıldığında, tasarımcı uygun olan grameri tercih eder.</code></pre><h3 id="77dca85e-bc3a-4bc1-aa46-7e7eea3cd432" class="">Operatör Önceliği</h3><pre id="4fb56c60-101a-4b6c-9d1f-e64daba0f152" class="code"><code>Ayrıştırma ağacında en aşağıda bulunan(en fazla derinliğe sahip olan) operatör
+en önceliklidir.</code></pre><h3 id="458a1b38-ea91-4b24-ab32-6b98b0ab5dd6" class="">Operatörlerin Birleşmesi</h3><pre id="504f4dc7-996f-4ab4-90fb-6d705dc112f6" class="code"><code>Aynı önceliğe sahip operatörlerin birleşme sırası nasıl olacak?
+3+5+2-7
+Bu ifadedeki operatörlerin öncelikleri aynı. Peki ilk olarak hangi işlem yapılacak?
+Prefix, postfix, infix şekilde yapabiliriz. Yani sırasıyla; soldan, sağdan ya da ortadan
+başlayabiliriz.
+
+Eğer soldan birleştirmeye kalkarsak buna Left Associativity; sağdan birleştirmeye
+kalkarsak buna right associativity denir.
+
+Eğer elimizdeki oluşturduğumuz grameri postfix, infix ve prefix şekilde açmaya kalktığımızda
+farklı sonuçlar elde ediyorsak bu cümle belirsizdir.</code></pre><pre id="f2fe7727-ae6b-4c8c-ac9e-d8d664375222" class="code"><code>Eğer bir LHS, kendisinin RHS&#x27;sinin sol tarafında da gözüküyorsa buna left recursion;
+bir LHS, kendisinin RHS&#x27;sinin sağ tarafında da gözüküyorsa buna right recursion denir.
+Örneğin;
+&lt;exp&gt; -&gt; &lt;exp&gt; + &lt;term&gt; =&gt; Left recursion
+&lt;exp&gt; -&gt; &lt;term&gt; + &lt;exp&gt; =&gt; right recursion</code></pre><pre id="bcb4b435-cd6e-4d3f-bb09-d9454013f3bf" class="code"><code>Çoğu dilde, üs alma operatörü right recursion ile yapılır. Right Associativity&#x27;i göstermek
+için right recursion kullanılmış oldu.</code></pre><h3 id="0aaf83bb-c3cc-439e-9bd5-98cde6d58a63" class="">BNF - EBNF</h3><pre id="315cb7ec-524d-43e5-ab17-2bdb792ec6b0" class="code"><code>EBNF, Extended(genişletilmiş) BNF anlamına gelmektedir.
+
+EBNF&#x27;nin BNF&#x27;den güç olarak bir farkı yoktur.
+
+Hatta döngüleri görüntülemede sıkıntılıdır.
+
+EBNF, BNF&#x27;in okunurluğunu ve yazılmasını kolaylaştırmak için tasarlanmıştır.</code></pre><pre id="15650cbe-900c-4b0a-bbf9-885cd4d7663e" class="code"><code>EBNF&#x27;teki 
+
+- [] → isteğe bağlı nonterminal: İçine yazılan sembol, gelmek zorunda değildir,
+				isteğe bağlıdır.
+		Ör: &lt;switch&gt; -&gt; switch &lt;case&gt;: &lt;stmt&gt;[;default: &lt;stmt&gt;]
+
+- (), → birden fazla seçenek olabilir. (+ | - | *) gibi
+		Ör: &lt;expr&gt; -&gt; &lt;var&gt; (+ | - | * | /) &lt;var&gt;
+
+- {} →  iterasyon için: içine girilen non-terminal birden çok kez yazılabilir, recursion
+					oluşur.
+		Ör: &lt;ident_list&gt; -&gt; &lt;identifier&gt; {,&lt;identifier&gt;}
+
+ işaretleri metasembollerdir.</code></pre><hr id="9940d899-08d8-4684-9850-843ad3fb0bf7"/><h3 id="259168c5-b19f-4967-9227-f11fd221115b" class="">Özellik Gramerleri ve Statik Semantik</h3><p id="de8ea23e-94a1-47f9-869d-cb16117a0471" class="">Context free ve BNF, serbest içerik gramerlerine girmektedir.</p><p id="ba44ca7c-5912-4590-b5e9-32ca1b8b0052" class="">Serbest içerik gramerleri her şeyi(tüm syntax) tanımlayamazlar:</p><ul id="6ea77995-1b7d-44c4-83d8-b1f33bbf8966" class="bulleted-list"><li style="list-style-type:disc">Variable Initialization&#x27;ı(değişkene başta bir değer atayıp atamama) BNF ile göstermek imkansızdır.</li></ul><ul id="be52dc8b-4bcb-4bb8-b12f-040ba400a168" class="bulleted-list"><li style="list-style-type:disc">Tip tanımlamaları çok zordur(bunu verimli olarak yapmak için analizcinin boyutunu büyütür)</li></ul><p id="6f98d90c-c78b-4899-b199-30c1dd2d7e1b" class="">Bu tip problemler static semantic ile çözülür. Semantic olmasına rağmen daha çok syntax ile ilgilidir.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1baf3ed5-b7bf-428e-b7bf-d56b9d693edd"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Özellik gramerleri, gramerin statik semantik kurallarını ve bu kuralların doğruluğunu göstermek için kullanılan bir yaklaşım.</div></figure><p id="aaccb399-ed98-4a0b-9a49-9e3e5f3a0826" class="">Derleyici tasarımlarında kullanılmazlar, resmi değillerdir ancak kabul görmüşlerdir.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7d67995f-c3ec-4f71-acd6-037e93572c43"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Özelliklerin kontrolü compile time&#x27;da olacağı için adı statik semantik</div></figure><p id="306d4f61-9362-44ab-b60a-ba32e3ae58f4" class="">Özellik Gramerleri, özellikler, özellik hesaplama fonksiyonları ve önbiçimleme fonksiyonları eklenmiş bir CFG(context-free grammar)&#x27;dir.</p><pre id="07db81fb-5f1e-4b1a-9573-aa2394ba160f" class="code"><code>BNF&#x27;teki non-terminal ve terminaller için özellikler eklenmiştir.
+
+Terminal ve non-terminallerin yanına eklenenlere özellik denir.
+Mesela; string, actual_type, expected_type,.., değişkenlerin yanına yazılan
+düğüm(node) sayıları([3], [2])...
+
+İki özelliği karşılaştırıp geriye true false döndüren fonksiyonlara da
+predicate functions (önbiçimleme fonksiyonları) denir. Mesela:
+&lt;expr&gt;.expected_type == &lt;var&gt;.actual_type
+// &lt;var&gt;&#x27;ın gerçek tipi ile &lt;expr&gt;&#x27;nin beklenen tipi eşitse true döner.
+Predicate fonksiyondan false dönmesi söz diziminin ihlal edildiğini gösterir.
+
+Hesaplama yapıp, geriye sonuç döndüren fonksiyonlar da Attribute computation(semantic)
+functions (özellik hesaplama fonksiyonları) dır. Mesela, look-up fonksiyonu
+
+look-up fonksiyonu: Sembol tablosundan değişkenin değerini getirir.</code></pre><pre id="39e19aa1-5ef1-4415-a05d-da3e287d3bac" class="code"><code>Yapısal özellikler (Intrinsic attributes), değerleri ayrıştırma ağacının dışında
+belirlenen yaprak düğümlerden sentezlenen özellikleridir. (Tanımı boşverin)
+Yaprak düğümler herhangi bir yerden sentezlenemediği için instrinsic özellikleri bulunur
+
+Örneğin, bir programdaki değişken örneğinin türü, değişken
+adlarını ve türlerini depolamak için kullanılan sembol tablosundan
+gelebilir.
+&lt;expr&gt;.expected_type &lt;- &lt;var&gt;.actual_type
+// Evet, &lt;expr&gt; beklenen tipini &lt;var&gt;&#x27;ın gerçek tipinden alacak. Peki &lt;var&gt;, tipinin
+ne olduğunu nereden biliyor? İşte bu da intrinsic attribute oluyor. Bunun cevabı ağaçta
+yok. Look-up fonksiyonu yardımıyla gidip sembol tablosundan &lt;var&gt;&#x27;ın tipini getiriyor.</code></pre><pre id="9289a313-790f-4978-abc4-df48aaa64072" class="code"><code>Sentezlenmiş özellik: Ağaçta, child&#x27;ların özelliklerinin sonucunun parent&#x27;e aktarılması
+Kalıtım alınmış özellik: Parent&#x27;in özelliğinin çocuklara aktarılması</code></pre><pre id="95be29b9-cc27-4dc4-9337-c5aa42c20ac5" class="code"><code>Özellik Gramerleri Kurallar
+
+Değişkenler int ya da real olmalı.
+Sağ taraftaki değişkenlerin tipi aynı olmak zorunda değil(eşittir&#x27;in sağ tarafı)
+
+Sağ taraftakilerin türü aynı değilse tür her zaman real olur çünkü
+bellekte kapladığı boyutu fazla 
+
+Her iki tarafın da türü aynı olmalıdır.</code></pre><pre id="7e191490-eec9-4f74-95b5-68198022ceab" class="code"><code>Syntax kuralı: &lt;var&gt; → A | B | C
+Semantik kuralı: &lt;var&gt;.actual_type ← look-up(&lt;var&gt;.string)
+// Semantic kuralı, Attribute computation function&#x27;dur.
+// lookup fonksiyonu &lt;var&gt;&#x27;ın tipini bulup &lt;var&gt;.actual_type olarak geri döndürür.
+// look-up fonksiyonu parametre olarak değişkeni alır ve değişkeni string bir şekilde
+// parametre olarak aldığı için &quot;.string&quot; yazılır. Evet .string de bir özelliktir.</code></pre><pre id="d5e020ab-61c9-4781-a7ea-204306bab8a1" class="code"><code>Statik anlam kurallarının kontrolü derleyicinin önemli bir görevidir.</code></pre><pre id="7a873e5e-a994-48f7-9f1e-e74d2408ea3c" class="code"><code>Özellik Gramerleri Eksiklikler
+
+Özellik gramerleri, modern bir programlama dilini tanımlamak için zordur.
+Özellik gramerleri çok büyük ve karmaşık kaçıyor.
+Modern PD&#x27;nin özelliklerini çok sayıda olması, özellik gramerlerinde yazma ve okumayı
+zorlaştırır.
+Ayrıştırma ağaçlarında özellikleri değerlendirme maliyeti</code></pre><h3 id="ac089708-40f7-4c48-ae64-db5e2e34d570" class="">Dinamik Semantikler</h3><pre id="b28031f8-2f6a-4892-93c5-ecf7773570e4" class="code"><code>Sözdizimi
+tanımı yapmak hem doğal hem de de güçlü olan evrensel gösterim biçimi
+nedeniyle anlamsallığa göre daha kolay bir iştir. Dinamik anlamsallığı
+tanımlamak için geliştirilmiş evrensel bir gösterim biçimi veya yaklaşım
+bulunmamaktadır.</code></pre><pre id="65d1b2fa-5b16-4da9-b7b6-0ea0cea34074" class="code"><code>Anlamsallığı tanımlamak için bir yöntem veya gösterim biçimine olan ihtiyacın
+birçok farklı nedeni vardır. Yazılımcılar, programlarında kullanmadan önce, bir
+komutun tam olarak ne iş yaptığını bilmek zorundadır. Derleyici geliştiriciler ise
+doğru tasarım için dilin hangi yapılarının ne anlama geldiğini bilmelidirler. Eğer
+bir dilin anlamsallığı için kesin bir tanımlama bulunsaydı, o dilde yazılan
+programların doğruluğu, teste ihtiyaç duymadan kanıtlanmış olurdu. Sözdizimi
+ve anlamsallığın tam tanımlaması, bir dil için otomatik olarak derleyici
+oluşturacak bir araçta kullanılabilirdi.</code></pre><pre id="b5439efc-17c9-4519-a34c-b14d8585f246" class="code"><code>Dinamik Semantik Çeşitleri
+
+İşemsel Semantik
+Denotasyonel Semantik
+Aksiyomatik Semantik</code></pre><pre id="abbbffd5-b94c-4fda-b928-d8442c9fff75" class="code"><code>İşlemsel semantik;
+
+İşlemsel anlamsallığın altında yatan düşünce, bir program veya komutun
+makinede çalıştırıldığında oluşan etkileri tanımlamaktır. Makine üzerindeki
+etkiler makinenin durumunun (state(register, memory...)) değişme sırası olarak izlenebilir. Burada
+makinenin durumu, belleğindeki değerler topluluğudur. En basit tanımıyla
+işlemsel anlamsallık, bir kodun derlenmiş halini bilgisayarda çalıştırmaktır.
+Birçok programcı, özellikle bir dili yeni öğrenirken, bir yapının nasıl çalıştığını
+anlamak için küçük bir test kodu yazar. Burada programcının yaptığı, yapının
+anlamının ne olduğuna bakmak için işlemsel anlamsallık kullanmaktır.
+Tüm dilin resmi anlamsal tanımlamasını bu yaklaşımla yapmak bir çok problemi
+beraberinde getirir. Makine dili ve gerçek bilgisayarlar işlemsel anlamsallık için
+kullanılamazlar. Daha ziyade orta-seviyeli diller ve idealize edilmiş bilgisayarlar
+bu işlem için özel olarak tanımlanmıştır. 
+Bir sanal makinede çalışır.</code></pre><pre id="53e8fa79-b154-4871-860a-fc5a2ec2bacb" class="code"><code>İlk adım, ana özelliği açıklık (netlik) olan bir ara dil geliştirmektir. Bu ara dildeki
+her yapının açık ve belirli bir anlamı olmalıdır. Geliştirilecek dil, ara seviyede bir
+dildir çünkü makine dili anlaşılmak için çok düşük seviye kalmaktadır ve başka
+yüksek seviyeli bir dilin kullanımı da tabiki uygun olmaz.
+İşlemsel anlamsallığın temel adımı yabancı bir kavram değildir. Aksine bu konu
+programlama kitaplarından ve bir dile ait kullanım kılavuzlarından aşina
+olduğumuz bir konudur. Örneğin C dilindeki for yapısı daha basit komutlar
+şeklinde tanımlanabilir:</code></pre><pre id="69f3b5c0-db98-4589-8142-3eda13ce2c59" class="code"><code>C ifadesi:
+
+for(expr1;expr2;expr3) {
+...
+}
+
+Anlamı:
+
+expr1;
+loop: if expr2==0 goto out
+… expr3;
+goto loop
+out: …</code></pre><pre id="7a0e62b8-eb85-45d4-b2c1-8bbc44973352" class="code"><code>İşlemsel semantiğin bazı problemleri vardır:
+- Bir bilgisayarın memory&#x27;sinde ve registerinde çok fazla state vardır.
+- Gerçek bir bilgisayarın hafızası çok büyük ve karmaşıktır.
+- Ağa bağlı diğer bilgisayarlarla yapılan bağlantılarda farklı bellekler vardır. Yani
+	her belleğin state&#x27;ini bilmek çok zordur.
+- Bu yüzden resmi bir gösterim olarak kabul edilmez.
+- Daha alt dil yapılarına ve formlarına dönüştürülür.
+
+Eğer resmi bir şekilde kullanılmayacaksa, dilin el kitabı gibi olacaksa problem yok,
+kullanılabilir.
+Resmi bir şekilde kullanılacaksa karmaşık olur. Bazı diller için kullanılmıştır :(</code></pre><pre id="770d2343-0e5b-4bc2-bbcb-fa8b3ca93297" class="code"><code>Denotasyonel Gösterim;
+Bu yöntem, programların anlamını tanımlamada en yaygın olarak bilinen
+yöntemdir. Özyinelemeli fonksiyon teorisi üzerine kurulmuştur. Bu yöntemde,
+dildeki herbir varlık için bir matematiksel nesne ve o varlığın örneklerini,
+(instances) matematiksel nesnenin örneklerine eşleyen bir fonksiyon tanımlanır.
+Yöntemin zorluğu, nesneleri ve eşleme fonksiyonlarını oluşturmaktır.
+
+- Bilinen en kesin/titiz yöntem
+- En soyut semantik yöntemidir.
+
+Eşleme fonksiyonunun sözdizimsel domain&#x27;i tüm ikili sayıların string
+gösterimleri kümesidir. Anlamsal domain&#x27;i ise pozitif onlu(decimal) sayılar
+kümesidir.
+&quot;Seni seviyorum&quot; cümlesinin yazımı syntax domain, &quot;Seni seviyorum&quot; cümlesinden
+benim hocayı sevdiğim anlamını çıkarmak semantic domain&#x27;dir.</code></pre><pre id="538033c2-8059-4fa2-b73e-052d1864d7d8" class="code"><code>Bir programın durumu, mevcuttaki tüm değişkenlerin değeridir.
+Bir değişkenin ismi ve durum verildiğinde değişkenin mevcut değerini versin
+VARMAP(ij, s) = vj</code></pre><pre id="bf24b481-4e19-46a0-9873-8ce19c3cb1ae" class="code"><code>State(Durum) ve İşlemsel vs notasyonel
+
+Bir programın gösterimsel anlamsallığı ideal bir bilgisayardaki durum
+değişiklikleri olarak tanımlanabilir. İşlemsel anlamsallığı da aynı şekilde
+tanımlamıştık. Gösterimsel anlamsallık programın sadece tüm değişkenlerinin
+değerleri olarak tanımlanabilir. Dolayısıyla gösterimsel anlamsallık, anlamı
+tanımlamak için programın durumunu, işlemsel anlamsallık ise bilgisayarın
+durumunu kullanır. Aralarındaki temel fark, işlemsel anlamsallıkta durum
+değişikliklerinin bir dilde kodlanmış algoritmalarla, gösterimsel anlamsallıkta ise
+matematiksel fonksiyonlarla tanımlanmasıdır.
+
+
+- İşlemselde dilin yapıları, yapının temeli olan daha alt seviye dillere çevrilir.
+- Notasyonelde yapılar genelde matematiksel neseneler olan fonksiyonlarla gösterilir
+- Notasyonel semantik, programın adım adım hesaplamalı işlemlerini modellemez.</code></pre><pre id="d09cd9e6-ce8a-4699-94ae-dab621008192" class="code"><code>Programların doğruluğunu kanıtlamak için kullanılabilir.
+Dil üretim sistemlerinde kullanılır.
+Dil kullanıcıları için karmaşıktır.
+Dil tasarımında yardımcı olabilir.
+Programlar hakkında düşünmek için titiz bir yol sağlar</code></pre><pre id="33a06bb4-adb6-4d9e-b566-4cf8a0a5113c" class="code"><code>Aksiyomatik semantik;
+
+Programın anlamını
+doğrudan tanımlamak yerine, programla ilgili neyin ispat edilebileceğini
+tanımlar. Burada, anlamsallığı tanımlamada programın doğruluğunu kanıtlama
+yönteminin kullanıldığını hatırlamalıyız. Aksiyomatik anlamsallıkta, makinenin
+veya programın durumunun modeli veya program çalıştığında oluşan durum
+değişikliklerinin modeli yoktur. Programın anlamı, program değişkenleri ve
+sabitleri arasındaki ilişkiyi temel alır.
+
+Biçimsel mantığa dayalı (predicate calculus)
+Temel amaç: Biçimsel program doğrulama
+Aksiyom ve çıkarım kuralları dildeki tüm ifadeler için tanımlanmıştır.
+Mantık ifadelerine assertions denir.
+
+İfadeden önceki bir iddia(precondition/önkoşul) bu noktada doğru olan, değişkenler
+arasındaki ilişkileri belirtir
+Bir ifadeyi izleyen bir iddia sonkoşuldur(post condition)
+Bir zayıf önkoşul(weakest precondition) son koşulu garanti etmek için yeterli kısıttır</code></pre><figure id="46c2f30a-5d94-43c9-8915-bf3af9efb253" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/as%201.png"><img style="width:813px" src="Notlar%204688c028e1164aa39f523896ed3de007/as%201.png"/></a></figure><pre id="c91c8705-fa5f-4094-b5ce-b98619bdae38" class="code"><code>A&#x27;nın 1&#x27;den büyük olabilmesi için b&#x27;nin en zayıf koşulu b&gt;0&#x27;dır. Ama herhangi
+bir değer alması da mümkündür.</code></pre><pre id="b097395b-64c0-4442-9d29-438a37aeb0ce" class="code"><code>Bir program için son istenen sonuç son koşuldur.
+
+Programın başına doğru geri çalıştırılır.
+
+Eğer önkoşul, programın belirtimiyle aynıysa program doğrudur.
+
+Çıkarım kuralı; önceki iddianın doğruluğunu diğer iddiaların doğruluklarına bağlı olarak
+çıkarım yapan bir yöntemdir.</code></pre><figure id="6cddd830-4719-4240-8c72-e96ad2fe45c4" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2021-11-25_163353.png"><img style="width:720px" src="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2021-11-25_163353.png"/></a></figure><pre id="f213181f-656f-4e58-ab2e-dee1f692e22e" class="code"><code>Bir çıkarım kuralının genel formu yukarıdaki gibidir.
+
+Eğer S1, S2..., Sn doğru ise S&#x27;nin de doğru olduğu çıkarımına varılır.
+
+Şekildeki üst kısma öncül, alt kısma sonuç denir.</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="9f25fe59-e2cf-40b9-a676-4a6e6e89c2ce"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Aksiyom:
+Doğruluğu için başka bir öncüle ihtiyaç duymayan, doğruluğu kabul edilen çıkarım
+kuralıdır. </div></figure><figure id="9c4af099-9b58-40f0-a7bd-64ee92d2c2da" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2021-11-25_164412.png"><img style="width:672px" src="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2021-11-25_164412.png"/></a></figure><pre id="2affeab8-8974-4368-aefe-ed81cb9362f1" class="code"><code>Yukarıdaki bence gayet açıklayıcı :D</code></pre><figure id="e02d6186-0c52-4b33-b99c-c07f6c7eb08c" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2021-11-25_164613.png"><img style="width:672px" src="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2021-11-25_164613.png"/></a></figure><pre id="056bb758-e5ec-4bc0-81e9-eae44aeacb1a" class="code"><code>Örnek-2&#x27;de x&#x27;in son koşulunu(x&gt;25) sağlayan y&#x27;nin önkoşulunu bulmak için matematiksel
+işlemler yapıyoruz.
+
+Örnek-3&#x27;te x&#x27;in son koşulunu(x&gt;10) sağlayan, y&#x27;nin önkoşulunu bulmamk için matematiksel
+işlemler yapıyoruz.
+
+Örnek-4&#x27;te x&#x27;e önkoşul olarak verilen x&gt;3 koşulu, son koşulu(x&gt;0) sağlıyor mu diye
+bakıyoruz</code></pre><pre id="a81f2c57-55fc-41b7-be9a-0a23ad732378" class="code"><code>Hem önkoşul hem sonkoşul içeren bir atama ifadesi, &#x27;mantıksal bir ifade&#x27; ya da
+&#x27;teorem&#x27; olarak kabul edilir.</code></pre><pre id="28ad0f16-25e5-4e16-8bd5-def95f1e0a98" class="code"><code>- Bir dilde tüm ifadeler için aksiyom ve çıkarım kuralları geliştirmek zordur.
+
+- Doğruluk kanıtları için iyi bir araçtır ve programlar hakkında muhakeme için mükemmel
+bir çerçevedir. Ancak dil kullanıcıları ve derleyici yazarları için değildir.</code></pre><h1 id="5569050b-dc4a-4530-b9f3-db2ebe61fb13" class="">Vize Sonrası</h1><pre id="07e5f5eb-2e93-419a-9fa2-3827a3343339" class="code"><code>Bir dil işlemci, iki kısımdan oluşur:
+Lexical analyzer
+Syntax analyzer
+
+Lexical analyzer, syntax analyzer&#x27;ın bir dalıdır aslında. Ancak ayrı değerlendirilirler.
+
+Lexical analyzer&#x27;ın, syntax analyzer&#x27;dan ayrılma nedenleri:
+	- Syntax analyzer biraz platform bağımlıdır.
+	- lexical analyzer&#x27;ı küçültüp optimize etmek. Syntax analyzer&#x27;ı optimize etmek verimli
+		değil
+	- Lexical analyzer daha basit. Ayırarak karmaşayı azaltmak</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0f16953f-c65e-43c4-9287-54f77fe6ad77"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Boolean isTrue = parser == syntaxAnalyzer
+// isTrue: true</div></figure><pre id="42f5729c-3039-4a4a-b35e-f7c8c1c32ec4" class="code"><code>Dil içerisinde birim olarak kullanılan alfabetik karakter serilerine
+anahtar kelimeler denir.
+
+Ayrılmış kelime ve genellikle değişken ismi olarak kullanılmasına izin
+verilmez.
+
+Semboller (&gt;,&lt;,=,! vb.) programlama dilinde birim olarak kullanılırlar.</code></pre><pre id="9da8fa8b-1bbd-47a3-be37-b52db9171f0a" class="code"><code>• Bir PD’de en düşük düzeyli sözdizimsel birimlere lexeme adı verilir.
+• Programlar, karakterler yerine lexeme’ler dizisi olarak düşünülebilir.
+• Bir dildeki lexeme’lerin gruplanması ile dile ait token’lar oluşturulur.
+• Programlama dilinin metinsel sözdizimi token’lar ile tanımlanır.
+• Örneğin bir tanımlayıcı (identifier); «ortalama» ve «kök» gibi lexeme’leri
+	olan bir token’dır.
+• Bazı durumlarda bir token’ın sadece tek bir lexeme’i vardır.
+– Çıkarma_Operatörü ‘-’
+• Boşluk, ara veya yeni satır karakterleri, token’lar arasına yerleştiğinde bir
+	programın anlamı değişmez.</code></pre><pre id="3662cc48-a005-46e6-adc5-d242a0effa04" class="code"><code>Sözcüksel Çözümleyici (Lexical Analyzer)
+
+• Karakter dizileri için bir örüntü eşleştirici (pattern matcher)
+• Ayrıştırıcının başlangıç aşaması (‘front-end’ of parser)
+• Birbirine ait olan kaynak programın alt karakter dizilerini tanımlar –
+	lexemes
+– Bulunan lexeme’lar kategorilerini belirten token’larla eşleştirilir.
+– sum bir lexeme; onun token’ı IDENT olabilir
+• Verilen bir girdi string’den lexeme’leri çıkarır ve onunla ilgili token’ları
+	üretir.
+• Kullanıcı tanımlı isimler için lexeme’ları sembol tablosuna ekler.
+• Tokenlar’daki sözdizimsel hataları tespit eder ve kullanıcıya bildirir.
+– Bozuk biçimlendirilmiş kayan nokta değişmezleri</code></pre><pre id="c02dac8c-4e7c-4808-89c0-579263a2735a" class="code"><code>Lexical analyzer&#x27;lar ilk zamanlarda tüm programları işleyip karşılık gelen tokenleri
+üretirdi.
+
+Ancak bu zamanda lexical analyzer; Sözcüksel çözümleyicilerin çoğu kendisine verilen
+input içerisinde ki bir sonraki lexeme’i ve karşılık gelen token‘ı, kendisini çağıran
+programa (sözdizim çözümleyicisine) döndüren bir alt programdır.
+
+Sözdizim çözümleyicisinin her defasında gördüğü tek şey o
+anda sözcüksel çözümleyicisinden gelen tek token’dır.</code></pre><pre id="8faea00a-6326-4248-b75d-e60b70128faf" class="code"><code>Sembol Tablosu
+
+• Derleme sürecinde programdaki her tanımlayıcı için bir eleman içeren
+	sembol tablosu oluşturulur.
+• Sembol tablosu, derleme sürecindeki çeşitli aşamalarda kullanılır ve
+	güncellenir.
+• Bir tanımlayıcı kaynak programda ilk kez bulunduğunda, o tanımlayıcı için
+	sembol tablosunda bir eleman oluşturulur.
+• Aynı tanımlayıcının daha sonraki kullanımları için ilgili token, aynı sembol
+	tablosu elemanına başvuru içerir.
+• Sözcüksel çözümleme aşamasının sonunda, programdaki token&#x27;lar ve her
+	token&#x27;ın özelliklerinin tutulduğu sembol tablosu elemanına işaret edilen
+	göstergeleri içeren token dizisi oluşturulur.</code></pre><figure id="e1046122-6380-44f0-8421-a950d698fc62" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_111509.png"><img style="width:758px" src="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_111509.png"/></a></figure><figure id="778de2da-48bc-42c8-9b83-f49c1456e32f" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_111523.png"><img style="width:839px" src="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_111523.png"/></a></figure><figure id="1cbb14c3-9f90-48e1-bfa0-4420b7567f9a" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_112251.png"><img style="width:672px" src="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_112251.png"/></a></figure><h2 id="fe88a49e-188f-4592-9f1d-6ce7630ca6b9" class="">Değişkenler</h2><pre id="024ab710-02eb-4521-ae2d-96d742a56724" class="code"><code>Von Neumann mimarisi, her bellek hücresinin özgün bir adres ile
+tanımlandığı ana bellek kavramına dayanmaktadır.
+
+• Emirsel Diller (Imperative languages) von Neumann mimarisinin
+	soyutlanmasıdır.
+• Imperative (Emirsel) programlama, von Neumann mimarisindeki
+	bilgisayarlara uygun olarak programların işlem deyimleri ile
+	değişkenlerin bellekteki değerleri değiştirmesine dayanır.
+• Değişkenler belirli özellikler ile karakterize edilir.
+	– Ad, adres, tip, değer, yaşam süresi, kapsam</code></pre><pre id="8883bd8e-bd50-49e8-88b9-d4e031c5facb" class="code"><code>Değişken isimleri
+
+Bellek hücrelerini refere eden değişkenlerin isimleri vardır.
+Her dilin reserved keyword&#x27;leri vardır.
+
+İsimler çok kısa olursa anlamlı olmaz.
+Bazı dillerde ismin kaç karakterden oluşacağı sınırlıdır.
+İsimler, hiçbir dilde harf ya da özel karakterlerle başlayamaz.
+Bazı diller büyük küçük harf duyarlıdır. Bunun kötü yanı okunabilirdiği etkilemesidir.</code></pre><pre id="30023a00-e705-4962-a818-3b412a395a1a" class="code"><code>Bir anahtar kelime (keyword), bir programlama dilinin sadece belirli
+içeriklerde özel anlam taşıyan kelimelerini göstermektedir.
+
+• Örneğin FORTRAN&#x27;da REAL kelimesi, bir deyimin başında yer alıp,
+	bir isim tarafından izlenirse, o deyimin tanımlama deyimi olduğunu
+	gösterir. (REAL apple)
+	real x;
+	
+• Eğer REAL kelimesi, atama işlemcisi &quot;=&quot; tarafından izlenirse, bir
+	değişken ismi olarak görülür. REAL = 10.05 gibi.
+	real=5;
+• Bu durum dilin okunabilirliğini azaltır.
+
+Reserved word, dil için ayrılmış, özel anlamı olan ve kullanıcı tarafından asla
+kullanılmayacak olan kelimelerdir.
+- For, while, switch...</code></pre><pre id="15cd4058-6cfb-4943-8a72-3ca1c32257eb" class="code"><code>• Bir değişken, yürütme sırasında farklı zamanlarda farklı adreslere sahip
+	olabilir
+• Aynı bellek konumuna erişmek için iki değişken adı kullanılabilirse,
+	bunlar takma ad (alias) olarak adlandırılır</code></pre><pre id="2ae92a57-08f0-4fac-bd90-dd51e1ba8a62" class="code"><code>Binding (Bağlama)
+
+Bir özellikle bir program elemanı arasında ilişki kurulmasına bağlama
+(binding) denir.
+
+Bağlama kavramı programlama dillerinde yaygın ve programın her safhasında
+gerçekleşebilen bir kavramdır
+– Değişkenler tiplerine veya değerlerine bağlanır.
+– Bir işlem bir sembole bağlanır.
+
+Bağlama Zamanları
+
+- Language Design Time
+- Language implemenation time
+- Compile time
+- Load time
+- Runtime</code></pre><figure id="705ee3b9-fbda-4af7-949b-3e33f221ac61" class="image"><a href="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_131405.png"><img style="width:849px" src="Notlar%204688c028e1164aa39f523896ed3de007/Ekran_grnts_2022-01-09_131405.png"/></a></figure><pre id="2a482a35-6609-473c-a85b-4f4f43fd1951" class="code"><code>Statik Tip Bağlama: değikenlerin tiplerinin derleme zamanında belirlenmesidir.
+Dimamik Tip Bağlama: değişken tiplerinin runtime&#x27;da belirlenmesidir.
+
+Explicit type binding: Tiplerin tanımlanırken açıkça bildirilmesi (static typing)
+Implicit type binding: Verilen değerlerden tipin çıkartılması
+
+Allocation: kullanılabilir hafıza havuzundan yer alınması
+Deallocation: hafıza havuzuna bellek hücresini geri verme
+
+Değişkenin yaşam süresi (lifetime): Değişkenin, belirli bir bir bellek hücresiyle
+bağlanması ile bu bağın koparılması arasında geçen süredir</code></pre><pre id="066f49c6-26af-488f-871b-b9e517762eb2" class="code"><code>Hafıza bölümleri
+
+- Kod
+- Stack: Fonksiyonların aktivason kaydı tutulur
+- Heap: Dinamik olarak tahsis edilen, kullanıcı tarafından kullanılan bellek alanıdır.</code></pre><pre id="702293fc-55e6-45ef-8ff8-4c4eedfe9c17" class="code"><code>Statik Değişkenler
+
+Programın bşlangıcında belleğe bağlanır ve program bitince kaldırılır.
+Burası için gerekli bellek, program başlamdan ayrılır (Load time)
+C++ ve java&#x27;da ststic kelimesiyle tanımlanır.</code></pre><pre id="916766e7-1445-4acf-bf9d-395975db3234" class="code"><code>Kapsam (Scope)
+
+Scope(kapsam): Bir değişkenin visible olduğu yer/yerler
+
+Local variables: Tanımlandığı blok içerisinde geçerli olan değişkenlerdir.
+Non-local variables: Tanımlandığı yer dışında erişebilen değişkenlerdir.
+
+Global değişkenler, non-local değişkenlerin alt bir kümesidir.</code></pre><pre id="036e7d06-eebb-4f20-9bd6-542b3348739d" class="code"><code>Statik Kapsam
+
+Programın yazısından anlaşılabilir.
+İlk olarak bulunduğu kapsamda değişken var mı diye değğişken aranır. Eğer bulunamazsa
+gittikçe bir üst kapsama çıkılır. </code></pre><pre id="00f6f60f-0f77-4f9f-b254-46ac80125444" class="code"><code>Blok: Deyimlerin bir araya getirilmesi ile oluşturulan ve bu deyimlere özgü yerel
+değişkenlerin tanımlanabildiği kod bölümüne blok adı verilir.</code></pre><pre id="e051a92e-a650-4f68-96c0-60ec596d83cf" class="code"><code>Dinamik Kapsam
+
+• Bir ismin kapsamının, altprogramların fiziksel yakınlıklarına göre değil,
+	altprogramların çağrılma sırasına göre çalışma zamanında belirlenmesi dinamik
+	kapsam olarak adlandırılır.
+• Bu durumda bir isim tanımı, çalışma sırasında aynı isimde yeni bir tanımlama
+	bulunana kadar, kendisinden sonra çalıştırılan tüm komutlarda geçerlidir</code></pre><pre id="76e0a62f-ae50-4b3e-b489-244bf5bff6fa" class="code"><code>Referencing Environments
+
+Bir ifadenin referans ortamı, ifadede görünen tüm isimlerin toplamıdır.</code></pre><pre id="fed0978e-0e55-4baa-bc83-017f65083a5d" class="code"><code>Statik kapsamda bir fonksiyon bir fonksiyonu çağırdığında, çağıran fonksiyon ve
+değişkenleri bir aktivasyon kaydında tutulur ancak lifetime hala canlıdır.</code></pre><pre id="d6015cad-b476-455f-a6f5-3e5f1555928e" class="code"><code>İlkel Veri Tipleri
+
+Mantıksal (true - false)
+Decimal (10,20,-100)
+Floating Point (float)</code></pre><pre id="4a10560e-1f35-4cb0-ba07-cf10ffa39caf" class="code"><code>Karakter katarı
+
+C ve C++&#x27;ta temel veri tipi değildir. Manipüle işlemleri için fonksiyon içeren
+kütüphaneleri mevcuttur.
+
+Java&#x27;da String ile ilkel veri tipidir.
+Python&#x27;da da ilkel veri tipidir.
+
+C ve C++&#x27;ta limitli dinamik uzunluk vardır. Uzunluğunu kaydetmek yerine dizenin
+bittiğini belirtmek için özel bir karkater 36
+kullanır. (e.g: &#x27;\0&#x27;)
+Javascript dinamik uzunluktadır. Max uzunluk yoktur.</code></pre><pre id="cdde7daf-e792-4ea0-84d7-2d0f9974d1c0" class="code"><code>Dinamik uzunluktaki stringler için dynamic allocation and deallocation methods
+
+- String elemanlarını linked list ile tutmak. Yeni bir eleman eklendiğinde heap bellekte
+	herhangi bir yere eklenebilir.
+	Her string elemanı için struct tutulacağı için sonraki elemanın adresini tutmak extra
+	maliyettir. 
+- String karakterlerini bir pointer dizisi gibi sıralı tutmaktır.Anladığım kadarıyla
+	yine linked list gibi olacak ama karakterlerin pointer&#x27;leri dizi olarak tutuluyor.
+	Ama elbette bu da ekstra hafıza kaplıyor.
+- String&#x27;i bir dizi gibi sıralı şekilde tutmak. Ama bunda da yeni eleman eklemek
+	sıkıntı olur. Diziyi alıp yeni bir yere taşımak gerrekir yer kalmazsa. Hep maliyet</code></pre><pre id="e5a3719d-a7b9-4d98-adb6-5efa34d43954" class="code"><code>Sayılama tipleri(Enums): Const gibi bir şey. İsimleri tanımlama sırasının numaralarıyla
+eşleştirir.
+
+enum days {mon, tue, wed, thu, fri, sat, sun};
+mon: 1  thu: 4  sun: 7
+tue: 2  fri: 5
+wed: 3  sat: 6  </code></pre><pre id="fe1677aa-34c1-45ce-b51d-fd56b118b7b3" class="code"><code>Linked list hafıza yemesine ve işlemler uzun sürmesine rağmen allocation ve deallocation
+daha hızlıdır.
+
+Karakter dizisi olarak tutulması hafıza ve hız açısından iyidir. Ancak allocation ve 
+deallocation daha yavaştır.</code></pre><pre id="bd09430e-eacb-4e19-ad6f-5006cfdafa58" class="code"><code>Diziler</code></pre><pre id="6c3b9409-9148-4d73-8851-af0cbf1d6917" class="code"><code>Bellek Yönetimi
+
+Çalışan herhangi bir programdaki değişkenler, sınıflar,metotlar
+bellekte bir yerde tutulurlar.
+Üç tür bellek vardır:
+	- Statik
+	- Heap
+	- Stack
+</code></pre><pre id="4f4e7f47-bb9b-4af3-b4f6-49a6f7c2c724" class="code"><code>Statik Bellek Alanı
+
+Bu bölgede yer alacak değişkenlerin hangiler olduğu, program başlamadan bellidir.
+Load time&#x27;da belleğe yazılırlar.
+• Bu bölgede tutulanlar;
+– Global değişkenler,
+– Sabitler,
+– Static olarak tanımlanmış lokal değişkenler
+• Program çalıştığı sürece var olurlar, program sonlandığında bellekten silinirler.
+• Global değişkenler program sonlanıncaya kadar bellekte tutulacak ve herhangi bir
+	satırda erişilebilecektir. Değişip değişmediklerinin kontrolü zor olduğu için
+	kullanımı tavsiye edilmemektedir.</code></pre><pre id="41bd274d-18fe-470a-964f-f84972425223" class="code"><code>Stack Bellek Alanı
+
+Bu bellek bölgesinde fonksiyonlar ve yerel değişkenler tutulur. Fonksiyonlar ve yerel
+değişkenler çalışma zamanında belleğe eklenir. Çalışma zamanında daralıp genişleyebilir.
+
+Fonksiyon veya metot çağrılan yere döndüğünde çalışma anı yığınında ayrılmış olan yer
+geri döndürülür.
+Bu değişkenlere çağrım bittikten sonre erişim olmayacaktır ve fonksiyon için açılan
+aktivasyon kaydı sonlanır.</code></pre><pre id="af1a579c-20ad-4317-806b-5f3ae049c10d" class="code"><code>Heap Bellek Bölgesi
+
+Çalışma zamanında daralıp genişleyen bir bölgedirr. C ve C++&#x27;ta kullanıcının kontrolüne
+bırakılmıştır.
+Java&#x27;da new kelimesi ile yer ayrılır.
+C&#x27;de ise malloc ise yer ayrılır.
+Ayrılan bölgelere, pointer&#x27;lar yarımıyla erişilir.
+
+Ayrılan yerler geri verilmelidir. Yoksa çöp denen yerler oluşacaktır.
+Bu çöpler Java&#x27;da Garbage Collector tarafından otomatik olarak toplanır.
+C&#x27;de ise bu, free() fonskiyonu yardımıyla yapılır. Kullanıcı kendisi çöp toplamayı yapar</code></pre><pre id="fc88c23c-4308-4aee-9869-cf4d3dfb29aa" class="code"><code>İndislerin Bağlanması ve Dizi Kategorileri
+
+Static: Indisler derlenme zamanında bağlanır ve bir daha değişmez. Etkili ve hızlıdır.
+				Program başlarken hafızaya oturur ve bitene kadar kalkmaz.
+
+Fixed Stack Dynamic: Compile time&#x27;da dizi boyutu bilinir. Ancak dizinin bulunduğu
+				kapsamda boyutu daraltılıp genişletilebilir. Kapsam bitince eklenen ya da
+				çıkarılan indisler temizlenip dizi önceki haline döner.
+
+Fixed Heap Dynamic:  fixed stack dynamic gibidir. Ancak heap&#x27;te yer ayrılacağı açıkça 
+				belirtilir.
+			
+Heap Dynamic: Çalışma zamanında tanımlanıp daraltılıp genişletilebilmektedir.</code></pre><pre id="23f20efc-6327-4f37-a166-def1b3e974fc" class="code"><code>Records
+
+Alt alan olarak isimlendirilen birden fazla ifadenin bulunduğu yapıdır.
+
+Farkltı tipte birden fazla alan tanımlanabilir.
+
+Records&#x27;a erişim diziye erişimden daha hızlıdır. Çünkü record dinamiktir</code></pre><pre id="7a50ddc4-7985-46dc-8328-fff24fc62a71" class="code"><code>Tuple Type
+
+Değiştirilemeyen dizilerdir denebilir.</code></pre><pre id="08209a4b-1726-4396-8bc4-b2c0fff2d976" class="code"><code>Union
+
+İçine veri tipleri koyulabilen bir veri tipidir. Struct&#x27;a benzemektedir.
+Struct&#x27;ta birden fazla veri tipi depolanabilmesine ve her birinin farklı hafıza
+bölgeleri olmasına karşı union&#x27;da da birden fazla veri tipi depolanabilir ama union&#x27;un
+boyutu, içindeki en büyük veri tipinin boyutu kadardır.
+Yani union içinde aynı anda sadece bir veri depolanabilir. Başka bir proprty&#x27;e bir değer
+yazılsa da diğer property&#x27;deki veriler silinir.</code></pre><pre id="9fb173fd-6ad5-42d0-82cd-503f2549da31" class="code"><code>Küme veri tipi
+
+İçinde aynı veriden sadece bir tane bulundurabilen dizilerdir.</code></pre><pre id="0b36a28b-d21c-49f9-9cff-d77486960fe6" class="code"><code>Pointers
+
+Başka bir bellek alanının adresini gösteren veri tipidir.
+Sabit büyüklüktedirler ve genelde tek bir bellek alanına sığarlar.
+
+Dangling pointer: Pointer&#x27;in gösterdiği bellek hücresindeki değer silindiğinde ya da 
+değiştirildiğinde pointer artık boş bir yeri ya da değişik bir değeri göstercektir.
+Bu büyük bir risktir.</code></pre><pre id="07d6deab-0b28-4334-ae71-d13951e31a1d" class="code"><code>Kuvvetli Tipleme
+
+Farklı veri tiplerinin etkileşimlerinin kısıtlanmasına denir.
+
+Bir programlama dili, programdaki bütün tip hatalarını yakalıyorsa kuvvetli
+tipli dil denilebilir.
+
+Derleyici, her değişken ve her ifadenin tipini belirleyecek kurallara sahiptir.
+
+Uyumlu olmayan tiplerin birbirine atanmasına izin verilmez.</code></pre><pre id="cd9fcacb-ffd8-4e2c-9781-c6ca90ee9380" class="code"><code>Tip Dönüşümü
+
+	Bir tip dönüşümünde bir nesne, kendi tipindeki tüm değerleri içermeyen bir tipe
+	dönüştürülüyorsa bu tip dönüşüme daralan dönüşüm denir.
+– Kayan noktalı sayı tipinden -&gt; tamsayı tipine
+– Hatalar oluşabileceğinden güvenli değildir.
+• Eğer bir değişkenin kendi tipinin tüm değerlerini içeren bir tipe dönüşümü
+	gerçekleşiyorsa bu dönüşüme genişleyen dönüşüm denir.
+– Tamsayı tipinden -&gt; kayan noktalı sayı tipine
+– Daha güvenli bir dönüşüm
+• Derleyici tarafından gerçekleştirilen ve zorunlu dönüşüm olarak adlandırılan bu tip
+	dönüşümlerine örtülü (implicit) dönüşüm denir</code></pre><p id="d1646ad2-ab4d-49a9-9701-ec3a0bae9d67" class="">
+</p></div></article></body></html>

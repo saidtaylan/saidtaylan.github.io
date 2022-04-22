@@ -1,0 +1,2482 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Bilgisayar mimarisi</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6a5289cb-2f44-42ca-acc9-7b2f99d9676a" class="page sans"><header><img class="page-cover-image" src="https://beningo-embedded-group.s3.amazonaws.com/2020/06/AdobeStock_135663532-825x510.jpeg" style="object-position:center 9.319999999999995%"/><h1 class="page-title">Bilgisayar mimarisi</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b8df25b1-2518-4de5-b2c3-4572a84fe48d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Hocanın slaytlarından daha uzun olmuş olabilir 😅
+
+Ama her slaytı kendi anladığım şekilde oldukça açıklayıcı bir şekilde anlatmaya çalıştım 🤯
+
+Dökümandaki birçok bilgiyi internetten araştırarak edindiğim için muhtemel bilgi yanlışlıkları olabilir.</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="37e3add8-a1be-47ca-a8d1-8b273d400394"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Hatalı olduğunu düşündüğünüz yerleri lütfen yorum olarak bana bildirin.</div></figure><h2 id="b843c0b9-b4c4-4cf2-8b02-32b4b50f06c8" class="">Hafta 1</h2><hr id="1563e4dc-9b4b-49ba-8a08-ad5ba8086e0a"/><pre id="f0d1227d-36d4-485a-9d92-41573f4f3e85" class="code"><code>Neden Assembly?
+
+- Programlamayı daha iyi anlamak
+
+- Diğer yüksek seviyeli dillerle yapamayacağımız şeyleri yapmak
+
+- Gömülü sistemleri programlamak</code></pre><pre id="c91e6f7b-5ed3-4057-be3c-a918b5d4b59a" class="code"><code>Layered Architecture (Katmanlı Mimari)
+
+- Bilgisayarlar komplikedir.
+- Kompleks kısımları gizler.
+- Yazılım yapan bir kişinin donanımla işi olmaz.
+- Çünkü katmanlı mimari vardır ve herkes sadece işi olan yerle ilgilenir.
+
+- Programlama dillerinin de katmanları vardır</code></pre><pre id="7b40c620-5844-44be-87ba-9456dab13dfc" class="code"><code>Her işlemci kendi komut setine (ISA(programlama için binary dil)) sahiptir.</code></pre><figure id="3dae22fa-c891-4ed7-9b38-fe8c1f05b6fb" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182111.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182111.png"/></a></figure><figure id="0395764a-0ff5-4f84-81f8-3c2f904786bb" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182329.png"><img style="width:757px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182329.png"/></a></figure><figure id="76585215-a2cb-4384-b2b2-c56cf1c03841" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182421.png"><img style="width:752px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182421.png"/></a></figure><figure id="76d26778-08ea-4627-9278-a4fae68fe551" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182111%201.png"><img style="width:750px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_182111%201.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="0b4656a2-0a84-43ee-82a0-116ce099c47c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-purple_background"><em><strong>Buradaki Key Concepts görseli çok önemli.</strong></em></mark></div></figure><pre id="ed51c164-941e-47fb-94a1-bb5a9c036187" class="code"><code>Assembly aslında(MASM(Microsoft Assembler)) yürütülebilir bir program oluşturmaz
+
+Yürütülebilir bir program için 4 aşama gereklidir:
+	- Assembling: kod binary formata(makine diline) çevrilir.
+	- Linking:başka bir kütüphanedeki fonksiyonları çağırınca linking gerçekleşir.
+		Kodda bir sınıf(class) varsa da linking gerçekleşir. Bu aşama bu link edilmiş
+		dosyaların isimerini çözer ve asm kodu ile birleştirir ve binary formata çevrilir.
+	- Loading: Program memory&#x27;e yüklenir.
+	- Execution: Program çalıştırılır.
+
+Örneğin bir programımız olsun. Ve bu uygulamaya çift tıklayıp açmak isteyelim.
+Uygulamaya her tıkladığımızda &#x27;assembling&#x27; ve &#x27;linking&#x27; gerçekleşmez. Onlar zaten
+bir kez yapılmıştır uygulama derlenirken.
+
+Ancak hoca çalıştırma derken, compile tuşuna basmaktan bahsediyor. Yani bu
+çalıştırmaya, linking ve assembling de dahil. Böyle yapmazsak hoca puan vermez.
+
+Ancak uygulamaya her tıkladığımzda &#x27;loading&#x27; olur çünkü uygulamanın komutları
+belleğe yüklenir. Execution aşaması da gerçekleşip uygulama çalıştırılır.</code></pre><pre id="9843e225-ecec-406f-bd6e-2c6fb7779d68" class="code"><code>mnemonic: Çalıştırma sırası gelen satırdaki komutların opcode&#x27;larına bu isim verilir.
+					Mov, add, sub...
+
+Genelde her mnemonic, bir CPU instruction&#x27;una denk gelir.
+
+Her mnemonic için ayrı işlemci devreleri vardır.</code></pre><pre id="e8002cdd-c7f5-4e10-b090-d50784eb728f" class="code"><code>Hafta 7&#x27;de ayrıntılı olarak görülecek olan CISC ve RISC mimarileri vardır.
+RISC ve CISC birer komut mimarisidir.
+Intel, CISC yaklaşımını kullanır.
+CISC(Complex instruction set computing): Çok sayıda güçlü ve ve kompleks CPU
+instruction&#x27;ları(devreleri) vardır
+CPU&#x27;nun instruction&#x27;u CPU devresine denk gelir.
+Çünkü CPU instruction&#x27;ları, kendisine var olan devrelerle yapar.</code></pre><pre id="63c140cd-c1eb-4c66-b7ce-c64f448d8aab" class="code"><code>RISC(reduced instruction set computing): CISC&#x27;e kıyasla az sayıda
+CPU instruction&#x27;u(devresi) barındır. Ancak daha hızlı çalışır.</code></pre><pre id="b3eddcdd-3471-46cb-8f00-2d82a456f647" class="code"><code>CPU&#x27;lar mantık kapılarından oluşur: NAND, OR, XOR, vs.
+
+CPU&#x27;lar; transistör ve çeşitli silikon cihazlar kullanılarak yapılır.
+
+Bir CPU&#x27;da milyonlarca transistör vardır.
+
+LOGIC(mantık), computing&#x27;in(hesaplama diyelim) temel dilidir.</code></pre><pre id="fee2e3f6-e18d-4e6c-8611-47532f3dd556" class="code"><code>Bilgisayarlar binary verilerle çalışır. Bazen decimal, hexadecimal,
+octal vs olarak da gösterilir.</code></pre><pre id="92278aad-3661-4b73-ac3d-d08ffb506d80" class="code"><code>LSB(least significant bit) biti, binary gösterimin en sağındaki yani en küçük değere
+sahip (2 üssü 0) bittir. 
+
+MSB(most significant bit) biti, binary gösterimin en solundaki yani en büyük değere
+sahip(2 üssü N) bittir.</code></pre><figure id="b0cbff94-8b76-4a40-a082-f5abebf190bd" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_194959.png"><img style="width:744px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_194959.png"/></a></figure><pre id="735b09c2-f6a1-4914-b4ff-25204f65b419" class="code"><code>Her ne kadar Integer Storage Sizes dese de String, float değerleri de yukarıdaki tipler
+ile(uygun olanlarla ve sığarsa) tanımlanır.</code></pre><h2 id="6cd0a471-03b9-4daf-abe0-324b20bb9b6a" class="">Hafta 2</h2><pre id="eecd06f7-6882-4b9d-a513-d02e9237906f" class="code"><code>- Clock, CPU işlemlerini senkronize eder.
+- CU(Control Unit) çalıştırma adımlarını koordine eder. İşlemcinin kontrolcüsüdür.
+	İşlemciye giren ve çıkan her şey buradan geçer.
+- ALU, aritmetik ve mantıksal işlemleri yapar.</code></pre><figure id="b70f401a-c0da-472b-87f0-37d05f42e0b3" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_215746.png"><img style="width:672px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_215746.png"/></a></figure><pre id="5b2b0906-cf6a-4993-835e-4d0a5a37f060" class="code"><code>Clock
+
+Tüm CPU&#x27;yu senkronize eden, zaman ve hız işlemlerini halleden bileşendir.
+Clock, tek bir instruction&#x27;un(komutun) işlenme süresidir.
+
+wait state: Komutlar bazen belleğe erişim gerektirir. Bu sürede CPU boşa düşer.
+Çünkü herhangi yapacağı bir iş yoktur. Hafızadan veri gelmesini beklemektedir.
+Değişkenin değeri yoktur okurken mesela. Değişkeni hafızadan getirene kadar CPU bekler.</code></pre><figure id="60bcfc10-4db4-49ab-bf4a-18b9cf41f49f" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_224148.png"><img style="width:777px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_224148.png"/></a></figure><pre id="250d2d50-de1f-441b-bed9-085d18033a03" class="code"><code>Komutların işlenme süreci:
+
+- Fetch: Bellekten komutun çekilmesidir. Çünkü komutlar da bellekte tutulur.
+- Decode: Bellekten gelen komutları decode eder(çözer). Analiz eder, parçalarına ayırır.
+-	Fetch Operands: Eğer komutta bir değişken gerekliyse gidip hafızadan alır ve gelir.
+- Execute: Control Unit&#x27;ten ALU&#x27;ya(arithmetic logic unit) aktarılan komut işlenir.
+- Store output: Üretilen sonuç RAM&#x27;e, saklanmak üzere aktarılır.
+
+Yukarıdaki maddelerde her ne kadar &quot;fetch operands&quot; ve &quot;store output&quot; geçse de bunlar
+komut işleme döngüsünden sayılmamaktadır.</code></pre><pre id="c60d86b4-a3f9-4af0-aced-eda538e9ad86" class="code"><code>Paging: ramde yer kalmazsa adreslemenin diskte devam etmesi.
+Diskin bir alanının ayrilmasina &quot;virtual memory&quot; de denir. </code></pre><pre id="b3832b54-1432-4032-953c-576cabcdfc82" class="code"><code>Reading From Memory
+
+Multiple cycles, RAM&#x27;den bir veri okumak CPU&#x27;ya göre çok yavaş olduğu için gereklidir.
+
+Multiple cycle, instruction&#x27;u parçalara böler ve her clock&#x27;ta belli parçalarını
+getirir. Bu yüzden bir instruction&#x27;un kaç clock&#x27;ta biteceği değişkendir.
+Yani bir clock&#x27;ta birden fazla komut işleyebilir.
+
+Single cycle ise bir clock&#x27;ta bir komut işler. Klasik fetch-decode-execute döngüsü</code></pre><figure id="be659d1a-473d-490d-add3-37289e797c78" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_230943.png"><img style="width:908px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_230943.png"/></a></figure><pre id="c6b45f25-5598-49d5-9018-9e9863cad8ac" class="code"><code>Yukarıdaki görseli tam olarak anlayamadığım için yorum yapamıyorum ancak anladığım
+kadarıyla tek cycle&#x27;ın sorunlarından bahsediyor. İşlemcinin boşa düşmesine neden oluyor.
+Bu yüzden çoklu veri yolu kullanılıyor.
+Ben böyle düşündüm.</code></pre><pre id="42113eb5-1bb6-4c8d-ae90-cbd6ae758661" class="code"><code>Cache Memory
+
+CPU ile memory arasında bulunana ancak CPU&#x27;ya daha yakın ve oldukça hızlı olan bir
+statik RAM(SRAM) çeşididir.
+
+Program bir kez memory&#x27;den veri okuduğu zaman onu cache&#x27;a kopyalar.
+İkinci kez aynı veriye ihtiyaç duyulduğunda RAM&#x27;e gitmeden daha kolay ve hızlı bir
+şekilde (varsa) cache&#x27;ten alınır.
+
+İşlemci için bir veri gerektiğinde işlemci önce cache&#x27;e gider. Bu veri cache&#x27;te var mı?
+diye bakar. Eğer varsa cache&#x27;ten alır ve gider. Eğer yoksa memory&#x27;e gider ve değeri
+oradan okur.
+Eğer, aranan değer cache&#x27;te varsa buna &quot;cache hit&quot;, aranan değer cache&#x27;de yoksa buna
+&quot;cache miss&quot; denir.
+Cache miss ve cache hit işlemcide gerçekleşir.</code></pre><pre id="25165040-910d-4340-ba28-362c11509f43" class="code"><code>Multitasking
+
+İşletim sistemi aynı anda birden fazla program çalıştırabilir.
+
+Bir programda çoklu thread&#x27;ler ile aynı anda birden fazla işlem yapılabilir.
+
+Biz bilgisayarı her ne kadar, uygulamaları eşzamanlı olarak çalıştırıyor yani
+tüm uygulamalar beraber aynı anda çalışabiliyor diye görsek de aslında öyle değil.
+Her programın br çalışma süresi vardır. CPU aşırı hızlı olduğu için biz bunu farketmeyiz
+CPU, her uygulamaya çalışması için bir süre verir. Örneğin der ki: A uygulaması sen,
+20ms çalışaksın, sonra B uygulaması sen de 20 ms çalışacaksın. Böyle sıralı olarak
+uygulamaları çalıştırır ancak dediğimiz gibi CPU fazla hızlı olduğu için biz bunu
+farkedemeyiz.</code></pre><pre id="870a683d-9b37-46e2-a6e0-0c4b2b4a32d9" class="code"><code>Program Çalıştırmada İşletim Sisteminin(OS) Rolü
+
+Program çalıştırıldığında OS şunları yapar:
+- Diskteki çalıştırılabilir binary formatındaki dosyayı bulur.
+- Bu dosyayı diskten memory&#x27;e taşımak için &quot;loader&quot;i çağırır. Eğer gerekliyse adresleri
+	çözer.
+- DLL dosyalarını bulur ve bağlar. (DLL,windows için geçerli)
+
+	Ekstra bilgi: DLL, windows için dinamik(runtime) kütüphanelerdir.
+ 
+Program çalışırken OS şunları yapar:
+- Bütün adresleri çözer
+- Bilgisayarlarımız birden çok işi aslında sıralı ama çok hızlı yapardı(multitasking).
+	Ama çok hızlı oldupu için biz bunu farkedemezdik. Yeni açtığımız uygulamayı da bu
+	sıraya ekler. Yani sırayla çalıştırdığı uygulamalar içinde bizim açtığımız uygulama
+	da eklenecek.
+- IO(Giriş/Çıkış) isteklerini yönetir.
+
+Program sonlandıktan sonra OS, uygulamayı bellekten temizler.</code></pre><pre id="77b6e5a2-ae00-4464-8cae-afd2fad282d9" class="code"><code>REGISTER
+
+Registers, CPU&#x27;nun içinde yer alan aşırı hızlı depolama alanlarıdır.
+
+Uygun memory alanına ulaşmaktan daha kısa bir zamanda erişilmek için tasarlandı.
+
+Yani bir veriyi memory&#x27;den çekmek yerine register&#x27;lere atıp oradan çekebiliyoruz.</code></pre><pre id="6801d8ff-73a9-44c3-b28d-ec0a1d7b3aa6" class="code"><code>Register Tipleri
+
+○ General purpose registers
+○ Segment registers
+○ Processor status flags register
+○ Instruction pointer</code></pre><figure id="1a207866-10a5-4921-b60a-636ed83a256b" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_093358.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_093358.png"/></a></figure><pre id="4a9d551c-6a69-4d6e-a586-6f4b2b49851e" class="code"><code>General Purpose Registers
+
+Öncelikli olarak aritmetiksel işlemler ve veri aktarımı için kullanılır.
+Bit sayılarına göre belirli isimlendirme ve türleri vardır.
+
+32 bit olanları: EAX, EBX, ECX, EDX
+16 bit olanları: AX, BX, CX, DX
+8 bit olanları(high): AH, BH, CH, DH
+8 bit olanları(low): AL, BL, CL, DL
+
+- Farkettiyseniz harfler hep aynı sadece ön ve arkalarına gelen harfler değişmiş.
+	AX, AH, AL, EAX registerleri aslında aynıdır. Sadece boyutları farklıdır.
+	Başına E gelirse 32 bit oluyor. Yanına H/L gelirse de 8 bit oluyor. AX de 16 bit
+
+	İleride göreceğimiz üzere assembly komutlarında ax ve eax registerlerini aynı register
+	olarak kullanabiliyoruz. Yani tek değişen şey boyutları
+
+- 8 bit olanlarda high ve low yazıyor.
+- High: 16 bit AX registerinin en değerli yani ikiye bölersek soldaki 8 bitine verilen
+	isimdir.
+- Low: 16 bit AX registerinin en değersiz yani ikiye bölersek sağdaki 8 bitine verilen
+	isimdir.
+
+Bu register türü her ne kadar general purpose olsa da bazılarını belli görevler için
+kullanabiliyoruz.
+Mesela ileride göreceğimiz assembly LOOP&#x27;unun kaç kez döneceğini belirlemek için
+ECX registerini kullanıyoruz.
+
+Ancak çoğu aritmetiksel işlemde ve veri taşıma işleminde AX/EAX ve BX/EBX kullanılır.
+
+EAX = accumulator
+Accumulator dendiğinde, aritmetiksel işlemlerin depolanması için kullanılan EAX
+registeri akla gelmeli
+
+ECX = Loop Counter (döngü iterasyon sayısını tutar.)</code></pre><figure id="67251345-dc3f-4f94-a64c-be6e1e8e5f1a" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_095104.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_095104.png"/></a></figure><pre id="9d6ad699-6da7-4409-9b08-15e1246a190f" class="code"><code>Segments (segment registers)
+
+CS -&gt; Code Segment
+DS -&gt; Data Segments
+SS -&gt; Stack segment
+
+Assembly&#x27;de göreceğimiz mov komutunda, segment registerler&#x27;e atama işlemi yapılamaz</code></pre><pre id="e7406304-4a69-4591-bf21-1ef62aa07537" class="code"><code>Instruction Pointer(program counter)
+
+Hafta 7&#x27;de daha ayrntılı görelecek olan program counter&#x27;ı tutan register&#x27;dir.
+Çalıştırılmmakta olan komutun adresini tutar. Diğer satıra geçildiğinde program counter
+artar ve instruction pointer&#x27;in içeriği güncellenir.</code></pre><pre id="0479e5ac-5fb3-4de2-9753-fc2e0611879a" class="code"><code>EFLAGS
+
+Flag&#x27;ler bir register tipidir.
+32 bit register&#x27;lerdir. EAX gibi yani. Bu yüzden başında &#x27;E&#x27; var.
+Status ve control flag olarak ikiye ayrılır.
+
+Bir binary bit ile ifade edilir(o kadar yer kaplar).
+Yani sadece 0 ya da 1 olabilir.</code></pre><pre id="4a82479e-f1bc-4bf9-b69d-35819e12c692" class="code"><code>Status Flags
+
+İşlemcinin o anki durumu hakkında bilgileri içerir.
+Bilgi derken &#x27;evet&#x27; ya da &#x27;hayır&#x27; şeklinde yani.
+
+En yaygın Status Flags
+
+	- Carry: işaretsiz sayıların aritmetik işlemlerinde taşma olursa flag 1 olur.
+
+	- Overflow: işaretli sayılan aritmetik işleminde taşma olursa flag 1 olur.
+
+	- Sign: sonuç negatifse flag 1 olur.
+
+	- Zero: Sonuç sıfırsa flag 1 olur.
+
+Flag&#x27;ler ileride anlatılacağı için açmadım.</code></pre><figure id="da4406ad-ff22-42da-9e77-a7ce73cee06c" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_104724.png"><img style="width:701px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_104724.png"/></a><figcaption>İşaretli olanlar önemli/nispeten önemli olan register&#x27;lerdir.</figcaption></figure><pre id="91431529-2e03-4e38-9b9b-6605784e22e5" class="code"><code>Compatibility Mode (Uyumululuk Modu):
+
+Uyumluluk modu, bir yazılımın daha eski bir yazılım sürümünü taklit ettiği veya eski
+veya uyumsuz yazılımların veya dosyaların bilgisayarın daha yeni donanımı veya
+yazılımıyla uyumlu kalmasına izin vermek için başka bir işletim sistemini taklit
+ettiği bir yazılım mekanizmasıdır.
+Kısaca; 64 bit bir bilgisayarda 32 bit, 16 bit yazılımları kullanamaya izin veren moddur
+Ama elbette uygulamalar tam olarak verimli çalışmaz. Sorunlar çıkabilir.
+
+
+64 bit mode:
+
+64 bit adres ve operand kullananan moddur. Şuanki güncel bilgisayarlar 64 bir moda
+sahip</code></pre><pre id="68785425-f7f5-4cd1-a0b9-4e0b0a3baaed" class="code"><code>Önemli:
+
+IA-32 işlemciler, 32 bit register barındırır.
+4 GB adreslenebilir RAM&#x27;e sahiptir.
+Paging(virtual memory) yapılabilir.</code></pre><pre id="512f1103-2cdd-413d-870e-db4437410603" class="code"><code>Bazı Teknolojiler(önemli)
+
+	Pipeline: Talimatların eş zamanlı olarak yürütülmesi.
+	Fetch-decode-execute döngüsünü gerçekleştiren hiçbir CPU bölümünün boş kalmaması.
+	Hep bir iş yapması. Pipeline olmadan; Fetch, komutları çeker ve komutlar işlenip
+	cevap verilene kadar bekler. Ancak pipeline ile; fetch aşaması bittikten ve komut
+	decode aşamasına geçtikten sonra diğer komut için fetch aşamsaı başlar. Önceki komutun
+	tamamen bitmesini beklemez. Böylece fetch işlemini yapan kısım asla boş kalmaz.
+
+	SuperScalar: CPU&#x27;nun bir clock cycle&#x27;da birden fazla instruction çalıştırabilmesidir.
+	Yani komut düzeyinde paralelizm gerçekleştirir. Bir instruction işlenirken, komut
+	işlenme döngüsünün(fetch-decode-execute) başına giden bir dizi metot tanımlar.
+	Yani bir clock&#x27;ta birden fazla instruction için output verir.
+	Kısaca, aynı clockta birden fazla komut çalıştırabilen teknolojidir.
+
+	HyperThreading: Bir işlemcide aynı anda iki işlemin yapılmasıdır.
+	Bir core olmasına rağmen (yazılımsal olarak) sanki iki core varmış gibi davranmasıdır.
+	Bu mimaride register sayısı ikiye katlanır.
+	Register ikiye katlandığı için iki core varmış gibi davranır zaten.
+  Bu, islemci gucunun ikiye katlandığı anlamina gelmez.
+  Basit islerle bir core&#x27;un tamamının ilgilenmesi yerine bir core&#x27;u
+  iki sanal core&#x27;a bolerek bir core&#x27;in birden fazla is yapmasini ve 
+  core&#x27;un tam kapasitesini kullanmayı sağlar.
+
+	Dual-core Processing: Aynı IC paketinin içindeki iki işlemcidir.
+	Her işlemcinin kendine ait kaynakları(cache&#x27;si ve controller&#x27;i) vardır.
+	IC paketi: Donanımsal bir parça. İki core&#x27;u birleştiren bir çatı gibi bir şey.
+	İnternetten görseline bakabilirsiniz.
+
+	Bunlar, benim internetten araştırarak öğrendiklerim ve anladıklarım.</code></pre><pre id="ca55defd-79f2-4b25-945c-9f7047695f47" class="code"><code>CISC &amp; RISC Mimarisi Hafta-7&#x27;de ayrıntılı olarak işlendiği için şimdi açıklamayacağım.</code></pre><pre id="60cc9087-4e96-4e13-b0aa-4073f3b3fcbd" class="code"><code>X86 İşlemcide Hafıza Yöntetimi
+
+Protected Mode:
+	Windows, Linux gibi işletim sistemleri bu mod ile çalışır.
+	Programlar, segment adı verilen ayrı bir bellek bölgesinde çalışır.
+	İşlemci, programların hafızada kendisine atanan segment dışında yer kullanmasına
+	izin vermez.
+
+Real Adress Mode:
+	MS-DOS bu modu kullanmaktadır.
+	Sistem hafızasına ve belleğe direk erişimi vardır. İşletim sisteminin çökmesine
+	sebep olabilir.
+
+System management mode:
+	Power management, system security, diagnostics... gibi sistemin ihtiyaç duyduğu
+	şeyler bu moda sahiptir.
+
+Bizim bilgisayarlarımızda üç mod da bulunur. Bilgisayar kullanırken şarjı görebiliyoruz,
+sistem güvenliği sağlanır, tarih gösterilir...
+System management mod için arkaplanda çalışan özellikler diyebiliriz.
+Nam-ı diğeri ile CMD(command line/komut ekranı) açtığımızda karşımıza gelen siyah
+ekran, real address mode&#x27;dur. Bu ekrandan sistem yönetimi de sağlayabiliriz
+Protected mode ise kullanıcının normal bir şekilde uygulamaları kullandığı mod&#x27;dur.</code></pre><pre id="1286541a-b7d6-4bc0-8a3f-d34a7615377b" class="code"><code>Virtual 8086 mode
+
+Protected mode&#x27;un özel bir versiyonudur.
+Her program kendi 8086 bilgisayarına sahiptir.
+Kısacası 8086, CPU&#x27;nun(CPU korumalu modda olur) real mode&#x27;a sahip bir uygulamayı
+çalıştırmasıdır. Örneğin &quot;cmd&quot; komutu</code></pre><pre id="d1b14644-e4eb-4cd3-b7cc-9c3d6025a596" class="code"><code>Addressable Memory (adreslenebilir RAM) (X86 için)
+
+Protected Mode:
+	En fazla 4 GB memory segment ayrılabilir.
+	32 bit adresleme vardır.
+
+Real Mode Address ve 8086 mode:
+	1 MB hafıza alanına sahiptir.
+	20- bit adresleme vardır.</code></pre><pre id="eb75f3ef-0298-4bdf-b5a4-e5fa7721a283" class="code"><code>Real Address Mode
+
+En fazla 1 MB adreslenebilir RAM sağlar.
+Uygulamalar, herhangi bir adres bölgesine erişebilir.
+Single tasking(Aynı anda birden fazla program çalışamaz.)
+MS-DOS işletim sistemi tarafından desteklenir.
+1 MB = 2üssü 20 bit. Bu yüzden 20-bit adresleme denir.
+16 bit register vardır.</code></pre><pre id="2c5db876-b620-488d-94e4-da36ffacb95e" class="code"><code>Segmented Memory
+
+8086 mikroişlemcisi, kendisine verilen 1 MB belleğin tamamını direk kullanmaz.
+Belli bölümlere(segmentler) ayırır. Bu segmentlerin belli görevleri vardır.
+16 tane 64 KB&#x27;lık segmentlere ayırır.
+
+Aşağıdaki görselde ise aynı tanım olmasına rağmen üç çeşit segment olduğunu söylüyor
+
+Bana kalırsa burada hocanın tanımını baz alalım. Ancak data, code ve stack
+segmentlerini bilmek gerekiyor. Ki ileride de bu segmentleri göreceğiz ancak adları
+program segmentleri olarak geçiyor.. Benim kafamı karıştıran kısım işte bu.
+Neyse, bence yine  aşağıdaki görseldekileri bilelim. Segment lafı geçerse
+aşağıdakileri bilelim :)</code></pre><figure id="6d3c91b0-316f-4899-b7bf-decb62696239" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/memorysegments.png"><img style="width:734px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/memorysegments.png"/></a></figure><pre id="4045f0df-d565-45cf-945c-75fd200972cc" class="code"><code>Program Segmentleri
+
+Adres gösterimi için her zaman HEXADECIMAL format kullanılır.
+
+// Benim program segmentinden anladığım şey şu: Assembly kodunu .data, .code, .stack
+// notasyonlarının altına yazıyoruz. Bu aslında, kodların hangi bellek bölgesine
+// yerleşeceğini söylüyor. Yani program segmentleri memory segmentlerine referans
+// veriyor. Bu yüzden memory ve program segmentlerinin isimleri aynı.
+
+Bir programın üç tür segmenti vardır: code, data, and stack(Yukarıdaki görseldeki gibi)
+
+Üç tane temel segment registeri vardır ve bunlar segmentlerin başlangıç adreslerini
+tutar: CS(code segment), DS(Data segment), SS(Stack segment)</code></pre><figure id="596a4136-6364-40db-8ed2-25f53defacd6" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_141922.png"><img style="width:736px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_141922.png"/></a></figure><pre id="9842fb35-173a-434c-83fe-6f3d46d35200" class="code"><code>Protected Mode
+
+4 GB adreslenebilir RAM&#x27;e sahiptir (00000000h to FFFFFFFFh)
+// Bu miktar gözüme çok az geldi. 32 GB bellekte de mi 4 gb yoksa bu sadece
+// X86 işlemciler için mi geçerlidir bilmiyorum.
+
+Her program, protected memory bölümüne atanır.
+
+Multitasking için dizayn edilmiştir.
+
+Memory tipleri:
+	Flat Segment Model
+	Multi Segment Model: Hoca önemsemediği ve ilgilenmeyeeceği için ben de yazmadım.
+	Paging
+
+MASM(microsofr assembler) programları Flat memory modelini kullanır.</code></pre><pre id="8da21bb1-b736-4741-b2c8-f350d1764164" class="code"><code>Flat Segment Model
+
+Tek Bir GDT(Global Descriptor Table) vardır ve OS tarafından yönetilip kullanılır.
+Bellek, programa tek bir bitişik bellek alanı olarak gözükür.
+YAni her programın ayrı bir bellek bölgesi yoktur.
+GDT: Bir programın, çalışma esnasında hangi segmentleri kullandığını, hangi segmente
+okuyup yazma yapabileceğini, programın başlangıç adresini, boyutu tutan bir tablodur.</code></pre><pre id="f17fea2c-e6ea-40ad-b451-aa904be9bc21" class="code"><code>Paging
+
+RAM&#x27;de yer kalmayınca sabit diskin bir bölümünü RAM olarak kullanmaktır.
+Virtual Memory = Paging
+
+- Direk olarak CPU tarafından desteklenir.
+- Her segmenti, boyutu 4KB(4096 byte) olan bloklara böler.
+- Tüm programların toplamı belleğin boyutundan daha büyük olabilir
+- Hafızada çalışmakta olan programın bir bölümüdür.
+
+Virtual memory manager: OS, pages(her bir blok)in load ve unload işlerini yönetir. 
+
+Page fault: Diskten bir page yüklemeye çalışırken CPU tarafında verilen hatadır.
+Sebebini ben de bilmiyorum :)</code></pre><pre id="5a169861-a75c-4fe3-bffd-72b4f3147b76" class="code"><code>Levels of Input/ Output
+
+Level 3- Yüksek seviyeli Diller: Taşınabilir, kullanışlı ama her zaman hızlı değil
+-&gt; C, Java,...........
+// C, yüksek seviyeli dil değil ki diyebilirsiniz ama ders, neredeyse tamamen donanımla
+// ilgili oldğu için assembly&#x27;e göre bütün diller yüksek seviye kalıyor. Bu ders için
+// böyle :D
+
+Level 2- Operating system:
+Geniş yetenekleri vardır.
+Uzman olmak için bilecek çok ayrıntı gerektirir.
+
+Level 1- BIOS(Basic Input - Output System):
+Sürücülerin direk cihazlarla iletişim kurmasını sağlar.
+Bilgisayarda hangi işletim sistemi varsa açılışta onun çalıştırma dosyasını açar
+ve işletim sistemi açılır.
+OS&#x27;in güvenliği bu katmanda kullanıcı programı yazılmasına izin vermeyebilir. </code></pre><pre id="0afedcea-f6db-4aa5-8da1-081057cad8b2" class="code"><code>Programlama Seviyeleri
+
+Assembly dili aşağıdaki bütün seviyelerde input-output sağlayabilir.
+Yani bütün katmanlar için kod yazılabilir.
+Kütüphane, OS fonksiyonları, BIOS özellikleri, donanım kodlar yazılabilir.</code></pre><figure id="e348c710-68a3-471a-9f4e-07b5aaae269a" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_150240.png"><img style="width:672px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-27_150240.png"/></a></figure><p id="eca6238e-a38c-49df-9a7e-e30444ec0f9e" class="">
+</p><h2 id="97f59aaa-72d0-4335-9ed4-81a945dfc4b6" class="">Hafta 3 ve 4 (Temel Bilinmesi Gerekenler)</h2><hr id="a61b1195-cf84-4bf9-bb24-53f06b30786d"/><figure id="ce5152bc-deaa-424d-91ff-5cc8d29ce945" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/binto_hex.png"><img style="width:726px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/binto_hex.png"/></a></figure><figure id="028ce292-73f1-4e0e-9a60-eb7221e6f880" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/binath.png"><img style="width:744px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/binath.png"/></a></figure><figure id="522c58e4-6587-424b-9eab-35ddb7e2650c" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/negbinath.png"><img style="width:739px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/negbinath.png"/></a></figure><hr id="a01005d1-2011-4c9a-a42b-35ce5448c3e1"/><h3 id="a1e00e48-37b1-4ea1-9c1d-e166f0d66cd5" class="">Hocadan pek anlamadığım yerler (Teorik)</h3><hr id="ae86fc1c-9520-41f3-bfd1-def5b9437bc2"/><figure id="29741abe-3a4d-4c27-a036-9b54f4e973d4" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/addressingmemory.png"><img style="width:742px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/addressingmemory.png"/></a><figcaption>Little Endian Order işte budur. Dökümanın ileriki kısımlarında buna bir daha değinilecek.</figcaption></figure><figure id="dd9921fc-49b5-4472-8b11-da6ab62eb366" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/syntax.png"><img style="width:743px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/syntax.png"/></a></figure><figure id="a24ac3bf-db78-49b8-a7da-243097b4b7fd" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/registers-intro.png"><img style="width:737px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/registers-intro.png"/></a></figure><figure id="be7eedd2-ce09-4fd2-9136-79110b35ed32" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/dataregisters.png"><img style="width:739px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/dataregisters.png"/></a></figure><figure id="f5da9bc1-34d3-423e-a9db-da65d50a20fa" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/registers.png"><img style="width:1683px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/registers.png"/></a></figure><figure id="dd2c1a40-5e3a-4085-9af5-79f594ff7bed" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/flasgs.png"><img style="width:740px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/flasgs.png"/></a><figcaption>Control Registers = Flags</figcaption></figure><figure id="b9da5306-8883-45a8-9278-7b2a1775cae9" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/addressing_modes.png"><img style="width:733px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/addressing_modes.png"/></a></figure><figure id="e68fc058-a1c8-4928-9a54-3ae13623ff5d" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/regs.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/regs.png"/></a></figure><figure id="22bbee66-3789-487f-af8c-106782ce03cd" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/tipler.png"><img style="width:728px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/tipler.png"/></a></figure><hr id="6adcab52-6add-4f7f-bd37-29e7c16fc6a6"/><h3 id="bfc3089b-6072-4b46-9924-eef79e2225b8" class="">Teori ve giriş kısmı bitti</h3><hr id="cacdb16c-bb46-48f8-a3a7-94be0a424293"/><h3 id="aa1acf1b-b0d8-4b33-a15e-497f29d68e48" class="">Şimdi Assembly ve komutlarına giriş yapıyoruz</h3><figure id="e0d17e8f-37e0-42e6-b23a-42b9e444ce28" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/comments.png"><img style="width:731px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/comments.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2395c0fe-59a1-4a2d-92e2-0f0e190b1d2c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-red"><span style="border-bottom:0.05em solid"><em><strong>ASSEMBLY KOMUTLARI ve ayrılmış kelimeler BÜYÜK KÜÇÜK HARF DUYARSIZDIR.
+</strong></em></span></mark><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><em><strong>MOV </strong></em></span></mark><mark class="highlight-red"><span style="border-bottom:0.05em solid"><em><strong>İLE </strong></em></span></mark><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><em><strong>mov</strong></em></span></mark><mark class="highlight-red"><span style="border-bottom:0.05em solid"><em><strong> arasında, </strong></em></span></mark><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><em><strong>BYTE </strong></em></span></mark><mark class="highlight-red"><span style="border-bottom:0.05em solid"><em><strong>ile </strong></em></span></mark><mark class="highlight-yellow"><span style="border-bottom:0.05em solid"><em><strong>byte </strong></em></span></mark><mark class="highlight-red"><span style="border-bottom:0.05em solid"><em><strong>arasında bir fark yoktur.</strong></em></span></mark></div></figure><pre id="155b1aac-742a-49bc-9627-cafd9d58cdd7" class="code"><code>Mov Instruction
+
+mov destination source	
+
+- Mov instruction, atama işlemi yapmamızı sağlar.
+- Atama işleminde atanan değerde değişiklik olmaz. Mesela C&#x27;de, a değişkenine 5 sayısını
+	atarken nasıl 5(atanan) sayısı değişmiyorsa burada da source(kaynak/atanan) değişmez
+- Operandlar şöyle olabilir:
+		mov reg reg -&gt; registerdan registere atama
+		mov mem reg -&gt; registerden memory&#x27;e atama
+		mov reg mem -&gt; memeory&#x27;den registere ataa
+		mov reg imm -&gt; immediate(integer, string, const değer) değeri registere atama
+		mov mem imm -&gt; immediate değeri memory&#x27;e atama 
+- İki operand da aynı boyutta olmalıdır.
+- Segment registerine immediate veri aktarılamaz.
+- DS(data seg.), CS(code seg.), SS(stack seg.) segment registerlerden bazılarıdır.
+	Yukarıda görmüştük.
+- Aynı instruction&#x27;da birden fazla memory operandı olamaz. Bu sadece mov için geçerli
+  değildir. Hibir komutta birden fazla memory olamaz.
+- Memory dediğimiz şey bildiğimiz değişken yani.
+- Yani memory&#x27;den memory&#x27;e veri aktarılamaz.
+- Memory&#x27;den memory&#x27;e aktarım yapmak şöyle olur:
+
+.code
+mov ax,var1
+mov var2,ax
+// kaynak önce ax register&#x27;ine aktarılır. Diğer satırda da register&#x27;den diğer memory&#x27;e
+// aktarılır.</code></pre><pre id="1f1687a0-4dfc-46e3-bc28-7784931d1de4" class="code"><code>immediate: integer olan const ifadeleri ifade eder. Ör: 55,20,100</code></pre><pre id="443db6bb-cb07-420b-89b9-0603d188cd26" class="code"><code>int a = 5;
+// bu, atama işleminin C&#x27;deki halidir.
+// 5, immediate bir değerdir. &#x27;a&#x27; ise memory&#x27;dir.
+// Biz burada memory&#x27;e immediate değer atadık.</code></pre><pre id="cda790e1-7f34-4311-b6d8-a9eb17811050" class="code"><code>Ekleme ve Çıkarma İşlemi
+
+mov eax, 1000h; burada sadece register&#x27;a sabit sayı atadık.
+add eax, 3000h;
+// eax registerindeki sayı ile 3000h sayısını toplar ve eax registerine atar.
+sub eax, 2000h;
+// eax registerindeki sayıdan 2000h sayısını çıkarır ve değeri eax registerine atar.</code></pre><pre id="8f81dd07-ca2a-43a5-8b4d-e3eff92f7c42" class="code"><code>Değişken Tanımlama
+
+var1 byte &#x27;A&#x27;
+var2 byte 0
+var3 byte 255
+var4 sbyte -128 // işaretli olduğu için max. -128 alabilir.
+var5 sbyte +127 // işaretli olduğu için max 127 olabilir
+var6 sbyte ? ; uninitialized variable: değeri atanmamışlar ? ile gösterilir.
+
+// Eğer var1&#x27;in adresi 0000 ise var2&#x27;nin adresi 0001 olur.
+// Çünkü byte tipi hafızada 1 byte kaplar. Bu yüzden adres 1 artar.
+// Hafızada hemen arkasına yerleşir.
+// Byte tipi sadece boyutu belirtir. Yani bu 1 byte&#x27;ın yani 8 bitin içine herhangi
+// bir veri tipi yazabilirsiniz.(tabi sığarsa :)),</code></pre><pre id="8e22e223-3540-41bb-bdec-35051c1be649" class="code"><code>
+Arrays (Diziler)
+
+list1 BYTE 10,20,30,40
+// Bir değişken 1&#x27;den fazla değer alıyorsa bu bir dizidir.
+// list1 adında tipi Byte olan ve 10,20,30,40 değerlerinden oluşan bir dizi tanımlandı
+
+list2 BYTE 10,20,30,40
+      BYTE 50,60,70,80
+      BYTE 81,82,83,84
+// Arraylar, hafızada ard arda dizilmiş hafıza alanlarıdır.
+// Sonraki elemana ulaşmak için başlangıç adresine, kaçıncı adrese ulaşmak istediğimiz
+// bilgisi eklenir. Yani her index bir byte&#x27;dır. İleride zaten bunun örnekleri var
+// ancak örneğin;
+// mov al, [list2+4]; dizinin başlangıç adresine 4 byte ekleyecek. O da 50 elemanı olur.
+// Eğer dizinin tipi WORD(2byte) olsaydı 4/2(veri tipi) = 2. Dizinin 2. elamanına
+// gidecekti
+
+list3 BYTE ?,32,41h,00100010b
+// İlk değeri null olan, 4 elemandan oluşan bir dizi
+
+list4 BYTE 0Ah,20h,‘A’,22h
+// Elemanların string, int olup olmaması bizi ilgilendirmez. Bir byte&#x27;i geçmemeleri
+// bizim için yeterlidir.</code></pre><pre id="0e9df71b-2f4a-4a26-88e5-e87a3c9ee89b" class="code"><code>Strings
+
+// String&#x27;ler sıralı byte karakterleridir.
+
+str1 BYTE &quot;Enter your name: &quot;,0
+// str1 değişkenine &quot;Enter your name:&quot; string&#x27;ini atar.
+// String&#x27;in tipi byte çünkü her harf bir byte&#x27;dir. String&#x27;ler de byte dizileridir.
+// String&#x27;in bittiğini göstermek için string sonuna virgül ve 0 atılır.
+
+str2 BYTE &#x27;ERROR!&#x27;,0Dh,0Ah,&#x27;Halting program‘,0Dh,0Ah,0
+// &quot;Error&quot; yazar, stringi bitirir. Bir satır aşağıya iner. &quot;Halting program&quot; yazar,
+// stringi bitirir. Bir satır aşağıya iner ve komutu bitirir.
+// 0Dh -&gt; Return karakteri anlamına gelir. Öncesinde gelen stringin bittiğini belirtir. 
+// 0Ah -&gt; Yeni satır anlamına gelir. Bir satır aşağıya iner.
+
+str3 BYTE &#x27;A&#x27;,&#x27;E&#x27;,&#x27;I&#x27;,&#x27;O&#x27;,&#x27;U&#x27;
+// Byte tipinde bir dizi oluşturur. String de byte dizisi olduğu için
+// bununla farkı yoktur. Ancak direk String olarak değerlendirilmediği için
+// satır sonuna 0 koymaya gerek yok.
+
+newLine BYTE 0Dh,0Ah,0
+// Boş ekranda &#x27;enter&#x27;a basar, aşağıya iner ve satır biter.
+
+greet BYTE &quot;A string in&quot;
+      BYTE &quot; two parts.&quot;,0
+// Birden çok satırda string yazılabilir. İlk satırdan sonra 0A yazmaya gerek yok çünkü
+// string zaten bitişik. alt alta da olsa string bitişik yazılacak ve 0 ile de bitecek.
+
+menu BYTE &quot;1. Create a new account&quot;,0dh,0ah,
+&quot;2. Open an existing account&quot;,0dh,0ah,
+&quot;3. Exit&quot;,0ah,0ah,
+&quot;Choice&gt; &quot;,0
+// &quot;1. Create a new account&quot; yazar aşağıya iner, &quot;2. Open an existing account&quot; yazar,
+// aşağıya iner, &quot;3. Exit&quot; aşağıya iner, &quot;Choice&gt; &quot; yazar ve 0 ile bitirir.
+// Her 0ah&#x27;den önce 0dh geliyor. Şöyle düşünülebilir. 0ah yazılırken yani bir satır
+// aşağıya ineceğimizi, şuanlık string&#x27;in bittiğini string&#x27;in bilmesi gerekiyor.
+// 0dh ise bunu bildiriyor.</code></pre><pre id="a768e848-547c-4a45-a2e3-df5b065c8d8e" class="code"><code>DUP Operator
+
+// DUP; içeriği, parantez içerisinde belirtilen
+// değer olacak şekilde bellekte yer ayırır.
+// Belirtilen değer sabit bir değer olmalıdır.
+
+var1 BYTE 20 DUP(0) ; 20 bytes, all equal to zero
+// Her bir byte&#x27;ın değeri 0 olan, 20 byte&#x27;lık yer ayırır.
+
+var2 BYTE 20 DUP(?) ; 20 bytes, uninitialized
+// Her biri unitialized olan 20 byte&#x27;lık yer ayırır.
+
+var3 BYTE 4 DUP(&quot;STACK&quot;) ; 20 bytes: &quot;STACKSTACKSTACKSTACK&quot;
+// Her byte&#x27;ında içerik olarak STACK yazan 4 byte&#x27;lık yer ayırır.
+
+var4 BYTE 10,3 DUP(0),20 ; 5 bytes
+// birinci elemanı 10, DUP ile her elemanın değerinin 0 olacağını belirttiğive 3 byte
+// ayıracağını belirttiği için
+// 2., 3. ve 4. elemanları 0 olan,
+// 5. elamanı ise 20 olan 5byte&#x27;lık bir dizi oluşturur</code></pre><pre id="d414a6e0-6b31-4048-97e9-c058762f5527" class="code"><code>val1 WORD 65535 ; largest unsigned value
+
+val2 SWORD –32768 ; smallest signed value
+
+word3 WORD ? ; uninitialized, unsigned
+
+word4 DWORD &quot;ABCD&quot; ; four characters
+
+myList WORD 1,2,3,4,5 ; array of words
+
+array WORD 5 DUP(?) ; uninitialized array
+// Değeri unitialized olan 5 byte&#x27;lık dizi oluşturur.
+
+val5 DWORD 0FFFF0000h ; unsigned
+
+val6 SDWORD –2147483648 ; signed
+
+dwd7 SDWORD –2,–1,0,1,2 ; signed array
+
+qwd8 QWORD 1234567812345678h
+
+rVal1 REAL4 -2.1
+
+rVal2 REAL8 3.2E-260
+
+// Mor rengiyle gösterilen üç tanesi kullanacağımız, önemli tipler değiller.</code></pre><pre id="4cc73610-a649-4387-9417-74739356895c" class="code"><code>Little Endian Order: Bir byte&#x27;dan daha büyük bütün veri tipleri kendi verilerini
+RAM&#x27;e sırayla(ters sırayla) yazar. Örnek aşağıdadır:
+Ancak bu, sadece sayıları için geçerlidir.
+Komtlar için bu geçerli değildir. 
+Mesela 0AB2 komutu ters şekilde yazılmaz 2 byte olmasına rağmen.</code></pre><figure id="a84ae741-bf13-4a4a-96e4-2bfa44738a9b" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/order.png"><img style="width:709px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/order.png"/></a></figure><hr id="74c5706e-7897-4b70-bb69-3759ca1ada4f"/><h3 id="967f47de-197f-4ec0-8750-d7bfacf674df" class="">Pekiştirme Önemli 😉</h3><figure id="c25a61d6-cff2-4f97-acb8-02c304a5edb8" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/pekitir.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/pekitir.png"/></a></figure><pre id="3de27b34-e329-46ab-8a49-cd14febb2a0c" class="code"><code>Declaring Uninitialized Data
+
+.data?
+array1 DWORD 5000 DUP (?)
+// .data? segmentinde tanımlanan değişkenler için uygulamanın(.exe) çalışma zamanında
+// yer ayrılır. EXE(uygulamanın çalıştırılabilir dosyası)&#x27;de bu değişken boyutu dahil değildir.
+
+.data
+array1 DWORD 5000 DUP (?)
+// Bu değişkenin boyutu EXE&#x27;ye dahildir.</code></pre><pre id="685fe521-8410-4814-a0c9-c35e8bafd3e9" class="code"><code>Integer Symbolic Constant
+
+name = expression
+// name, bir sabittir. Değeri sonradan değiştirilebilir ama değiştirmek iyi bir
+// seçenek değil
+
+sabit = 50
+// sabit değişkenine 50 değerini atar.</code></pre><pre id="32b3e366-f899-4683-9a5c-16e4e2ad178b" class="code"><code>EQU Directive
+// Constant (Dillerdeki const ile aynı şey)
+
+var EQU 80
+// var isimli bir sabit oluşturur ve 80 değerini atar. Bu sabit bir daha değiştirilemez.
+// İçine herhangi bir değer atanabilir.</code></pre><pre id="69f46d56-fba3-4c12-a80d-0ca3b406cfef" class="code"><code>TEXTEQU Directive
+
+msg TEXTEQU 12
+msq TEXTEQU %(msg)
+// değeri 12 olan msg adında bir sabit tanımlar.
+// &#x27;%&#x27; ifadesi integer&#x27;i string&#x27;e dönüştürür.
+// TEXTEQU  ile EQU&#x27;nun farkı, TEXTEQU&#x27;nun sonradan değiştirilebilir olmasıdır.</code></pre><pre id="303753ca-60fc-47b8-9580-c3013913d4fc" class="code"><code>Array Size(Dizi boyutu)
+
+$ -&gt; şuanki satırın konumunu verir.
+
+list BYTE 10,20,30,40
+listSize = ($ - list)
+// byte tipinde list adında bir liste oluşturur. Sağdaki parametreleri eleman olarak alır
+// symbolic constant olarak listSize sabitine, şimdiki satırın adresi - listenin başlangıç
+// adresi arasındaki farkı atar. Bu fark da listenin eleman sayısı*veri tipinin boyutunu verecektir.
+Yani burada veri tipi 1 Byte ve 4 eleman olduğu için 1*4 = 4 olacaktır.
+
+list2 DWORD 1,2,3,4
+listSize2 = ($-list2)/4
+// DWORD boyutu 4 byte olduğu için listSize2 direk olarak eleman sayısını verecektir.
+// Çünkü zaten veri tipi boyutuna böldük.</code></pre><figure id="04f1c18a-e37b-489b-9a81-c672dc2c1f3f" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-14_003851.png"><img style="width:726px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-14_003851.png"/></a></figure><pre id="3a379968-ff3f-453b-b56f-38d65ecd0267" class="code"><code>Direct Memory Operands
+
+Direct memory operands; Bellekte isimlendirilmiş bir referanstır.
+Named reference(label/değişken isimleri de denebilir) de aslında referansı kırılmış
+bir direct memory&#x27;dir.
+// C&#x27;deki pointer&#x27;lar gibi aslında. Direct memeory denen şey
+// bildiğimiz pointer. Değişkenler de referansı kırılmış yani değerini gösteren
+// pointer&#x27;lar gibi oluyor.
+
+.data
+var1 BYTE 10h
+
+.code
+mov al,var1 ; AL = 10h
+mov al,[var1] ; AL = 10h
+// &#x27;var1&#x27; in köşeli parantez içine alınması bir şeyi değiştirmez.
+// Aslında normal değişken ve dizi tanımlamalarında, değişkeni ya da dizi elemanını
+// köşeli parantez içine almak bir şeyi değiştirmez. Zaten direk değerini verecektir.
+// Köşeli parantezin işe yaradığı yerler, içinde bir adres tutulan memory/registerin
+// içindeki adresin değerini almaktir ki bunu ileriki safhalarda göreceğiz.</code></pre><h3 id="138fa14d-fed2-4b81-8fbb-9ed48fbb4032" class="">Mov Instruction Hata Durumları</h3><pre id="f1893ebc-d703-416c-a160-3f6a94ecc65c" class="code"><code>.data
+	bVal BYTE 100
+	bVal2 BYTE ?
+	wVal WORD 2
+	dVal DWORD 5
+
+.code
+	mov al,wVal
+	// vWal 2 byte, al(register tipi) ise 1 byte. Boyutları farklı olduğu için hata
+
+	mov ax,bVal
+	// bVal 1 byte, ax(register tipi) ise 2 byte. Boyutları farklı olduğu için hata
+
+	mov eax,bVal
+	// bVal 1 byte, eax(register tipi) ise 4 byte. Boyutları farklı olduğu için hata
+
+	mov ds,45
+	// ds, bir segment register&#x27;dir. Segment registere atama yapılamaz.	
+
+	mov eip,dVal
+	// sebebini ben de tam bilmiyorum. Geçersiz atama diyor. eip, bir pointer register.
+	// Muhtemelen pointer register&#x27;lere atama yapılamıyor(sallamasyon fikrim)
+
+	mov 25,bVal
+	// immediate ifadelere atama yapılamaz.
+
+	mov bVal2,bVal
+	// Memory&#x27;den memory&#x27;e direk atama yapılamaz.
+</code></pre><pre id="40df5e6a-10bb-4363-a035-09ff6f2b915f" class="code"><code>Zero Extension (MOVZX instruction)
+
+Daha büyük boyuta sahip bir registere&#x27;e, daha küçk boyuta sahip bir değer atandığında
+fazla kalan kısım 0&#x27;lar ile doldurulur
+
+mov bl,10001111b
+movzx ax,bl
+// Boyutu 1 byte olan BL registerine, binary bir değer atanıyor. Daha sonra bu register&#x27;i
+// ax registerine atamaya çalışırsak ax&#x27;in boyutu 2 byte olduğundan
+// kalan 1 byte 0&#x27;lar ile dolacaktır
+// AX yani destination operand her zaman register olmalıdır 0&#x27;lar ile dolması için</code></pre><pre id="59466dd7-677f-41ab-88b8-a32a96cbb62e" class="code"><code>Sign Extension (MOVSX Instruction)
+
+Daha büyük boyuta sahip bir registere&#x27;e, daha küçük boyuta sahip bir değer atandığında
+fazla kalan kısım, source&#x27;nin sign(işaret) biti ile doldurulur
+
+mov bl,10001111b
+movsx ax,bl
+
+// AX yani destination operand her zaman register olmalıdır.</code></pre><pre id="f29f9567-22c5-43bb-999d-44cf9b06a076" class="code"><code>XCHG Instruction (swap) (Excahnge&#x27;den geliyor)
+
+İki operandın değerlerini değiştirir.
+İki operanddan en az biri  register olmalıdır.
+Operandlardan herhangi biri immediate(sabit değer ya da constant) olamaz.
+Çünkü immediate değer depolanmaz ki değeri değişebilsin.
+
+
+.data
+var1 WORD 1000h
+var2 WORD 2000h
+
+.code
+xchg ax,bx ; exchange 16-bit regs
+xchg ah,al ; exchange 8-bit regs
+xchg var1,bx ; exchange mem, reg
+xchg eax,ebx ; exchange 32-bit regs
+
+xchg var1,var2 // iki operand da memory olamaz. Burada hata verir.</code></pre><pre id="07ae31ba-aa08-4d2a-8c98-3ca0bf8dc2cf" class="code"><code>LAHF &amp; SAHF Instructions
+
+LAHF: FLAG registerlerinin low byte&#x27;ını ah registerine kopyalar. Bu registerler arasında
+Sign, Carry, Zero flag&#x27;ları da vardır.
+Flag&#x27;lar 16 bittir. Bunun low byte&#x27;ı ise ilk 8 flag türü oluyor. Bunları kopyalar yani.
+Amacı ise flag&#x27;ları bir değişkende güvende tutmak için saklamaktır.
+LAHF, herhangi bir operand almaz. Direk flag&#x27;ları ah&#x27;ye taşır.
+
+.data
+	saveflag BYTE ?
+
+.code
+	lahf
+	mov saveflag ah; lahf ile ah&#x27;ye kopyalanmış olan flag değerlerini ları saveflag değişkenine aktardık.
+
+SAHF: AH registerindek flag değerlerini flag&#x27;lara geri kopyalar.
+
+.code
+	mov ah, saveflags; saveflags değişkenindeki flag&#x27;ları ah ye geri atıyoruz.
+	sahf; ah&#x27;deki flag değerlerini flag&#x27;lere geri yerleştirir(kopyalar)
+	</code></pre><figure id="25cedc9b-94eb-4db1-88be-dfd0c6858db3" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-14_131403.png"><img style="width:757px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-14_131403.png"/></a><figcaption>İşaretli olanlar önemliler</figcaption></figure><pre id="9e40e30a-e4ec-4fb4-bceb-128517dff694" class="code"><code>Direct Offset Operand
+
+data label&#x27;ine(değişken ismi) ekleme yapılarak başka adreslere gidilmesidir.
+Bu işlem, memory&#x27;deki adresin değerini almak için referansı kırar. Adresi değil içindeki değeri alır.
+
+.data
+
+arrayB BYTE 10h,20h,30h,40h
+// 4 elemanlı bir Byte tipinde bir dizi oluşturuldu
+
+mov al, [dizi+ n.eleman*veri tipi boyutu] -&gt; dizinin kaçıncı elemanını istersek değerini bize verir.
+
+.code
+mov al,arrayB+1 ; AL = 20h
+// ArrayB ile dizinin başlangıç adresine gider.. Bu adrese +1 eklenmesi 1 Byte eklemek anlamına
+// gelir. Diziler ardışık hafıza alanları olduğu için ve veri tipi de 1 Byte olduğu için
+// +1 ekleyerek dizinin sonraki elemanına ulaşabiliriz. 
+
+mov al,[arrayB+1] ; alternatif gösterim
+
+Örnek
+
+.data
+	arrayW WORD 1000h,2000h,3000h
+	arrayD DWORD 1,2,3,4
+
+.code
+	mov ax,[arrayW+2]; 2000h
+	// eklenen her sayı 1 Byte olduğu için 2*1&#x27;den 2 Byte eder. arrayW&#x27;nin veri tipi WORD
+	// yani 2 byte olduğu için hafızada 1.indexe yani 2. elamana gidecektir.
+
+	mov ax,[arrayW+4]; 3000h
+	// eklenen her sayı 1 Byte olduğu için 4*1&#x27;den 4 Byte eder. arrayW&#x27;nin veri tipi WORD
+	// yani 2 byte olduğu için hafızada 2.indexe yani 3. elamana gidecektir.
+
+	mov ax, [arrayW+6]; 1
+	// arrayW+6, arrayD&#x27;nin başlangıç adresine gitmiş olur. arrayW+4 son elmanın başlangıç adresine gidiyor
+	// Ancak daha dizi sona ermedi. 2 Byte daha eklenirse dizi son bulacak. Dizinin son
+	// bulma adresi ise arrayD&#x27;nin başlangıç adresi yani arrayD&#x27;nin ilk elemanı
+
+	mov eax,[arrayD+4]; 2
+	// arrayD&#x27;nin tipi DWORD yani 4 Byte olduğu için ArrayD&#x27;nin ikinci elemanını getirecek
+
+	mov ax,[arrayD-2]; 3000h
+	// ArrayD&#x27;nin başlangıç adresinden 2 Byte geri gidersek arrayW&#x27;nin son elemanının
+	// başlangıç adresine ulaşmış oluruz.
+
+	mov eax,[arrayD+20]; Possible segmentation fault
+	// arrayD&#x27;ye 20 eklersek 5. elemana gitmek istediğimiz belirtmiş oluruz. Ancak bu dizinin 
+	// 5. elamanı yok. Dizinin bitişinden sonra adres olup olmadığını ya da adrese erişim
+	// yetkimizin olup olmadığını bilemeyiz. Bu yüzden segmentation fault alma ihtimalimiz var
+	// Kesin bir cevap veremeyiz. </code></pre><pre id="d608d46b-85b1-49aa-9975-7cbd29c0de0b" class="code"><code>Örnek: Aşağıdaki dizindeki sayıları toplayın.
+
+.data
+myBytes BYTE 80h, 66h, 0A5h
+
+Çözüm:
+
+mov al, myBytes
+add al, [myBytes+1]
+add al,[myBytes+2]</code></pre><pre id="380c0c98-198c-4529-a068-097d181791e5" class="code"><code>INC &amp; DEC Instructions (Bir artırma &amp; Eksiltme)
+
+Bir tane operand alır ve aldığı operandın değerini
+INC bir artırır
+DEC bir azaltır
+Operand register da olabilir memeory de
+Carry Flag&#x27;in durumunu etkilemezler.
+
+.data
+
+myWord WORD 1000h
+myDword DWORD 10000000h
+
+.code
+inc myWord ; 1001h
+dec myWord ; 1000h
+inc myDword ; 10000001h
+mov ax,00FFh
+inc ax ; AX = 0100h
+mov ax,00FFh
+inc al</code></pre><pre id="2358f296-f4ed-4612-b88a-9df00dc739bf" class="code"><code>Add &amp; SUB Instructions (Toplama &amp; Çıkarma İşlemi)
+Sağdaki operand ile soldaki operand(a/dan) ekler/çıkarır.
+
+.data
+	var1 DWORD 10000h
+	var2 DWORD 20000h
+
+.code
+	mov eax,var1 ; 00010000h
+	// eax registerine var1 değişkenini atar.
+
+	add eax,var2 ; 00030000h
+	// eax(32 bit acumulator register)&#x27;a va2&#x27;nin değerini ekler.
+
+	add ax,0FFFFh ; 0003FFFFh
+	// ax(16 bit acumulator register)&#x27;a  0FFFFh değerini ekler.
+	add eax,1 ; 00040000h
+	// eax registerine 1 değerini ekler
+	sub ax,1 ; 0004FFFFh
+	// ax registerinden 1 çıkarır.
+
+EAX 32 bit registerdir ve ALU(hesaplama) işlemleri için kullanılır.
+AX ise 16 bit registerdir ve aynı işlemler için kullanılır.
+EAX&#x27;ın 32 bitini düşünürsek AX bu 32 bitin en sağdaki(değeri az olan) 16 bitine denir.
+Bu yüzden EAX&#x27;a bir değer eklemek ile AX&#x27;a bi değer eklemek arasında fark yoktur.
+Bu nedenle EAX ve AX üzerinde toplama işlemi yapabildik sanki aynı registermiş gibi.
+Ancak bu çok fazla kafa karışıklığına neden olur. Bir işlemde mümkün oldukça sadece
+bir tanesi kullanılmalı</code></pre><pre id="1d3ab4c4-0211-4b3a-83be-6f1d33f3a200" class="code"><code>NEG Instruction (işaretinin tersini alma)
+
+Tek bir operand alır ve operandın işaretinin tersini alır. (2&#x27;li tümleyene göre)
+Değeri &#x27;0&#x27; olmayan bir operandın carry flag&#x27;ını her zaman 1 yapar.
+
+
+.data
+valB BYTE -1
+valW WORD +32767
+
+.code
+mov al,valB ; AL = -1
+neg al ; AL = +1
+neg valW ; valW = -32767
+
+Eğer WORDÜn alabileceği boyuttan daha fazla bir atama yaparsak ve bunun negatifini
+almaya çalışırsak bize yanlış sonuç döndürecektir.
+Taşma olacağından dolayı overflow biti 1 olacaktır.</code></pre><pre id="a4f0e670-7dfd-41a6-9bbc-7ac708186044" class="code"><code>FLAGS
+
+ALU, aritmetik işlemlerin sonucunu döndüren bir dizi durum flag&#x27;ine sahiptir.
+
+Değer alarak 1 ya da 0 alır. Genelde durum beklendiği gibiyse 1 değilse 0 alır
+
+MOV komutu flag&#x27;leri etkilemez.
+
+Flag&#x27;lar operandlar&#x27;dan destination operandı ile ilgilidir.
+
+add myVar, AX
+// myVar destination, AX ise source&#x27;dir.
+
+Temel flag&#x27;lar:
+
+- Zero flag : destination 0&#x27;a eşit ise 1
+- Sign flag : destination negatif ise 1
+- Carry flag : işaretsiz değer out of range(olması gereken sınırın dışıda) ise 1
+- Overflow flag : işaretli değer out of range ise 1</code></pre><figure id="422a5db8-b654-49f1-b51a-4138b377202d" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-14_205121.png"><img style="width:746px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-14_205121.png"/></a></figure><pre id="d32448d7-c206-4546-b98b-1563d409b101" class="code"><code>Zero Flag
+
+Eğer destination operandın sonucu 0 ise flag 1 olur
+ZF = Zero Flag
+
+mov cx,1
+sub cx,1 ; CX = 0, ZF = 1
+mov ax, 0FFFFh
+add ax,1 ; AX = 0, ZF = 1
+add ax,1 ; AX = 1, ZF = 0</code></pre><pre id="bd04ab13-1a13-4af2-9d01-d8234d54fd4c" class="code"><code>Sign Flag
+
+Eğer destination operandın sonucu negatif ise flag 1 olur. Pozitife dönerse 0 olur
+SF = Sign Flag
+
+mov cx,0
+sub cx,1 ; CX = -1, SF = 1
+add cx,2 ; CX = 1, SF = 0
+
+Sign flag; en büyük bitin aynısıdır. Yani MSB biti 1 ise 1, 0 ise sign flag da 0&#x27;dır
+
+mov al,0
+sub al,1 ; AL = 11111111b, SF = 1
+add al,2 ; AL = 00000001b, SF = 0</code></pre><pre id="b30ede8e-8097-47a1-a680-9144f667832f" class="code"><code>Tam Sayıların İşareti
+
+İşlemci, işaretli(signed) ve işaretsiz(unsigned) tamsayılara aynı şekilde davranır.
+
+İşaretli ve işaretsiz tamsayıları ayırt etmez.
+
+Her instruction için doğru veri tipini uygulamak programcının görevidir.</code></pre><pre id="a263b4fe-c21b-41ed-a0f2-9246fe30b2d4" class="code"><code>Carry Flag
+
+Size hatası çıkarsa flag 1 olur (unsigned olarak değerlendirilir)
+
+mov al,0FFh
+add al,1 ; CF = 1, AL = 00
+// al register&#x27;inin boyutu 1 byte&#x27;dır. 0FF de 1 byte yer kaplar. Ancak buna 1
+// eklendiği zaman al registerinin boyutu aşılacak ve carry flag 1 olacak.
+
+mov ax,0FFh
+add ax,1
+// ax registerinin boyutu 2 byte&#x27;tır. 0FF de 1 byte yer kaplar. Buna 1
+// eklendiği zaman al registerinin boyutu aşılmayacak ve carry flag 0 olacak.</code></pre><pre id="9f095530-0a75-424d-b8a2-24fdcbba5107" class="code"><code>Örnekler
+
+mov ax,00FFh
+
+add ax,1 ; AX=0100h, SF=0 ZF=0 CF=0
+// boyutu 2 byte, değeri 00FFh olan ax registerine 1 eklemek boyut sorununa neden olmaz
+// Bu yüzden CF=0; Sayımız pozitif olduğu için SF=0; ax&#x27;ın değeri 0 olmadığı için
+// ZF=0
+
+sub ax,1 ; AX=00FFh, SF=0 ZF=0 CF=0
+// boyutu 2 byte, değeri 0100h olan ax registerinden 1 çıkarmak boyut sorununa neden olmaz
+// Yani CF=0; Sayımız pozitif olduğu için SF=0; ax&#x27;ın değeri 0 olmadığı için
+
+add al,1 ; AL=00h, SF=0 ZF=1 CF=1
+// boyutu 1 byte, değeri 00FFh olan al registerine 1 eklemek boyut sorununa neden olur.
+// Çünkü 1byte&#x27;lık registerin üstüne çıkmış oluyoruz. Yani CF=1; 1 ile toplayınca
+// boyut sorunları ortaya çıksa da al&#x27;nin 8 biti 0 olmaktadır. Bu yüzden ZF=0;
+// MSB biti 0 olduğu için SF=0
+
+mov bh,6Ch
+add bh,95h ; BH=01h, SF=0 ZF=0 CF=1
+// boyutu 1 byte, değeri 00FFh olan bh registerine 1 eklemek boyut sorununa neden olur. 
+// Çünkü 1byte&#x27;lık registerin üstüne çıkmış oluyoruz. Yani CF=1; 95h ile toplayınca 
+// boyut sorunları ortaya çıksa da al&#x27;nin 7 biti 0 ve LSB(en sağdaki bit) 1 olmaktadır.
+// Hepsi 0 olmadığı için ZF=0; MSB biti 0 olduğu için SF=0
+
+mov al,2
+sub al,3 ; AL=FFh, SF=1 ZF=0 CF=1
+// 2 -3 = -1; -1&#x27;in karşılığı: 1111 1111&#x27;dir. MSB biti 1 olduğundan SF=1, sonuç 0 olmadığı
+// için ZF=0, CF=1</code></pre><pre id="6d13f369-e09d-4415-ad19-fcd9b54bbd5e" class="code"><code>Overflow Flag
+
+Aritmetik işlemlerde işaret hatası çıkarsa flag 1 olur.
+
+mov al,+127
+add al,1 ; OF = 1, AL = -128
+// 127 ile 1&#x27;i toplayınca cevap -128 çıkıyor. Bu yüzden işaret hatası olur yani OF=1
+
+mov al,7Fh ; OF = 1, AL = 80h
+add al,1
+// 7F = 127. 127 ile 1&#x27;i toplayınca cevap -128 çıkıyor.
+// Bu yüzden işaret hatası olur yani OF=1
+
+Destination operandının değerini hesaplamak hexadecimal&#x27;de genelde daha kolaydır.
+Yani önce artitmetik işlemleri hex&#x27;te yapıp binary&#x27;de flag&#x27;ları bulmak daha kolaydır
+
+Toplanan iki değer pozitif ise ya da çıkarılan değerlerin işareti farklı olduğunda
+overflow bit 1 olur. Aksi duruda overflow durumu oluşamayacaktır. Kontrol etmeye gerek
+olmayacaktır</code></pre><pre id="7fd7ddb8-3716-44a1-b237-ac3f94561f71" class="code"><code>Bilgisayar bir aritmetik işlemin signed ya da unsigned olduğunu anlayamaz.
+Sadece verilen işlemleri yapar.
+Burada programcının işi, signed ya da unsigned olduğunu işlemciye bildirmektir.</code></pre><pre id="de40f0bc-9200-4ca9-8205-c17edee98e9e" class="code"><code>ALIGN Directive
+
+Bellekte, adresi boş bırakır. Şöyle ki;
+ALIGN, kendisine operand olarak verilen byte değerinden kendisinden önce gelen komutun
+boyutunu çıkarır. Ve bellekte o kadar boş yer ekler. Bunun nedenlerinden birisi
+(hafta 7&#x27;de göreceğimiz) RISC mimarisinin tek adreslerde işlem yapamaması. 
+
+bVal BYTE ? ; 00404000
+ALIGN 2 ; Eğer biz burada ALIGN yapmasak bir sonraki komutun adresi 00404001 olacaktı.
+	        Ancak RISC bu adrese gidip iş yapamayacağı için adresine 1 byte daha ekliyor.  
+wVal WORD ? ; 00404002
+bVal2 BYTE ? ; 00404004
+ALIGN 4  ; Burada ALIGN yapmasak bir sonraki komutun adresi 00404005 olacaktı. Yine tek
+				 ; adrese denk gelecekti. Ama biz dedik ki; &#x27;ben 4 byte&#x27;lık yer ayırıcam.
+				 ; Ama üstteki komut zaten bunun 1 byte&#x27;ını almış. Ben 3 byte ekleyeyim de
+				 ; sonraki adrese tam 4 eklenmiş olsun.&#x27;
+dVal DWORD ? ; 00404008
+dVal2 DWORD ? ; 0040400C</code></pre><pre id="2531485f-bc27-4638-832e-96ffff0d615b" class="code"><code>PTR Operator
+
+- Bir label&#x27;in(variable/değişken) varsayılan tipinin üzerine yazar.
+	Örneğin sayi diye bir değişkenimiz olsun. Tipi de WORD olsun.
+	Bu değişkene ileride DWORD tipinde bir değer atmak istersek sayinin tipini PTR
+	ile varsayılan tipini DWORD yapabiliriz.
+- Değişkenin bir bölgesine erişmede esneklik sağlar.
+- Bir tane tip belirteci alır.
+
+.data
+myDouble DWORD 12345678h
+
+.code
+mov ax,myDouble
+// AX&#x27;ın boyutu 2 byte&#x27;dır. Ancak AX&#x27;a, 4 byte olan değişkenimizi atmaya çalışıyoruz
+// Peki bu 2 byte içinde hangi değerler olacak? Sonuçta değişken 4 byte. Ve kalan
+// 2 byte&#x27;a ne olacak? Birazdan cevabını bulacağız.
+
+mov ax,WORD PTR myDouble
+// Burada, yukarıdaki işlemin aynısını yapıyoruz ancak bir farkla. PTR kullanıyoruz.
+// Diyoruz ki: &#x27;ax registerine myDouble değişkenimi at. Ama atarken tipini WORD
+// tipine(2 byte) çevir de at. Böylece tipleri aynı olur ve atama işlemi başarılı olur&#x27;
+// Peki soru şu: &#x27;4 byte olan değişkenimizi 2 byte&#x27;a indirdik. Geriye kalan 2 byte&#x27;a
+ne oldu?&#x27;</code></pre><div id="0d24a697-5fad-45c0-a995-d97592a56f20" class="column-list"><div id="0c916aef-ebdd-434c-a16d-b2e43e88f509" style="width:25%" class="column"><figure id="851bc986-fdd5-4a70-ba8c-6405647b617e" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_111330.png"><img style="width:134px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_111330.png"/></a></figure></div><div id="e2cd2b48-cbc7-4650-a964-7705fe1c4a3a" style="width:75%" class="column"><pre id="3ab7f8e2-d6c4-424c-a512-0a51bac90932" class="code"><code>Little Endian Order&#x27;i hatırlayalım:
+Bir byte&#x27;dan fazla olan veriler belleğe ters olarak
+yazılırdı.
+LSB yani en sağdaki(en küçük basamak) en üstte olur.
+
+Yandaki şekil; 12345678h adresinin bellekte yerleşimidir.
+Ancak görüldüğü üzere ters olarak yerleşmiş.
+
+</code></pre></div></div><figure id="b010faea-d8f4-42a6-93ea-577bc93614ea" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_111842.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_111842.png"/></a></figure><pre id="7d69324c-7e1f-40bf-bbff-8879fdc6a766" class="code"><code>Yukarıda ise PTR operatörü kullanılmış bir değişkenin adres yerleşimini görüyoruz.
+
+mov al,BYTE PTR myDouble ; AL = 78h
+// myDouble değişkeninin boyutu 4 byte.
+// Bunu, 1 byte olan &#x27;al&#x27; registerine atıyoruz. Peki ne olacak?
+// Malum çoklu byte&#x27;lar Little Endian ile dizilirdi yani en sağdaki basamak en üst
+// bellek hücresinde olurdu. Yani değerin başlangıç noktası aslında sayının
+// en sağındaki 2 bit. 4 byte&#x27;lık değişkeninin başlangıç adresinin değerini alacak(78) ve 
+// &#x27;al&#x27; registerine kopyalayacak. Bizim değişkenimizde bir bozulma olmayacak.
+// Yine ulaşabileceğiz
+
+mov al,BYTE PTR [myDouble+1] ; AL = 56h
+// Başlangıç adresimizin değeri 78 idi. Bu adrese 1 byte eklersek bir sonraki hafıza
+// bölgesine gitmiş oluruz. &#x27;78&#x27;den sonra &#x27;56&#x27; geliyor. Bu durumda bizim &#x27;al&#x27;
+// registerimiz 56 olacak.
+
+mov al,BYTE PTR [myDouble+2] ; AL = 34h
+// Başlangıç adresimizin değeri 78 idi. Bu adrese 2 byte eklersek iki sonraki hafıza
+// bölgesine gitmiş oluruz. &#x27;78&#x27;den iki sonra &#x27;56&#x27; geliyor. Bu durumda bizim &#x27;al&#x27;
+// registerimiz 34 olacak.
+
+mov ax,WORD PTR myDouble ; AX = 5678h
+// Başlangıç adresimizin değeri 78 idi. Ancak bizim tipimiz WORD yani 2 byte olduğu
+// için 78&#x27;den sonra 1 byte daha yani 56 değerini de alacağız. Bu değerleri bellekten
+// alıp birleştirince bellekteki sırası ile gelemeyecek. Belleğe yerleşirken ters
+// yerleştiği için bize gelirken bir daha ters çevriliyor. Bu yüzden iki bellek hücresi
+// birleştirip karşımıza 5678 olarak geliyor ve boyutu 2 byte olan ax registerine
+// atanıyor.
+
+mov ax,WORD PTR [myDouble+2] ; AX = 1234h
+
+PTR, sadece boyutu büyük değişkenlerin boyutunu daraltmaz.
+Boyutu daha küçük olan bir değişkeni boyutu büyük olan bir değişkene atabilir.</code></pre><figure id="eedf8827-29d3-40cc-8c1e-6bce4f153be9" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_113754.png"><img style="width:845px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_113754.png"/></a></figure><pre id="82a7a98f-adfc-4fed-82fd-9a489acce44d" class="code"><code>Yukarıdaki örnekte myBytes&#x27;a bir dizi atanmış. Dizinin elemanları belleğe sıralı
+olarak yerleşir. PTR ile bu değerler bir registere atanmak istenirse PTR yüzünden
+CPU bu değerleri ters çevirecektir.
+Eğer ters çevirmese .code&#x27;un ilk komutunda ax&#x27;in 1234 olması gerekirdi. İki bellek
+hücresini birleştirdi ve ters çevirdi.</code></pre><pre id="a9d960c1-9cf4-46d8-a163-1fe65d75d329" class="code"><code>Type Operator
+
+Kendisinden sonra gelen değişkenin tipinin boyutunu verir.
+Eğer gelen değişken bir dizi ise her bir elemanın tipinin boyutunu verir.
+Dizinin tipi ne ise onu verir yani.
+
+.data
+var1 BYTE ?
+var2 WORD ?
+var3 DWORD ?
+var4 QWORD ?
+
+.code
+mov eax,TYPE var1 ; 1
+// var1&#x27;in tipini döndürür. var1&#x27;in tipi ise 1 byte&#x27;dır.
+// Eğer orada &#x27;type&#x27; operatoru olmasayaydı eax registerine var1&#x27;in değeri atanacaktı.
+// Ancak artık orada var1 değil de var1&#x27;in tipinin boyutu olduğu
+// için(type operatörü, yazıldığı yere boyutu return eder.) eax&#x27;a o atanacak
+// var1&#x27;in tipi byte yan, 1 byte&#x27;dır.
+
+mov eax,TYPE var2 ; 2
+
+mov eax,TYPE var3 ; 4
+
+mov eax,TYPE var4 ; 8</code></pre><pre id="9c0642c1-ecb4-49dd-b507-6776879bac6d" class="code"><code>Lengthof Operator
+
+Bir değikenin eleman sayısını sayar ve geriye döndürür.
+
+.data
+byte1 BYTE 10,20,30
+
+array1 WORD 30 DUP(?),0,0
+
+array2 WORD 5 DUP(3 DUP(?))
+
+array3 DWORD 1,2,3,4
+
+digitStr BYTE &quot;12345678&quot;,0
+
+.code
+.mov ax, LENGTHOF byte1; 3
+// yukarıda byte1 değişkenine tipi byte olan 3 eleman ataanmıştır. Yani bir dizi
+// oluşturulmuş. Lengthof, burada 3 değerini geri döndürür.
+
+mov ecx,LENGTHOF array1 ; 32
+// yukarıda ilk 30 değeri null olan, son iki değeri ise &#x27;0&#x27; olan bir dizi tanımlar ve
+// array1 değişkenine atar. Length of bu yüzden 32 döndürecektir.</code></pre><pre id="194d69f1-372b-481d-b25d-6bbad437f266" class="code"><code>SIZEOF Operator
+
+Sizeof = Lengthof * type
+
+Bir değişkenin eleman sayısı(lengthof) * elemanların veri tipini boyutunun çarpımına 
+eşittir
+
+.data
+array1 WORD 30 DUP(?),0,0
+// Lengthof&#x27;ta gösterildiği gibi, tipi WORD(yani boyutu 2byte) 32 elemanlı bir dizi
+tanımladık.
+
+.code
+mov ecx, SIZEOF array1; ECX=64
+// Array1&#x27;in boyutunu alıp ecx registerine atar.
+// !! sizeof, sadece integer bir sayı döndürür,dizinin herhangi bir elemanını değil</code></pre><pre id="a1fa92df-80c6-4f30-8115-de224b3110d8" class="code"><code>Komutlar, birden çok satırda yazılabilir. Diğer komut girilene kadar
+operandların/elemanların farklı satırlarda girilmesinde sakınca yoktur
+
+Ör: 
+
+.data
+
+array WORD 10,20,
+30,40,
+50,60
+
+.code
+
+mov eax,LENGTHOF array; 6
+// Farklı satırlarda olsa da toplam 6 elamanı var.</code></pre><pre id="c80be76f-d0de-4a47-8bc8-5fb4c002e054" class="code"><code>Anonymous Data
+
+Burayı atlayın geçin. Kafa karıştırıcı. Sorulmayacak
+
+Bir komutun birden çok satırda yazılabileceğini ifade etmiştik.
+Ancak bir array tanımlanırken ilk satır hariç diğer satırdaki elemanların, yazılırken
+tipi de belirtilirse o elemanlar dizinin elemanı olmaz. Bilinmeyen bir veri olur.
+Evet, aritmetiksel memory işlemleriyle byte artırarark onlara da ulaşılabilir ancak
+diziye ait değillerdir hatta hiçbir yere ait değildirler (evsiz barksızlar :D)
+// Benim anladığım bu. Ama doğrusu, benim anladığım gibi mi bilmiyorum.
+// Ama muhtemelen sizeof ve lengthof&#x27;a özel bir durum bu. Çünkü internette
+// böyle bir şey bulamadım. Yani diziler yine çoklu satırda tanımlanabilir.
+// Gördüğüm kadarıyla bir sıkıntı yok. Dizinin elemanlarına ulaşabiliyoruz.
+// Ama çok takılmaya gerek olduğunu düşünmüyorum.
+// Ama bu açıklamadan emin değilim.
+
+.data
+array WORD 10,20; array aslında burada biter.
+			WORD 30,40 ; anonymous data, array+4
+			WORD 50,60 ; array+8
+
+.code
+
+mov eax,LENGTHOF array ; 2
+// 30,40,50,60 elemanları array&#x27;in bir elemanı değildir. Bu yüzden array&#x27;ın eleman
+// 2 olmaktadır
+
+mov ebx,SIZEOF array ; 4
+
+!!! Sizeof ve lengthof operatörleri runtime&#x27;da değil compile time&#x27;da çalışır</code></pre><pre id="0ac4c9b1-7f4e-4a42-b271-5748df477508" class="code"><code>Label operatoru
+
+	Tam anlayabilmiş değilim. Sadece göz aşinalığı olsun
+
+- Var olan bir hafıza alanına bir isim takar.
+- Memory&#x27;de label yazan komut için de herhangi bir yer ayrılmaz.
+- Pointer operatöründen kaçınmak için ihtiyaç duyulur(neden olduğunu bilmiyorum)
+
+.data
+
+dwList LABEL DWORD
+wordList LABEL WORD
+byteList BYTE 00h,10h,00h,20h
+
+.code
+
+mov eax,dwList ; 20001000h
+mov cx,wordList ; 1000h
+mov dl,intList ; 00h
+// Burada akılda kalması gereken şey, eax ve cx registerlerinin ikisinin de değerinin
+// aynı olması. Çünkü dwList ve wordList, ikisi de aynı bellek gölgesine takılmış isimler</code></pre><pre id="73fd8a5c-7a8c-4e20-9fe7-cbd67f3c2614" class="code"><code>OFFSET Operator
+
+Bir memory alanının, data segmentinin başlangıcından ne kadar uzak olduğunu gösterir.
+
+Örnek için varsayalım ki; bVal, &quot;00404000h&quot; adresinde oturuyor.
+
+
+.data
+bVal BYTE ?
+wVal WORD ?
+dVal DWORD ?
+dVal2 DWORD ?
+
+.code
+
+mov esi,OFFSET bVal ; ESI = 00404000
+// bval, 00404000 adresinde oturmaktadır. Doğal olarak data segmentinin
+// başlangıcına(yani 0. adrese) uzaklığı kendi adresi olacak.
+
+mov esi,OFFSET wVal ; ESI = 00404001
+// bVal 1 byte idi. bVal+1 byte, Wval&#x27;ın adresini verir. Çünkü komutlar sıralı
+// adreslemeye(bu yüzden değişkenler de sıralı olur) sahiptir.
+// wVal&#x27;ın, data segmente uzaklığı kendi adresidir. 
+
+mov esi,OFFSET dVal ; ESI = 00404003
+// vWal, WORD yani 2 byte. vWal+2, dVal&#x27;ın adresini verir. dVal&#x27;ın, data segmentine
+// uzaklığı kendi adresidir.
+
+mov esi,OFFSET dVal2 ; ESI = 00404007
+
+Offset&#x27;in en önemli kullanımlarından birisi, değişkenin adresini tespit etmektir.
+İleride zaten bunu çokça kullancağız.</code></pre><pre id="120ee189-0262-4213-87aa-dace52310b8a" class="code"><code>INDIRECT OPERANDS
+
+Değişkenlerin adreslerini tutar. Bildiğimiz pointer yani
+
+[degisken] ifadesi ile referans kırılır yani adresin içindeki değer alınabilir.
+Aşağıdaki örneğe bakınız:</code></pre><pre id="a773942c-c4f2-4893-8c1c-fc1062b0e0f1" class="code"><code>int a = 5;
+int *p = &amp;a;
+printf(&quot;A&#x27;nın değeri = %d&quot;, *p)
+
+//p, a&#x27;nın adresini tutarken printf içinde ise *p yaparak p pointerinin işaret ettiği
+// dedğişkenin değerini alabildik. Yani a&#x27;nın değeri. Bu da C&#x27;deki referans kırma olayı
+//Assembly&#x27;deki karşılışı = [p]</code></pre><pre id="c08c2346-44a4-4e7b-a202-bca661f925b1" class="code"><code>Offset operator&#x27;de; Offset&#x27;i birazdan kullanacağız, demiştim. Hah işte oraya geldik :)
+
+.data
+val1 BYTE 10h,20h,30h
+// Bir değişken oluşturup içine 10,20,30 değerini atıyoruz. Yani dizi yaptık.
+
+.code
+mov esi,OFFSET val1 ; esi, val1&#x27;in adresini depolar
+
+mov al,[esi]
+// [esi] ifadesi ile esi&#x27;nin depoladığı adresi kırıp içindeki değeri alır.
+// Esi&#x27;nin depoladığı adresin değerini alıp &#x27;al&#x27; registerine atar.
+
+inc esi
+// esi registerini bir artırdık. ESI registeri şuanda val1 dizisinin başlangıç adresini
+// tutuyor. Yani biz ESI&#x27;yi bir artırırsak bir sonraki bir byte artacak. O da val1
+// değişkeninin ikinci elamanına yani 20h&#x27;nin adresine denk geliyor. Ama dikkat şuan
+// 20h&#x27;ye değil 20h&#x27;nin adresine geldik.
+
+mov al,[esi] ; AL = 20h
+// ESI, şuanda 20h elemanının adresinde. Eğer o adresi dereferans yaparsak adresin
+// içindeki elemanı yani 20h&#x27;yi alabiliriz ki aldık da zaten :)
+// AL registerinde şuanda 20h değeri var.
+
+inc esi
+// ESI, en son 20h&#x27;nin adresini tutuyordu. Eğer bir daha artırısak bu sefer 30h&#x27;nin
+// adresini tutacak.
+
+mov al,[esi] ; AL = 30h
+// ESI, şuanda 30h elemanının adresinde. Eğer o adresi dereferans yaparsak adresin
+// içindeki elemanı yani 30h&#x27;yi alıyoruz.
+
+Adresler genelde ESI VE EDI register&#x27;larında tutulur. SI, source index anlamına
+gelir ki hiç önemli değil anlamı
+EDI de, Destination index anlamına gelir ki hakeza bunun da ismi hiç önemli değil.
+Başlarındaki E de, 4 byte olduklarını gösterir.
+EAX, EBX vs AX, BX gibi</code></pre><pre id="d059d9c6-d0ba-4b8e-95da-3764735a8aee" class="code"><code>char array[1000];
+char *p = array;
+
+// C++ ve C&#x27;de bir dizi oluşturup dizinin başlangıç adresini p adında bir pointer&#x27;e
+// atadık. Aşağıda ise bunu Assembly karşılığı var.</code></pre><pre id="1ad59b48-3b61-4169-97ab-60d98ba74487" class="code"><code>.data
+	array byte 1000 DUP(?)
+// İçleri boş olan 1000 elemanlık bir dizi oluşturduk
+// DUP opcode&#x27;unun ne işe yaradığı dökümanın başlarında anlatıldı.
+
+.code
+mov esi, OFFSET array
+// Dizinin başlangıç adresini ESI registerine atadık.</code></pre><pre id="1b25adcb-3aa8-4ae7-ab00-abd0f2204208" class="code"><code>INDIRECT OPERANDS &amp; PTR
+
+PTR, operandın tipini açıkça belirtmek için kullanılır
+OFFSET operatörü adresi bize verdiğinde adresteki değerlerin boyutunu vermez.
+
+.data
+myCount WORD 0
+// WORD tipinde bir değişken oluşturup içine 0 attık.
+
+.code
+mov esi,OFFSET myCount
+myCount değişkenimizin adresini ESI registerine attık.
+
+inc [esi] ; bu satır hata verecektir.
+// Peki neden? OFFSET operatörünün, bize adres verdiğinde, içindeki değerin boyutunu
+// vermediğini söylemiştik. Bu yüzden bu komutla, &quot;esi&#x27;nin tuttuğu adresi dereferans
+// yapıp içindeki değeri bir arttır&quot; dediğimizi sanıyoruz. Ancak bi sıkıntı var?
+// Tuttuğu adresin tipini bilmiyor ki artırma yapsın. C&#x27;den de bildiğimiz üzere
+// pointer&#x27;ler değişkenin tipi kadar artırma yapar. Ama biz tipini bilmiyoruz.
+
+inc WORD PTR [esi] ; hata vermez.
+// PRT kullanarak ESI&#x27;nın tuttuğu adresin içindeki değeri, WORD tipine dönüştürüyoruz.
+// Evet artırma yapacağız ama artık artırılacak boyutu biliyoruz.
+
+add [esi],20 ; bu satır hata verecektir.
+// Yine yukarıdaki sebepten kaynaklanıyor. Burada toplama işlemi yapıp ESI&#x27;nin
+// gösterdiği adresin değerine 20 eklemek istiyoruz ama biz ESI&#x27;nin değerini tipini
+// bilmiyoruz. Diyebilirsiniz ki: &quot;Biz zaten yukarıda PTR ile tipini vermiştik&quot;
+// PRT operatörü sadece bulunduğu komutta işlenmek üzere tipini değiştirir. Kalıcı
+// bir değişiklik değildir. Python&#x27;daki, sadece değişkeni kullanırken tipini
+// dönüştürdüğümüz zamanı düşünün:
+// Yani; değer = &quot;35&quot;, int(değer) -&gt; 35 bir string olmasına rağmen anlık olarak onu int&#x27;e çevirdik.
+// Ama bu asıl değişkenin değerini etkilemeyecektir.
+
+add ax, [esi] ; burada hata vermez
+// Diyebiliriz ki hala, ESI&#x27;nın derefere ettiği değerin boyutunu bilmiyoruz. Nasıl ekleme
+// yapabiliyoruz? AX ve AL register&#x27;leri, burada boyutu belirliyor. ESI&#x27;nin değerinin
+// tipini bilmesek de ax bizim için 2 byte olarak toplama yapacağımızı söylüyor.
+
+add WORD PTR [esi],20 ; hata vermez
+// Yukarıdaki açıklamaların ışığında burası da anlaşılabilir.
+// Yani ESI&#x27;nin değerini tipini PRT sayesinde WORD olarak belirliyor ve belirledikten
+// sonra esi&#x27;nin değerine 20 ekliyor.</code></pre><pre id="a8a7987f-01a8-443e-b46a-9a0ab00a64fc" class="code"><code>Dizi Toplama Örneği
+
+- Indirect operands&#x27;ın kullanıldığı iyi yerlerden birisi dizi işlemleridir.
+
+.data
+arrayW WORD 1000h,2000h,3000h
+// bir dizi oluşturduk
+
+.code
+mov esi,OFFSET arrayW
+// esi registerine arrayW dizisinin başlangıç adresini yani ilk elamanın adresini attık
+
+mov ax,[esi]
+// esi registerinin derefere ettiği değeri(1000h) ax registerine atıyoruz.
+
+add esi,2
+// Dizideki her elemanın boyutu 2 byte(WORD) olduğu için ESI&#x27;ye 2 byte eklersek dizinin
+// ikinci elemanının adresine ulaşırız.
+// Bunun diğer bir yönttemiyse;
+// add esi,TYPE arrayW -&gt; arrayW&#x27;nin ilk değerinin boyutunu, esi&#x27;ye ekler ve ikinci
+// elemanın adresine ulaşır.
+
+add ax,[esi]
+// ESI&#x27;nın derefere ettiği değeri yain arrayW&#x27;nin ikinci elemanını(2000h) ax registerine
+// ekliyoruz. AX registerine az önce arrayW&#x27;nin ilk elemanını atmıştık böylece
+// ilk ve ikinci elemanıı toplamış olduk.
+
+add esi,2
+// ESI&#x27;deki adrese 2 byte ekleyerek(WORD çünkü) arrayW&#x27;nin üçüncü elemanına vardık.
+// Artık ESI&#x27;de arrayW&#x27;nin üçüncü elamanın adresi tutuluyor.
+
+add ax,[esi]
+// ESI&#x27;nın derefere ettiği değeri yain arrayW&#x27;nin üçüncü elemanını(3000h) ax registerine
+// ekliyoruz. AX registerine az önce arrayW&#x27;nin ikinci elemanını da atmış ve 
+// dizinin birinci elemanı ile toplamıştık. Böylece bun ikisinin toplamına üçüncü
+// elemanı da eklemiş olduk. Hayırlı olsun artık dizimizi toplamış olduk</code></pre><pre id="e02f6698-64f1-44d9-9e8c-dcd180407de2" class="code"><code>OFFSET&#x27;lerin tipi DWORD&#x27;dür(4 byte). Yani DWORD tipindeki bir değişken OFFSET tutabilir</code></pre><pre id="c71fed27-4d5e-43bc-8b15-438eb014c753" class="code"><code>Başka bir değişkenin OFFSET&#x27;ini tutan bir pointer tanımlanabilir
+
+.data
+arrayW WORD 1000h,2000h,3000h
+ptrW DWORD arrayW ;
+// ptrW, şuanda arrayW&#x27;nin OFFSET&#x27;ini yani adresini tutuyor.
+// Bu işlem ayrıca şöyle de yapılabilir ki daha açıklayıcı gözüküyor:
+// ptrW DWORD OFFSET arrayW
+
+.code
+mov esi,ptrW
+// ptrW&#x27;de az önce gördüğümüz üzer arrayW&#x27;nin adresi vardı. Biz bu adresi ESI
+// registerine atıyoruz.
+
+mov ax,[esi] ; AX = 1000h
+// ESI registerinde olan bu adresin değeri yani 1000h&#x27;yi ax registerine atıyoruz.</code></pre><pre id="48f3836a-6ce6-440f-9182-54cec206c344" class="code"><code>Indexed Operands
+
+C&#x27;de ve çoğu dildeki gibi dizinin elemanlarına index yardımıyla ulaşmaktır.
+
+İki çeşit gösterimi vardır:
+- [label+register]
+- label[register]
+
+.data
+arrayW WORD 1000h,2000h,3000h
+
+.code
+mov esi,0 -&gt; esi registerindne şuan 0 var
+mov ax,[arrayW + esi] ; AX = 1000h
+// ax registerine, arrayW dizisinin ilk elamanını atar. Çünkü dizi zaten bir adrestir
+// Köşeli paranteez ile referans kırar ve değerini alır. arrayW, ilk elemanı
+// göstermektedir. ESI yani 0 ekleyince de yine aynı yerinde kalmış olacak yani ilk
+// elemanı atayacak.
+
+mov ax,arrayW[esi] ; alternatif format
+// &quot;arrayW dizisinin ESI registerindeki değeri hangi değerse o dizinin o değerinci
+// elemanını seç diyoruz. ESI&#x27;miz 0 olduğu için ilk elemanı seçer. C&#x27;den biliyoruz
+// zaten :)
+
+add esi,TYPE arrayW
+// arrayW&#x27;nin tipi her elemanının tipi WORD(2 byte). O zaman TYPE operatörü bize
+// 2 değerini dönecek ve bunu ESI&#x27;ye atayacaktır. 
+
+add ax,[arrayW + esi]
+// arrayW&#x27;nin adresine ESI&#x27;yi yani 2 değerini ekler. O da dizini ikinci elemanının
+// adresine denk gelir. O adresin değerini yani ikinci elemanını verir.</code></pre><pre id="a9dbd8be-aeee-41d7-a2a5-2fb7d5d61439" class="code"><code>JMP Instruction 
+
+Kodda atlamaya yarar.
+Atlamak için herhangi bir koşul gerekmez.
+Döngülerde, şartlarda çokça kullanılır.
+
+İsminin  JMP olması bir şeyi değiştirmez. O bizim için hala &#x27;goto&#x27; :)
+
+C&#x27;deki goto ile aynı işlevi görür ve sytntax&#x27;ları(yazımları) dahi aynıdır.
+
+myLabel:
+	// burada kodlar var işte
+	// .
+	// .
+jmp myLabel
+
+Şöyle çalışır: Kod &#x27;jmp myLabel&#x27;e geldiğinde myLabel etiketinin olduğu satıra geri
+döner ve orayı tekrar çalıştırır. Eğer bir şart olmazsa orası sonsuza kadar çalışır</code></pre><pre id="4b9b634f-792b-41ea-b7ca-4928aea042e3" class="code"><code>LOOP Instruction
+
+Loop(döngü) yazmaya yarar.
+
+Syntax&#x27;ı JMP&#x27;ninkine benzemektedir. Hatta aynısıdır.
+
+mov ecx, 5
+myLabel:
+	// burada kodlar var işte
+	// .
+	// .
+loop myLabel
+
+Oradaki &#x27;ecx&#x27; ne? ECX bir register türü. Genellikle döngülerdeki iterasyon sayısını
+tutar. İşte tam da burada JMP komutundan ayrılıyor. JMP, bir koşul olmadıkça sonsuza
+kadar atlardı.
+Ancak LOOP komutuna gelip her, myLabel&#x27;e atlama yaptığında ecx registeri bir azaltılır.
+ECX 0 olduğunda döngü biter.
+Böylece döngü belli sayıda dönmüş olur. Biz başta ecx&#x27;i 5 olarak tanımladık.
+Loop komutuna geldi, ve sonra myLabel etiketinin olduğu koda sıçradı. Ve tekrar LOOP&#x27;a
+geldi. Bu böyle devam eder ve her atlayışta ecx bir azaldı. ECX 0 olduğunda da döngümüz
+sonlandı.
+-------------------------------
+mov ax,6
+mov ecx,4 ;Loop 4 times
+L1:
+	inc ax
+loop L1
+
+// ECX yani LOOP için gereken register&#x27;i 4 olarak tanımladık yani döngü 4 kez dönecek.
+// AX registerini ise 6 olarak belirledik.
+// Kod akar. &#x27;inc&#x27; ax&#x27;i gördüğünde ax registerindeki değeri yani 6&#x27;yı bir artırır.
+// Loop komutuna geldiğinde L1 label&#x27;ine(satırına) geri döner. Bir aşağı iner ve ax 
+// registerini bir artırır ve yine döngüye gelip yine L1&#x27;e zıplar ve aynı işlemi yapar.
+// Ne zaman ki eax 0 oldu, işte o zaman artık LOOP sıçrama yapamaz ve kod (yazmadığımız)
+// alttaki diğer satırlardan devam eder.
+
+NOT!! ECX&#x27;in ilk değeri 0 olamaz. Yani &quot;mov ecx, 0&quot; kodu hata verecektir.</code></pre><pre id="0bd6cade-1811-4f78-87c5-1b8db83f699b" class="code"><code>İç içe Döngü
+
+Eğer iç içe döngü yapılmak isteniyorsa en dışarıda tanımlanan ecx registeri
+önce bir değişkende saklanacak. ECX sadece bir döngünün iterasyonunu saymak için
+kullanılabilir. Aynı anda iki loop&#x27;u sayamaz. Bu yüzden dış döngünün kaç kere döneceğini
+kaydettik.
+Daha sonra içteki döngü kaç kez dönülmesi isteniyorsa ECX&#x27;e o sayı atanacak.
+İçteki döngü kendi kendini tamalayacak. Daha sonra dış döngü dönmek için 
+diğer label&#x27;e gidecek. Gitmeden hemen önce count, ECX&#x27;e atanacak. Yani loop&#x27;a girdiği
+anda ECX bir azaltılmış olacak.
+Label&#x27;e girdikten sonra ECX&#x27;i count&#x27;a atayacağız. Çünkü artık ecx, iç döngü için
+kullanılacak.
+Şimdi ise iç döngünün iterayon sayısı ECX&#x27;e atanacak ki iç döngü o kadar dönsün.</code></pre><figure id="b1cdaf21-02ef-4308-85aa-53f1dcdfee33" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_162144.png"><img style="width:672px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-26_162144.png"/></a><figcaption>Dış döngü (Loop L1)100 kez, iç döngü(Loop L2) ise 20 kez dönecek.</figcaption></figure><pre id="1d5031b0-e41a-466d-8d2f-13e756cab6aa" class="code"><code>Döngüler ile Dizi Toplama İşlemi
+
+.data
+intarray WORD 100h,200h,300h,400h
+
+.code
+mov edi,OFFSET intarray
+// intArray dizisinin ilk elemanının adresini edi regsiterine atadık
+
+mov ecx,LENGTHOF intarray
+// Döngü eleman sayısı kadar döneceği için dizinin eleman sayısnı ecx registerine attık
+
+mov ax,0
+// toplama işlemimizi ax registeri üzerinde yapacağız ve ilk değerini 0 olarak atadık
+
+L1:
+
+add ax,[edi]
+// ax registerine edi registerinin gösterdiği adresin değerini ekliyoruz.
+
+add edi,TYPE intarray
+// edi registeri ile dizinin boyutunu(WORD/2 byte) topluyor ki edi registeri bir sonraki
+// elamanın adresini göstersin.
+
+loop L1
+// ecx, 0 olana kadar döngğ devam eder ve her adımda ecx 1 azalır</code></pre><pre id="cf30c42c-2f7f-4e9c-be40-4db3ec029b1a" class="code"><code>String Kopyalama
+
+.data
+source BYTE &quot;This is the source string&quot;,0
+// Stringin herbir karakterini boyutu 1 byte olduğu için byte olarak tanımlandı.
+
+target BYTE SIZEOF source DUP(0)
+// Stringin boyutu kadar bir dizi oluşturulup içleri &#x27;0&#x27; ile dolduruldu.
+// Böylece elimizdeki stringi kopyalayacağımız diziyi oluşturduk.
+
+.code
+mov esi,0
+// esi registerini 0 yaptık. ESI&#x27;yi index tutucu olarak kullanacağız. İlk değerini 0,
+// yani ilk indexin değerini veriyoruz.
+
+mov ecx,SIZEOF source ; loop counter
+// stringimizn boyutunu ecx&#x27;e atayacağız ki döngü, karakter sayısı kadar dönsün.
+
+L1:
+mov al,source[esi] ; get char from source
+// stringin ESI&#x27;ninci elemanını &#x27;al&#x27; registerine kopyalar. ESI&#x27;ninci eleman derken şunu
+// kastediyorum. ESI&#x27;nin gösterdiği adresin içindeki değer.
+ 
+mov target[esi],al ; store it in the target
+// String kopyalamak için oluşturduğumuz &#x27;target&#x27; dizisinin ESI&#x27;ninci elemanına , &#x27;al&#x27;
+// registerini kopayalar. &#x27;AL&#x27; registerinde ise şuanda stringin, ESI&#x27;ninci karakteri
+// bulunuyor. 
+
+inc esi
+// ESI&#x27;nın gösterdiği adresi, stringin boyutu kadar(WORD/2 byte) artırıyor.
+// Böylece stringin bir sonraki elemanına yani harfimne gidiyor.
+// Çünkü stringin her karakteri hem bir byte&#x27;dır hem de aslında bir dizinin bir
+// elemanıdır.
+// String de bir dizi olduğu için index&#x27;ine ulaşabiliyoruz.
+
+loop L1
+// String&#x27;deki tüm karakterler bitip string sonuna gelene kadar döngü devam eder ve 
+// ecx 0 olur.</code></pre><hr id="efb5126f-f0f6-4f17-b953-de284d83f8d0"/><h2 id="830b7357-39c3-46a7-b66a-a9fde9a21646" class="">Slayt 5 ve 6</h2><hr id="3ddc25b7-b1bf-49aa-88a5-0eef795d3ee4"/><pre id="fe7958b0-7110-4a6b-a7b7-3a91385c430c" class="code"><code>Program makine üzerinde uygulanırken algoritma zihin/kağıt üzerinde uygulanır.
+Program ve algoritma BU AÇIDAN BAKARSAK aynı şeydir.
+
+Program, komut setidir.</code></pre><pre id="7ef294bb-effb-4b9e-9fa5-2f085d8d491a" class="code"><code>Random access Memory, istediğimiz herhangi bir adrese aynı sürede erişebildiğimiz için
+&quot;random access&quot; ismini almıştır.</code></pre><pre id="8bcafb95-c5f0-4613-93c2-7670fe947cdd" class="code"><code>DRAM: dynamic ram -&gt; daha ucuzdur
+sram: statik ram -&gt; daha hızlıdır
+
+Core: İşemcinin içinde bulunur. İçinde ALU, CU ve diğer işlemci elemanları bulunur.
+Yani aslında core da bir işlemcidir.</code></pre><pre id="3655f4f3-a831-443b-96ec-587ecb8bc05b" class="code"><code>İşlemcide 4 core varsa 4 tane cache var demektir. Verilerin düzgün bir şekilde kontrol
+edilebilmesi için cache&#x27;leri kontrol eden bir şeyin olması gerekir.
+Bunun için DRAM memory controller bulunur.
+DRAM(ler) ve cache&#x27;ler arasındaki iletişimleri kontrol eder.</code></pre><pre id="cb238ac0-7f90-415d-9198-65650ff63a57" class="code"><code>Register&#x27;ler büyürse ısı artar. Bu yüzden registerler daha fazla büyütülmüyor.
+
+Register&#x27;lar, kapılar olduğu için hızlıdır. Memory&#x27;de kapılar yoktur ve bu yüzden yavaş
+
+Cache&#x27;ler statik ram&#x27;lardır. Bu yüzden hızlıdır. (çünkü statik ram dinamik ram&#x27;den hızlı)
+
+Bizim kullandığımız RAM&#x27;lar ise dinamik RAM&#x27;lerdir.</code></pre><pre id="bf3d665b-04d6-427a-bec5-21d2b2c1c10f" class="code"><code>Cache yönetimi çoğunlukla işletim sistemi ve derleyici tarafından yapılır. C ve Matlab
+başta olmak üzere bunu çoğunlukla derleyiciler yapar.</code></pre><pre id="dfabf88d-6aa1-4def-9966-b662abcc8f9a" class="code"><code>DRAM, kapasitörlerden oluşur.
+Veriler, kondansator(kapasitor)de depolanır.
+Bir DRAM chip&#x27;i 10 ile 1000 arası cell(hücre) row(satır)undan oluşur.</code></pre><pre id="dcdb6ed3-d70f-4ade-b30e-616332e4229a" class="code"><code>Memory refresh: Ram&#x27;deki bilgiler sürekli yenilenmezse birkaç milisaniye içinde kaybolur.
+Çünkü DRAM kapasitörü veri kaybı yapar.
+Bunun için memory&#x27;deki bilgileri okuyup hemen tekrar yazmaktır(yenilemektir).
+Her yenileme, enerji harcar.
+Yenileme esnasında DRAM bank&#x27;a ulaşılamaz.
+Her satırın yenilenme süresi 64ms gibi bir şey alır.
+
+Bu yüzden(sürekli yenilenme olduğu için) bizim RAM&#x27;lerin ismi Dinamik RAM&#x27;dir.
+
+Bu işi işletim sistemi yapar.
+
+SRAM, ise transistörlerde depolanır. Elektrik kesintisi olmadığı için veri yenilenmesi
+gerekmez.</code></pre><pre id="2cf2e9ce-cce2-413b-a9a3-dfa62257a049" class="code"><code>Bilgisayar Mimarisi: fonksiyonel(functional), performans, enerji tüketimi, maliyet ve diğer
+belirli hedefleri karşılayan bir bilgi işlem sistemi oluşturmak için donanım
+bileşenlerini tasarlama, seçme ve birbirine bağlama ve donanım/yazılım arabirimini
+tasarlama bilimi ve sanatıdır.
+
+Buradaki fonkiyonellik, devre tasarımına bağlıdır.</code></pre><pre id="004e82a7-6939-4526-9ef3-11943d29b3e1" class="code"><code>Moore yasası:
+
+İşlemcilerde nesil arttıkça transistör sayısı artar</code></pre><figure id="c9696832-264d-4836-b3d1-9c7a8e1efaa5" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_172755.png"><img style="width:708px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_172755.png"/></a></figure><pre id="20a4f1f2-aee9-4449-9272-22b423310f3e" class="code"><code>Tasarımcılar için RISC daha kolaydır. Kendi işlerini azaltarak işleri
+kullanıcıya(programcıya) bırakır.</code></pre><h3 id="f3d112cb-088f-4ad9-8f7f-df69453ca163" class="">Von Neumann ve Control Flow</h3><pre id="738444d3-13a1-4f3a-b955-0fdc873af4c4" class="code"><code>- Komutlar hafızada lineer bir şekilde dizilidir.
+
+- Komutlar ve veriler için tek bir yol vardır.
+
+- Bir zamanda(one cycle) sadece bir instruction(fetch/decode/execute) işlenir.
+
+- Komutun bitip bitmediğini anlamak için instruction pointer/ program counter vardır
+	ve bu arkadaş çalıştırılmakta olan komuttan bir sonraki komutu gösterir.
+
+- Program counter, &quot;control transfer instructions(döngüler)&quot; dışında sıralı olarak işler.
+
+- Bir komut bittiği zaman diğer komutun çalıştırılmasına geçilir.
+
+
+Von Neumann = Control Flow
+
+Von Neumann Control Flow kullandığı için Control Flow&#x27;un özellikleri aslında
+Von Neumann&#x27;ın sahip olduklarıdır. Yani yukarıda sayılan maddeler control flow&#x27;un
+özellikleridir. Bu yüzden Control Flow Model&#x27;e Von Neumann Model de denmektedir.
+
+Control Flow =&gt; Sıralı Çalıştırma</code></pre><figure id="13693dc3-1d7b-480c-9949-fbfd307aef3e" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_173747.png"><img style="width:776px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_173747.png"/></a></figure><h3 id="daaec20b-0f4c-408f-b2cd-60b11536ce97" class="">Dataflow Model</h3><pre id="f359c5fb-752b-495e-a455-1dba498eb4d2" class="code"><code>- Herhangi bir programın işlemci tarafından çalışma şeklidir.
+
+- Bir komutun(instruction) çalıştırılmasının bir önceki komuta bağlı olmamasıdır.
+
+- Bir komut önceki komuta bağlıysa bağlı olan komut paralel olarak gerçekleşir.
+
+- Tüm operand&#x27;lar hazır olduğunda komut çalıştırılır.
+
+- Instruction pointer(program counter) yoktur.
+
+- Komutların çalıştırılma sırası data flow dependence(flow dependence
+	bir graftır. Program counter olmadığı için komutlar sıralı çalıştırılmaz.
+	Flow Dependence&#x27;nin belirlediği bir sırada çalıştırılır) tarafından belirlenir.
+
+- Bir komutun operandlarından herhangi birisi ya da daha fazlası başka bir komuta
+	bağlıysa bu komutlar paralel olarak çalıştırılır.
+
+- Potansiyel olarak tüm komutlar aynı zamanda çalıştırılabilir. (Paralellism)</code></pre><pre id="82d71257-ddec-49aa-92f5-e01a86e089a6" class="code"><code>Paralel programlama(paralellism) için birden fazla işlemci gerekir, komutlar aynı anda çalışır.
+
+Programı thread&#x27;lere de bölmekle paralel programlama yapmış olmayız, komutlar hala sıralı
+çalışır. Sadece aynı zamanda çalışıyor gibi gözükür.</code></pre><pre id="64503210-734b-4f36-9ca8-c605c5e351a8" class="code"><code>Data flow makinesinde programlar &quot;data flow node&#x27;ları&quot;ndan oluşur.
+
+Bir data flow node&#x27;u, tüm inputlar(gerekli veri ve operandlar) hazır olduğunda
+çalıştırılır</code></pre><figure id="0af0b34c-95c5-4d42-9609-a7546c861e61" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_193554.png"><img style="width:672px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_193554.png"/></a><figcaption>Muhtemelen şekil önemli değil ama bi görmüş olalım</figcaption></figure><figure id="81848301-9035-464d-9262-9c1b3bec48bf" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_193649.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_193649.png"/></a><figcaption>Muhtemelen şekil önemli değil ama bi görmüş olalım</figcaption></figure><figure id="1e81e6d7-51c5-4f52-bcb1-f0cdea8272bc" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_185838.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-22_185838.png"/></a><figcaption>Bu önemli</figcaption></figure><pre id="0bd6194c-899b-4a52-a1db-789b2aa93e11" class="code"><code>Debug işlemi, control flow&#x27;da daha kolaydır.
+Control flow daha ucuzdur. Bu yüzden bizim bilgisayarlar control flow&#x27;dur.</code></pre><pre id="87c37f5b-ef86-4564-a2f0-60995b35be48" class="code"><code>tradeoff: arayı bulmak, dengelemek
+
+Bir kavram ya da özellik bir şeyler getirirken götürüsü olacaktır.</code></pre><pre id="fb1831d8-3710-472c-a903-caeee5dc5ee3" class="code"><code>Program Counter(Instruction Pointer) bir register tipidir. Gösterim şekli IP&#x27;dir.
+Control flow modelde çalışmakta olan instruction&#x27;ın adresini tutar.
+Paralel programlamada kullanılmaz.
+Data flow&#x27;da değerler ve operandlar hazır olduğu anda komut çalıştırılır. Bu yüzden 
+program counter&#x27;a ihtiyaç yoktur.
+
+Program Counter Trade-off(Benim yorumum):
+Program counter&#x27;ın getirileri yukarıda yazıyor.
+Ancak program counter geldiğinde paralel programlama ortadan kalkıyor. Bu da
+onun götürüsü oluyor.</code></pre><pre id="4dd6e5a0-4423-440c-b70e-f76366997df5" class="code"><code>Data Flow vs Control Flow Trade-offs
+
+Derleme işlemi Control Flow&#x27;da daha kolaydır.
+Data flow daha performanslıdır çünkü paralelizm var.
+Data flow&#x27;un sahip olduğu donanımı daha komplekstir. (Neden olduğu malum :) )
+
+// Hocanın yazdığı bir iki kelimelik anahtar kelimelerden çıkardığım yorumlar bunlar
+// Kesin bilgi değiller</code></pre><pre id="6025862b-5736-4703-8c0a-ffd91e624706" class="code"><code>Von Neumann ve Data Flow sadece modeldir.
+
+Bütün büyük &#x27;Instruction Set Artchitectures(ISA)&#x27; Von Neumann modelini kullanmaktadır.
+x86, ARM, MIPS, SPARC, Alpha, POWER
+// Buna bizim bilgisayarlarımız da dahil.</code></pre><h3 id="8fb3b177-c5cf-4bfa-bcdb-441d6a69323e" class=""><strong>ISA(Instruction Set Artchitecture) vs Microarchitecture</strong></h3><pre id="3844eddc-8961-41cc-b24d-56c378c744ff" class="code"><code>Microarchitecture kelimesi için kısaltma olarak &#x27;MA&#x27; kullanacağım.
+
+ISA:
+
+ISA, software ile hardware arasındaki anlaşmadır/arayüzdür.
+Sistem/kullanıcı programlarını yazmak ve hatalarını ayıklamak ve kullanıcıya sıralı bir
+kontrol akışı veya bir veri akışı yürütme sırası belirtmek için programcının
+bilmesi gerekenler.
+
+Kullanıcı/programcının bu bilgileri görebilmesi ve bilmesi gerekir ve ISA bunları sağlar:
+
+- Instructions -&gt; Opcodes, Addressing Modes, Data Types, Instruction Types and Formats,
+								Registers, Condition Codes
+
+- Memory -&gt; Address space, Addressability, Alignment, Virtual memory management
+
+- Call, Interrupt/Exception Handling
+- Access Control, Priority/Privilege
+- I/O: memory-mapped vs. instr.
+- Task/thread Management
+- Power and Thermal Management
+- Multi-threading support, Multiprocessor support
+
+ISA bize yukarıdaki bilgileri sağlar.
+
+MA:
+MA, ISA&#x27;nın spesifik bir implementasyonudur. Kullanıcıya/programcıya gerekli olmayan,
+sadece donanımın kendisini ilgilendiren işlemleri içerir, bunları kullanıcı göremez:
+- Pipelined instruction execution: Intel 80486 uarch
+- Multiple instructions at a time: Intel Pentium uarch
+- Out-of-order execution: Intel Pentium Pro uarch
+- Separate instruction and data caches
+
+// ISA ve MA tam olarak ne sağlardı diye maddeleri ezberlemeye gerek yok.
+// Bir programcının bu bilgiye ihtiyacı olur mu?/kullanır mı? diye kendimize sorup
+// cevabı vermemiz yeterli olacaktır?
+
+Bir ISA, birden fazla MA kullanabilir daha doğrusu birden fazla implementasyonu olabilir:
+x86 ISA has many implementations: 286, 386, 486, Pentium, 
+                                  Pentium Pro, Pentium 4, Core, ...
+
+
+“Architecture ” = ISA + microarchitecture
+
+!!! Microarchitecture, &quot;uarch&quot; olarak adlandırılır.</code></pre><hr id="bf6bf416-eefb-4781-a4ac-679370673acd"/><hr id="fd8f8f42-1d1e-4e0b-b34d-3f8f5ea794fd"/><h2 id="49150ebc-c543-4f64-8ee6-d6530f3799bf" class="">Hafta 7</h2><pre id="6960109a-fe59-4132-b1a0-254eb8b902c3" class="code"><code>VAX işlemcisi gömülü sistemlerde yaygın kullanılır. Farklı bir mimariye sahiptir.</code></pre><pre id="1aee9bac-9544-4122-87ed-d8774bb182ba" class="code"><code>Instruction? (Talimat/komut)
+
+Instruction şunlardan oluşur:
+
+- Opcode: instruction ne yapacak (mnemonic = opcode)(ör: mov, add, sub...)
+- operand: operand kim ile işi yapacak? (Opcode&#x27;un alacağı değişkenler, değerler...)</code></pre><pre id="7bdd1de0-1765-40d6-b2d7-af525ec30c20" class="code"><code>Her clock&#x27;ta memory&#x27;e sadece bir kez erişim olduğu için aynı atama işlemi içinde
+iki operand memory olamaz.</code></pre><pre id="905b4255-d221-4270-aea2-7c50b0f18d8f" class="code"><code>makine kodu komutlardan başlar(.code&#x27;dan başlar)
+Denk geldiği instruction&#x27;da ihtiyacı olan değişkeni gidip .data&#x27;dan getirir.</code></pre><pre id="5aad3a80-cc7f-4b9b-bb04-e546a2068209" class="code"><code>Her instruction&#x27;a, makine koduna derlenirken bir değer atanır.
+Ama biz bunu belirleyemeyiz. Bu değeri bilgisayar kendisi atar.
+Mesela;
+mov ax, 12 ; bilgisayar bu komutu bellekte belki de &#x27;A2&#x27; diye tuttu bilemeyiz.
+Her komut benzersiz bir isme sahiptir.</code></pre><h3 id="5321fb12-81bf-4a6e-a781-521de95bb1b8" class=""><mark class="highlight-pink">CISC &amp; RISC Karşılaştırma ve Açıklamalar</mark></h3><pre id="89722b1e-5457-4dd7-b68c-b3c6d072c8ac" class="code"><code>RISC&#x27;te her komut en fazla 3 operand alabilir.
+CISC&#x27;te her komut en fazla 2 operand alabilir.
+
+Operandın fazla olmasıyla program daha hızlı çalışır.
+Çünkü register fazla olduğundan fetch işlemi tekrar yapılmaz.
+Register&#x27;lar memory&#x27;den hızlı olduğu her komut için memory&#x27;e gitmek yerine
+tek komutta işlem yapar.
+
+CISC&#x27;te daha fazla talimat(instruction) olur. Bu yüzden daha fazla execute yapılır.
+Bu yüzden hızı azalır.
+
+RISC daha hızlıdır çünkü CISC&#x27;in devresi karmaşıktır. Karmaşık olması yavaşlığı getirir.
+
+RISC&#x27;te daha az veri tipi vardır.
+CISC&#x27;te daha fazla veri tipi olması programcının işini kolaylaştırır.
+Ancak veri tipinin fazlalığı, işlemcideki devre sayısını artıracağından işlemciyi
+karmaşık hale getirir.
+
+Semantic Gap: Programcının yazdığı diller ile mikroişlemcilerin makine dili arasındaki fark.
+Yaaaani:);
+Programcı kodlama yaparken donanım programcıyı ne kadar kısıtlıyorsa ya da 
+ilgilendiriyorsa semantic gap o kadar fazladır.
+Bu yüzden yüksek seviyeli programlama dillerine yaklaştıkça semantic gap azalır. Çünkü
+yüksek seviyeli dillere çıktıkça donanımdan soyutlanamaya başlarız.
+Bilgisayarın diline indikçe de semantic gap artar çünkü gittikçe donanımın yapısıyla
+ilgilenmeye başlarız.
+Semantic gap arttıkça programcının işi zorlaşır ancak tasarımcının işi kolaylaşır.
+
+RISC, Little Endian(Bir byte&#x27;dan büyük verilerin ters sırayla hafızaya kaydedilmesi)
+şekilde memory&#x27;de kaydedilir.
+CISC, Big Endian(verilerin düz sırayla hafızaya kaydedilmesi) şekilde memory&#x27;de kaydedilir.
+
+Kaydedici(register) sayısı ne kadar artarsa hız artar. Değerleri memory yerine
+kaydedicilerde depolarsak, daha az fetch işlemi olacaktır. Bu da daha az memory&#x27;e gitmek
+demektir. Register, memory&#x27;den daha hızlı ve işlemcinin içinde olduğu için hız kazandırır
+
+Register&#x27;lerdeki bit sayısı artarsa hız artar.
+Çünkü Daha büyük sayılarla işlem yapılabilir.
+// Aşağıdaki Benim Yorumum
+- Çok büyük bir işlemi daha az bitle birkaç adımda yapmak var.
+- Bir de tek adımda işlem yapmak var. Bu yüzden hız artar.
+
+Adressing Modes(Dökümanın başlarındaki addressing modes akla gelsin): 
+RISC; Load/Store Architecture kullanmaktadır. Load/Store Architecture&#x27;ye göre;
+aritmetiksel ve mantıksal işlemler SADECE kaydedicilerde yapılabilir.
+Memory&#x27;deki bir değerin register&#x27;e kopyalanmasına LOAD, register&#x27;deki bir değerin
+hafızaya kopyalanmasına ise STORE denir.
+
+CISC; Memory architecture kullanmaktadır. Memory Architecture&#x27;ye göre;
+aritmetiksel ve mantıksal işlemler de dahil olmak üzere işlemler register ve AYRICA
+MEMORY&#x27;de de yapılabilir. Ancak iki operand birden memory olamaz. Çünkü 
+bu mimaride tek clock&#x27;ta sadece bir komut yürütülebiliyor. Eğer iki operand da memory
+olursa tek clock&#x27;ta iki fetch işlemi olacak ki bu şuanlık CISC&#x27;te mümkün değil.
+
+Daha fazla addressing mode olması programcının işini kolaylaştırır.
+Ancak derleyicinin(compiler) işini zorlaştırır.
+Microarchitecture&#x27;ye daha fazla yük bindirir.
+
+Instruction Length:
+
+- RISC&#x27;te tüm instruction&#x27;ların boyutları eşittir(Fixed Length)
+- Donanımın her komutu decode etmesi daha kolaydır. Çünkü komutların boyutları eşittir.
+	Yani; bu opcode, operand nerede başlıyor nerede bitiyor?&#x27;u bulmak için efor harcamayacak.
+- Ancak bit israfı vardır. Çünkü her instruction&#x27;un boyutunu 4 byte&#x27;a sabitlediyse
+	2 byte boyutuna sahip instruction&#x27;ların kalan 2 byte&#x27;ı israf olacak.
+
+- CISC&#x27;te instruction&#x27;ların boyutu değişkendir(Variable Length)
+	Yani komutun boyutuna göre bellekte yer ayrılır.
+	Bu yüzden Fixed length&#x27;teki gibi bit israfı olmaz. Hafızayı verimli kullanır.
+	Bu nedenle de Instruction&#x27;un encoding(komutun makine diline çevrimi)safhası, daha az bit
+	olduğu için daha kompakttır.
+- Komutların boyutları farklı olduğundan her komutun boyutunu ve tipini anlaması için
+	efor harcar. Bu yüzden decode(bilgisayarın komutu okuması) safhasında daha fazla
+	logic(karar aşaması) vardır.
+- Sonda sayılan nedenden dolayı devresi daha karmaşıktır
+- Bu sayılanlardan sonra trade-off&#x27;ları rahatlıkla çıkarılabilir.
+
+Aşağıda (anti parantez) Fixed Length isntruction ile ilgili bir görsel var.
+Görselden sonra açıklamalara devam ediyoruz.</code></pre><figure id="5a53f441-c8f0-4c53-866c-e43f258ca7f7" class="image"><a href="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_010030.png"><img style="width:720px" src="Bilgisayar%20mimarisi%203dae22fac8914ed79b38fe8c1f05b6fb/Ekran_grnts_2021-11-23_010030.png"/></a><figcaption>Fixed length instruction: Örneğin RTI komutu hiç operand almamasına rağmen aynı boyutu kaplıyor. <em><strong>İSRAF</strong></em></figcaption></figure><pre id="3e7a596b-606a-4f23-91cc-d980d7a366e8" class="code"><code>Uniform Decode(RISC): Her instruction&#x27;daki her bit aynı anlama gelir.
+- Instruction&#x27;ın opcode&#x27;unu bulmak çok kolaydır çünkü opcode&#x27;lar hep aynı konumdadır.
+- Opcode ne olursa olsun hepsinin boyutu aynı olduğu için komutları daha hızlı bir
+şekilde ayrıştırabilir(decode).
+- Opcode&#x27;lar aynı olduğundan daha basit bir donanımla işler halledilebilir.
+- Her opcode&#x27;un boyutunu aynı olmaya zorladığı için hafıza israfı yapmaktadır.
+
+Non-Uniform Decode(CISC):
+Opcode&#x27;lar 1 ve 7 byte arasında boyut alabilir. Yani her opcode sabit boyuta sahip
+değildir.
+Komutu decode etmek zordur çünkü opcode&#x27;ların yerlerini tespit etmek ekstra logic
+gerektirir.
+
+Aligned Access:
+ALIGN opcode&#x27;u bellekte yer ayırmaya yarar.
+CISC&#x27;te align işlemi yapılmaz, komut neyse belleğe aynen o şekilde kaydedilir.
+
+RISC, align yapar. Sadece çift adreslere veri yazabilme yapabildiğinden(çünkü
+tek adrese yazma devresi yok) komutları sırayla yazsak da hafızaya o şekilde
+kaydedilmeyecek ve sıkıntılar çıkacaktır.
+Ancak adresin tek sayıya düştüğü yerlerde ALIGN ile boş adres ekleyerek sıradaki
+komutun çift adresten devam etmesini sağlıyoruz.
+
+
+&quot;Şu iş şu mimaride yapılmıyor&quot; dendiği zaman ya bu işi yapacak devre mevcut değildir
+ya da işin olması başka bir sebebin mevcudiyetine bağlıdır.
+
+Yukarıdaki çıkarımlardan çıkarımla CISC daha karmaşık bir komut setidir.
+
+Güncelleme işlemi RISC&#x27;te basittir. Çünkü devre basittir.
+CISC&#x27;te ise devre karmaşık olduğu için güncelleme zordur. O işlem başka işlemlere de bağlıdır.
+Bir güncelleme işlemi için başka şeylerde de değişiklik yapmak gerekir.
+
+Bizim yeni bilgisayarlarımız RISC + CISC yani hibrittir.
+
+RISC sistemlerin çoğu Data Flow Modeline sahiptir.
+
+CISC sistemlerin çoğu Control Flow modeline sahiptir.
+
+RISC daha az maliyet çıkarır(hafıza, işlemci).
+
+ÖZETLE;
+
+RISC:
+- Daha basit instruction&#x27;lar
+- Fixed length instruction
+- Uniform decode
+- Daha az adresleme modu
+
+CISC:
+- Daha kompleks instruction&#x27;lar
+- Variable length instruction
+- Non-uniform decode
+- Daha fazla adresleme modu
+
+CISC&#x27;e örnek olarak bizim bilgisayarlarımız.
+RISC&#x27;e örnek olarak ise ARM işlemciler yani telefonlarımız. Ancak ARM işlemci daha
+gelişmiş</code></pre><hr id="c4b97314-6e4e-4ba1-ae1b-157790f61333"/><h2 id="d4d3fbc2-047a-4f63-a7ed-58bec0bc70af" class="">Hafta 8</h2><pre id="e3a9b84b-1ad5-4857-8583-a13d21e1cbf4" class="code"><code>Her komut ya single-cycle ya da multi-cycle olarak çalıştırılır.</code></pre><pre id="77993f68-fec5-4ce4-9931-592b787a1ef6" class="code"><code>Single Cycle: 
+Fetch-decode-execute döngüsünün tek clock&#x27;ta yapılması.
+Bu yüzden uzun sürer.
+Single-cycle&#x27;da pipeline düzgün çalışmaz.</code></pre><pre id="c9cd6a63-d819-48bc-a338-0774fe85b64b" class="code"><code>Multi-cycle:
+Fetc-decode-execute dönüsündeki her bir adım bir clock&#x27;ta gerçekleşir.
+Komutların boyutları farklı olduğu için komutların cevap süreleri de farklı olur.</code></pre><pre id="16eb7b31-c94d-477e-a85e-d41df7b26bf8" class="code"><code>Single-cycle&#x27;da komutun işlendiğini gösteren bir adet flag tutulur. Eğer komut işlenmesi
+bittiyse flag 1 olur ve diğer komuta geçilebilir.
+
+Ama multi-cycle&#x27;da birden çok flag vardır. Çünkü komutlar farklı zamanlarda işlenir.
+Farklı komutlar farklı zamanlarda tamamlanabilir.</code></pre><h3 id="8994a9f4-ef8d-404a-ac73-5f536ab75f2e" class="">Komutun işlemcide işlenme süreci</h3><pre id="b0b151c3-9d77-4e6f-9157-ba982c4205a6" class="code"><code>Kodun program counter&#x27;inin tutulduğu register&#x27;dan adres yoluna bu adres yazılır ve RAM&#x27;e
+gider. Ram gelen adrese göre uygun komutu veri yolundan gönderir.
+Gelen veri yani komut CU&#x27;da decode edilir. Eğer komutun içinde bir memory yani değişken
+varsa bunların adresi farklı register&#x27;lere yazılır. Register&#x27;daki adres, adres yolundan
+memory&#x27;e giderek memory&#x27;den doğru değişken verisini veri yolu üzerinden getirir.
+Gelen değişkenler Register&#x27;lerde tutulur. Ancak komutun operandlarından biri Immediate
+ise veriyi çekmek için doğal olarak memory&#x27;e gitmez. Immediate, işlemcide işlenmek
+üzere bekler.
+Hafızadan gelip register&#x27;e atılan değişkenler ve (varsa) immediate, Multiplexer&#x27;e gider.
+Multiplexer, her iki operandın register olup olmadığına bakar. Eğer operandlardan
+birisi immediate ise ALU ona göre ayaklarından birisi ona göre ayarlanır. Çünkü
+ALU&#x27;ya sadece iki değer girebilir.
+Kısacası gelen değerler ALU&#x27;ya girer ve hesaplama yapılır. Daha sonra hesaplanan
+değer ALU&#x27;dan çıkp bir register&#x27;e atılır. Ve komut işlenmesi bitti.
+Ama program counter&#x27;in şuanda artırılması lazım diğer komutun adresini tutmak için.
+ALU, program counter&#x27;in tutulduğu register&#x27;i alır ve az önce işlediği komutun 
+boyutu kadar değerini artırır ve tekrar gidip aynı registere bunu yazar. Böylece
+program counter artmış olur.</code></pre><pre id="5d60daf6-c5c8-41f7-b770-b327f5396af7" class="code"><code>Veri yolu ve adres yolu dendiğine bakmayın. Aslında ikisi de veri yolu üzerinden gider.
+Veri yolu ve adres yolu tek bir yol üzerinden gider.
+Bu yüzden bir komutun değişkenleri getirilirken diğer komut memory&#x27;den çekilemez çünkü
+veri yolu doldudur. Bu da Von Neumann mimarisinin dezavantajıdır. Bu bekleme süresine
+wait state denir.</code></pre><pre id="c40d1dd0-0838-45b9-abb8-5eacdf0e3a4a" class="code"><code>İşlemcide ya register tipi ya da Immediate tipi vardır. ALU&#x27;nun girişlerinden
+biri Register olmak zorundadır. Eğer gelen komutta bir register veya bir Immediate varsa
+ALU&#x27;nun girişlerinden biri Immediate olur. Memory diye bir ihtimal yok çünkü hesaplama
+için işlemciye gelen memory&#x27;ler de register&#x27;lere atılır.
+Gelen komutun ikisi de register mi yoksa biri İmmediate mi diye Multiplexer(seçici)
+bakar. Ona göre ALU&#x27;ya gönderir.</code></pre><h2 id="76f5c11a-b02c-4fe6-bc44-c2e114684637" class="">Hafta 9</h2><hr id="90ac9571-200d-4a27-a4ba-90e8aa0a6cb8"/><pre id="f54722ce-9d71-4cca-8be8-518444e9851b" class="code"><code>Instruction memory&#x27;e erişim hakkımız yok. Data kısmında değişkenlerin değerini
+değiştirebilmemize rağmen komutları elle değiştiremeyiz.</code></pre><pre id="5d32ca24-129f-4cfc-ac83-f2ae05bb134f" class="code"><code>Cotrol Flow&#x27;da unconditional jump ve conditional jump vardır.</code></pre><pre id="de0e74a9-d78c-4932-b3b7-79d39cc6b526" class="code"><code>JMP&#x27;nin operandı ya adrestir ya da registerdir. Yani registerin içindeki adrestir.</code></pre><pre id="9acc25f2-0860-4a43-bfb0-1cdf1f9e64df" class="code"><code>Tek komut yazılacaksa if&#x27;e süslü parantez konmaz çünkü zaten süslü parantez
+olmayınca if, false olursa prograam counteri sadece (inst size*2) artıracağını biliyor.
+Ancak konmazsa kaç artıracağını bilemez.</code></pre><h3 id="0a4e6597-62af-4ba8-b01a-8715ed990443" class="">Bellekler</h3><pre id="aa86f7c3-c51e-4d02-8748-85c0e4f81328" class="code"><code>Bellek Türleri
+
+Internal (primary) location: Main memory, cache
+External (secondary) location: Hard disk, cd...
+Procecssor location: register
+EEPROM(elektriksel silinebilir programlanabilir salt okunur hafıza): Flash disk, SSD... </code></pre><pre id="9340b937-e291-4ec5-9843-c0bb3b2f3a79" class="code"><code>Değişken tipi olarak WORD, 2 byte&#x27;dır.Memory&#x27;deki WORD farklıdır. 20 byte da olabilir.
+Memory&#x27;deki her satır bir WORD&#x27;dür. Bu yüzden memory&#x27;yi yapanlar bunu bilebilir,
+bakılarak anlaşılmaz. 
+Her satırdaki bit sayısı, number of words olarak isimlendirilir.
+</code></pre><pre id="fd96a2c0-9a03-4912-97c3-cd6ced523c9c" class="code"><code>Block: Birden fazla satırın birleştiği yapıdır.</code></pre><pre id="00583bf3-32ea-414a-add9-60fbb205df4c" class="code"><code>Access Methods
+
+Sequential: Bilgi, diskte sıralı aranır. Baştan sona doğru
+Direct access(semi random): Hard disk
+Random: Main memory
+Associative(karşılaştırıcı): Cache</code></pre><pre id="76924340-7d6e-44b0-b9ab-b9aba035bc85" class="code"><code>2¹⁰ byte bir memory&#x27;nin decoderinde 1024 tane AND kapısı vardır. Çok fazla ısınma olduğu
+için ve başka nedenlerden dolayı 2 decodere ayrılmıştır. 5 tane bit bir decodere, 5 tane
+bit başka decodere gider. Böylece her decoderde 2⁵=32 AND kapısı olur.
+1024 neredeeeee? 32 nerede?</code></pre><pre id="588398f7-3778-4a25-a882-380f8c537991" class="code"><code>Blok boyutları değişken olabilir.</code></pre><pre id="bef2e1b8-a565-4527-946c-b0478e6669d9" class="code"><code>Main memory = 1MB (2 üssü 20)
+Blok boyutu = 64KB (2 üssü 16)
+Memory&#x27;deki blok sayıssı nedir?
+
+2 üssü 20 / 2 üssü 16 = 2 üssü 4 blok vardır</code></pre><p id="dd56ce49-1934-4902-a630-0c361480cef2" class="">
+</p></div></article></body></html>
